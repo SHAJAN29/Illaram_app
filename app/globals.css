@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+
+
 :root {
 
   --foreground: #171717;
@@ -48,12 +53,23 @@ body {
     @apply text-black;
   }
 
+ .paraGraph{
+    @apply  w-full text-2xl lg:text-5xl text-gray-600 mx-auto;
+  }
+
+  .paraGraph_card{
+    @apply text-gray-600 mx-auto;
+  }
+
 .intro_title_h1{
  
-    @apply text-green-800 2xl:text-9xl lg:text-9xl md:text-7xl text-5xl font-bold;
+    @apply text-emerald-800  lg:text-7xl md:text-7xl text-4xl font-bold;
   
 
 }
+}
+
+@layer utilities {
 
 
 
@@ -64,9 +80,49 @@ body {
     @apply font-bold py-2 px-4 rounded;
   }
   .btn-blue {
-    @apply bg-[#fdac7d36] text-white;
+    @apply bg-[#fdac7d6c] text-white;
   }
   .btn-blue:hover {
     @apply text-white bg-emerald-600 cursor-pointer;
   }
+}
+
+
+
+/* styles/globals.css or your component-specific CSS file */
+
+/* .review-carousel-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+} */
+
+/* .review-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.review-text {
+  font-style: italic;
+  font-size: 18px;
+  color: #555;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.review-rating {
+  margin-top: 10px;
+  color: #ffbc00;
+}
+
+.star {
+  font-size: 20px;
 }

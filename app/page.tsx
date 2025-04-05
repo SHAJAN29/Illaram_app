@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Home from "./home/page";
-import { HomeService_section } from "../components/homeService_section";
 
 // sm: 640px (small screens)
 

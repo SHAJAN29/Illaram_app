@@ -69,7 +69,7 @@ export const Nav = () => {
       <div
         className={`lg:hidden ${
           !menubar ? "hidden" : ""
-        } fixed top-20 right-0 transition-all h-screen w-full duration-200 cursor-pointer lg:hidden flex items-center justify-between mb-3 bg-emerald-800 text-white lg:p-4 opacity-95`}
+        } fixed top-20 right-0 z-40 transition-all h-screen w-full duration-200 cursor-pointer lg:hidden flex items-center justify-between bg-emerald-800 text-white  opacity-95`}
       >
         {menubar && (
           <div
