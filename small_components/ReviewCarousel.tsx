@@ -24,6 +24,13 @@ const reviews = [
       "A great program that helped me feel more prepared for marriage. The focus on both the mental and physical aspects was so valuable. Highly recommended!",
     rating: 5,
   },
+  {
+    id: 4,
+    name: "Priya",
+    review:
+      "I was skeptical at first, but the team at Willaram really knows what they’re doing. Their personalized approach made all the difference for me.",
+    rating: 4,
+  },
   // Add more reviews as needed
 ];
 
