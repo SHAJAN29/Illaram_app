@@ -34,7 +34,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
     >
       <CardHeader
         color="blue-gray"
-        className="relative h-56 rounded-2xl overflow-hidden"
+        className="relative h-40 rounded-2xl overflow-hidden"
         placeholder="Header Placeholder"
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
@@ -42,8 +42,8 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
         <img src={image} />
       </CardHeader>
       <CardBody
-        className="p-10 pt-5 h-55 "
-        placeholder="Body Placeholder"
+        className="p-10 pt-2 sm:pt-5 h-50 overflow-hidden "
+        placeholder="Body Placeholder "
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
       >
@@ -57,7 +57,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
           {title}
         </Typography>
         <Typography
-          className=" text-gray-600 mx-auto"
+          className=" text-gray-600 mx-auto text-[15px] md:text-[17px]"
           placeholder="Description Placeholder"
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}

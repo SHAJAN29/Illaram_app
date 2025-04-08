@@ -39,10 +39,11 @@ const TraJourney = () => {
   // export default TraJourney
 
   return (
-    <div className=" p-6 rounded-lg max-w-4xl mx-auto ">
+    <div className="p-6 rounded-lg max-w-4xl mx-auto">
       <div className="space-y-8 lg:flex-row">
-        {/* Step 1 */}
-        {illaramJourney.map((step) => journeyCard(step))}
+        {illaramJourney.map((step) => (
+          <div key={step.step}>{journeyCard(step)}</div>
+        ))}
       </div>
     </div>
   );
@@ -50,12 +51,14 @@ const TraJourney = () => {
 
 const journeyCard = (step: JourneyStep) => {
   return (
-    <div className="border border-gray-300 flex flex-col md:flex-row items-center bg-white  rounded-lg p-6">
+    <div className="border border-gray-300 flex flex-col md:flex-row items-center bg-white dark:bg-transparent  rounded-lg p-6">
       <div className="flex-shrink-0"></div>
       <div className="ml-5 text-left">
-        <h3 className="text-xl font-semibold text-gray-700">{step.title}</h3>
-        <p className="text-gray-500 text-[15px]">{step.description}</p>
-        <p className="text-gray-400">{step.time}</p>
+        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-400  max-sm:text-[17px]">
+          {step.title}
+        </h3>
+        <p className="text-gray-500 max-sm:text-[13px]">{step.description}</p>
+        <p className="text-gray-400 max-sm:text-[13px]">{step.time}</p>
       </div>
     </div>
   );

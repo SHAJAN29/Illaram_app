@@ -12,7 +12,7 @@ export const NAV_LINKS = [
 export const Service_card_details = [
   {
     title: "Physical Condationing Program",
-image:"https://images.unsplash.com/photo-1683509602596-f04aca698097?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+image:"https://cdn.pixabay.com/photo/2019/06/27/11/21/red-blood-cell-4302093_1280.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       " It helps enhance overall physical performance,boosts energy levels, stamina, and supports long-term health and wellness.",
   },

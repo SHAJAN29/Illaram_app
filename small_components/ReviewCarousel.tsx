@@ -52,7 +52,7 @@ const ReviewCarousel = () => {
         {reviews.map((review) => (
           <div
             key={review.id}
-            className="bg-[#fffcfc] shadow-sm rounded-lg p-8 mt-2 mb-2 border-2 border-[#f9f9f9] "
+            className="bg-[#fffcfc] dark:bg-[#cecece] shadow-sm rounded-lg p-8 mt-2 mb-2  "
           >
             <p className="text-[16px] lg:text-3xl text-gray-600 ">
               "{review.review}"

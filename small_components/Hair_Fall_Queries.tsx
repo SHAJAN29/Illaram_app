@@ -2,9 +2,9 @@ import React from "react";
 
 const Hair_Fall_Queries = () => {
   return (
-    <div className=" h-150 gap-5 bg-gradient-to-r from-[#ff3f3f] to-[#fdb07d] shadow-sm rounded-lg p-8 mt-2 mb-2 border-2 border-[#f9f9f9]">
+    <div className=" h-133 gap-5 bg-gradient-to-r from-[#ff3f3f] to-[#fdb07d] shadow-sm rounded-lg p-8 mt-2 mb-2 border-[#f9f9f9]">
       <h3 className="text-white font-bold text-3xl p-5">Join our Community</h3>
-      <p className="text-white text-2xl">
+      <p className="text-white max-sm:[17px] md:text-[20px] lg:text-[25px]">
         Get answers to all your queries by certified doctors & coaches.
       </p>
 
@@ -12,13 +12,13 @@ const Hair_Fall_Queries = () => {
         Free Consultation
       </button>
 
-      <p className="text-gray-50 text-2xl mt-5 p-5 pt-5">
+      <p className="text-gray-50 max-sm:[17px] md:text-[20px] lg:text-[25px] mt-5 p-5 pt-5">
         Let us help you to build the best version of oneself for the wedding
         day.
       </p>
-      <p className="text-black text-[12px]  pt-5 uppercase">
+      <p className="text-[#131933] text-[12px]  pt-5 uppercase">
         Don't think twice,some moments are priceless,
-        <br /> and this is one of them.
+        <br className="text-white" /> this is one of them.
       </p>
     </div>
   );

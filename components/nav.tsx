@@ -28,6 +28,17 @@ export const Nav = () => {
     };
   }, []);
 
+  const handleWhatsapp = () => {
+    navigator.clipboard
+      .writeText("Hello, I am interested in your services.")
+      .then(() => {
+        window.open("https://wa.me/917904118829", "_blank");
+      })
+      .catch((error) => {
+        console.error("Failed to copy text: ", error);
+      });
+  };
+
   return (
     <>
       <nav
@@ -55,6 +66,15 @@ export const Nav = () => {
           <button className="hidden lg:block btn btn-blue">
             Free Consultation
           </button>
+
+          <Image
+            src={"/icons8-whatsapp-32.png"}
+            width={25}
+            height={25}
+            alt="menu icon"
+            className={`lg:hidden cursor-pointer absolute top-5 right-15 transition-all duration-100 text-white `}
+            onClick={handleWhatsapp}
+          />
           <Image
             src={"/Toggle menu.svg"}
             width={25}
