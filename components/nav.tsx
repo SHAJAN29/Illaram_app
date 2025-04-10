@@ -43,7 +43,7 @@ export const Nav = () => {
     <>
       <nav
         className={`flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 text-white p-5 lg:p-4 transition-all duration-300 ${
-          isScrolled ? "bg-emerald-800 shadow-lg" : "bg-transparent"
+          isScrolled ? "bg-[#0F766E] shadow-lg" : "bg-transparent"
         }`}
       >
         <Link href={"/"} className="text-2xl">
@@ -89,18 +89,18 @@ export const Nav = () => {
       <div
         className={`lg:hidden ${
           !menubar ? "hidden" : ""
-        } fixed top-20 right-0 z-40 transition-all h-screen w-full duration-200 cursor-pointer lg:hidden flex items-center justify-between bg-emerald-800 text-white  opacity-95`}
+        } fixed top-20 right-0 z-40 transition-all ease-in-out h-screen w-full duration-200 cursor-pointer lg:hidden flex items-center justify-between bg-emerald-800 text-white  opacity-95`}
       >
         {menubar && (
           <div
             className={`menu ${
               menubar ? "open" : ""
-            } flex justify-end w-full h-full bg-primary text-white p-5 lg:p-4`}
+            } flex justify-end w-full h-full bg-primary  text-white p-5 lg:p-4`}
           >
             <ul className="menu-list flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
                 <li
-                  className="hover:text-emerald-600 transition-all duration-100 text-right"
+                  className="hover:text-[#0F766E] transition-all duration-100 text-right"
                   key={link.key}
                   onClick={() => setMenubar(!menubar)}
                 >

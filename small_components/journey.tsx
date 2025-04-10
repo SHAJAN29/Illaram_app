@@ -14,7 +14,7 @@ const TraJourney = () => {
       step: 1,
       title: "Call for Consultation",
       description:
-        "Start by calling us for a free consultation. Our experts will help clarify all your doubts, answer any questions you have, and guide you through the next steps.",
+        "Start by calling us for a free consultation. Our experts will help clarify all your doubts and guide you through the process.",
       time: "Takes 5-10 minutes",
       image: "/files/assessment_image.png",
     },
@@ -22,7 +22,7 @@ const TraJourney = () => {
       step: 2,
       title: "Customized Wellness Plan",
       description:
-        "In live one and one session health assessment, our experts will recommend a customized wellness plan that includes physical exercises, mental wellness practices, and nutrition advice.",
+        "In live session health assessment, our experts will recommend a customized wellness plan tailored to your specific needs and goals.",
       time: "Takes 10-15 minutes to review",
       image: "/files/wellness_plan_image.png",
     },
@@ -30,7 +30,7 @@ const TraJourney = () => {
       step: 3,
       title: "Here you go",
       description:
-        "Once you begin the plan, Illaram Healthcare take-care of all the other things through weekly body check ups coaching sessions and regular check-ins to ensure you stay on track towards your goal.",
+        "Once you begin the plan, Illaram Healthcare take-care of all the other things,We will be with you every step of the way.",
       time: "Ongoing support over the next 3-6 months",
       image: "/files/support_image.png",
     },

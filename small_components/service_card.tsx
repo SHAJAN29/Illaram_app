@@ -10,6 +10,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
+import { illaramColors } from "@/constants/index";
 
 interface CardDefaultProps {
   title: string;
@@ -24,9 +25,20 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
 }) => {
   const router = useRouter();
 
+  const {
+    illaramPrimary,
+    illaramPrimaryDark,
+    illaramAccent,
+    illaramAccentDark,
+    illaramBackground,
+    illaramBackgroundDark,
+    illaramText,
+    illaramTextDark,
+  } = illaramColors.colors;
+
   return (
     <Card
-      className="mt-6 w-96 rounded-2xl shadow-xl transition-shadow duration-300 hover:shadow-2xl cursor-pointer"
+      className="mt-6 w-96 h-[30rem] rounded-2xl shadow-xl transition-shadow duration-300 hover:shadow-2xl cursor-pointer bg-[#F3F4F6]"
       placeholder="Card Placeholder"
       onClick={() => router.push("/servicees")}
       onPointerEnterCapture={() => {}}
@@ -49,7 +61,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
       >
         <Typography
           variant="h5"
-          className="mb-2 text-emerald-800 font-semibold"
+          className={`mb-2 font-semibold max-sm:text-[17px] lg:text-2xl md:text-[20px] text-[${illaramPrimary}]`}
           placeholder="Title Placeholder"
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}
@@ -57,7 +69,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
           {title}
         </Typography>
         <Typography
-          className=" text-gray-600 mx-auto text-[15px] md:text-[17px]"
+          className={`text-gray-600 mx-auto text-[15px] md:text-[17px]`}
           placeholder="Description Placeholder"
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}
@@ -66,14 +78,14 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
         </Typography>
       </CardBody>
       <CardFooter
-        className=" flex items-center justify-center"
+        className="flex items-center justify-center m-0"
         placeholder="Footer Placeholder"
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
       >
         <Button
           onClick={() => router.push("/servicees")}
-          className="cursor-pointer p-5 gap-3 w-full rounded-2xl text-center text-white bg-emerald-800 hover:bg-emerald-700 transition-colors duration-300"
+          className="btn btn-blue w-full m-0"
           placeholder="Button Placeholder"
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}

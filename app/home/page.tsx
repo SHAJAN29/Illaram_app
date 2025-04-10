@@ -4,6 +4,7 @@ import { Home_Testimony } from "@/components/Home_Testimony";
 import HomeService_section from "@/components/homeService_section";
 import Illaram_Journey from "@/components/Illaram_Journey";
 import { Join_our_community } from "@/components/Join_our_community";
+import "../../app/globals.css";
 // This is a client component
 
 //bg-[url(/img/mountains.jpg)]
@@ -12,25 +13,38 @@ import { Join_our_community } from "@/components/Join_our_community";
 
 import React from "react";
 import Image from "next/image";
+import { illaramColors } from "@/constants";
 
 const Home = () => {
+  const {
+    illaramPrimary,
+    illaramPrimaryDark,
+    illaramAccent,
+    illaramAccentDark,
+    illaramBackground,
+    illaramBackgroundDark,
+    illaramText,
+    illaramTextDark,
+  } = illaramColors.colors;
+
   return (
     <main className="">
-      <div className="bg-primary  flex items-center justify-center min-h-screen p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <div className="heroSection_Image text-center items-center justify-center gap-4 max-sm:mt-15 ">
+      <div className="bg-primary flex items-left justify-center min-h-screen p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="heroSection_Image text-left items-center justify-center gap-4 max-sm:mt-15 ">
           {" "}
-          <h1 className=" text-primary lg:text-9xl text-5xl md:text-7xl font-extrabold dark:text-white  from-neutral-500">
+          <h1 className="text-primary font-[poppins] mt-10">
             Are you ready for Marriage?
           </h1>
-          <p className="pt-10 flex-wrap lg:text-2xl max-sm:pt-5  text-lg font-normal dark:text-gray-600  from-gray-600">
+          <p className="text-gray-100  pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
             We help you prepare for marriage with a holistic approach to health
             and wellness😊...
           </p>
-          <p className="pt-5 flex-wrap lg:text-2xl text-lg max-sm:text-[15px] font-bold dark:text-[#331313] uppercase from-red-600">
-            1000+ life changed
+          <p className="text-sm max-sm:text-[13px] text-gray-200 mb-5 mt-5 italic">
+            Trusted by 1,000+ individuals across India preparing for meaningful
+            marriages...
           </p>
           <div>
-            <button className="btn btn-blue mt-10 lg:mt-20 text-lg px-8 py-4 rounded-2xl  hover:bg-red-500 hover:text-white transition duration-300 ease-in-out">
+            <button className="btn btn-blue mt-10 lg:mt-10 text-lg px-8 py-4 rounded-2xl  hover:bg-red-500 hover:text-white transition duration-300 ease-in-out">
               Get Started
             </button>
           </div>

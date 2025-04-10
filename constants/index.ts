@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   { href: "/home", key: "Home", label: "Home" },
   { href: "/about", key: "About_us", label: "About_us" },
   { href: "/servicees", key: "Services", label: "Services" },
-  { href: "/blog", key: "Blog ", label: "Blog " },
+  // { href: "/blog", key: "Blog ", label: "Blog " },
   { href: "/", key: "Contact_us", label: "Contact Us" },
 ];
 
@@ -30,3 +30,119 @@ image:"https://cdn.pixabay.com/photo/2019/06/27/11/21/red-blood-cell-4302093_128
       "This program focuses on improving skin health, managing hair care, and providing professional beauty treatments ,The goal is to empower individuals to present their best selves on the wedding day.",
   },
 ];
+
+
+
+export const blogPosts = [
+  {
+    id: 1,
+    title: "The Importance of Holistic Health",
+    description:
+      "Discover how a holistic approach to health can improve your overall well-being.",
+    author: "John Doe",
+    date: "April 10, 2025",
+    image: "/images/holistic_health.jpg",
+    link: "/blog/holistic-health",
+  },
+  {
+    id: 2,
+    title: "5 Tips for a Healthy Lifestyle",
+    description:
+      "Learn simple and effective tips to maintain a healthy lifestyle.",
+    author: "Jane Smith",
+    date: "April 8, 2025",
+    image: "/images/healthy_lifestyle.jpg",
+    link: "/blog/healthy-lifestyle",
+  },
+];
+
+
+
+export const illaramColors ={
+
+
+  colors: {
+    illaramPrimary: '#0F766E',
+    illaramPrimaryDark: '#5EEAD4',
+    illaramAccent: '#F97316',
+    illaramAccentDark: '#FDBA74',
+    illaramBackground: '#F1F5F9',
+    illaramBackgroundDark: '#0F172A',
+    illaramText: '#1F2937',
+    illaramTextDark: '#E2E8F0',
+  },
+
+
+
+
+}
+
+
+
+const feedbackData = [
+  {id:1,
+    name: "Yamini K.",
+    avatar: "https://i.pravatar.cc/150?img=46",
+    rating: 5,
+    feedback:
+      "Illaram didn’t just help me look better, it made me feel whole again. My hair fall reduced, and the mindfulness practices gave me inner peace I never had before.",
+    location: "Bangalore, India",
+    date: "2024-08-28",
+  },
+  {id:2,
+    name: "Karthik V.",
+    avatar: "https://i.pravatar.cc/150?img=32",
+    rating: 5,
+    feedback:
+      "Before Illaram, I never prioritized mental health. Now I’m physically more active and emotionally more stable. I feel like I’m preparing for marriage in every sense — mind and body.",
+    location: "Coimbatore, India",
+    date: "2024-10-01",
+  },
+  {id:3,
+    name: "Krithika R.",
+    avatar: "https://i.pravatar.cc/150?img=44",
+    rating: 5,
+    feedback:
+      "My skin had breakouts due to stress. Illaram’s routines, diet tips and mental wellness plans cleared it up naturally. I feel confident and radiant again.",
+    location: "Coimbatore, India",
+    date: "2024-11-07"
+  },
+  {id:4,
+    name: "Aravind R.",
+    avatar: "https://i.pravatar.cc/150?img=34",
+    rating: 5,
+    feedback:
+      "I joined Illaram looking for relationship advice, but walked away with a stronger body, better habits, and a calmer mind. This is marriage prep done right.",
+    location: "Salem, India",
+    date: "2024-08-19",
+  },
+  {id:5,
+    name: "Divya K.",
+    avatar: "https://i.pravatar.cc/150?img=35",
+    rating: 5,
+    feedback:
+      "The blend of mindfulness training and health guidance was powerful. I’m more centered, confident, and feel genuinely ready to build a strong partnership.",
+    location: "Trichy, India",
+    date: "2024-09-23",
+  },
+  {id:6,
+    name: "Vishnu P.",
+    avatar: "https://i.pravatar.cc/150?img=36",
+    rating: 4,
+    feedback:
+      "I appreciated the balance Illaram brought — yoga sessions for the body, journaling and reflection for the mind. It’s like a personal growth bootcamp before marriage.",
+    location: "Erode, India",
+    date: "2024-10-15",
+  },
+  {id:7,
+    name: "Harini S.",
+    avatar: "https://i.pravatar.cc/150?img=37",
+    rating: 5,
+    feedback:
+      "After marriage, we were struggling with conception. Illaram helped me build internal strength and balance my body. I’m now 3 months pregnant — forever grateful!",
+    location: "Bangalore, India",
+    date: "2024-11-02",
+  },
+];
+
+export default feedbackData;

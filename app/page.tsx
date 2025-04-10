@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Home from "./home/page";
+import Head from "next/head";
 
 // sm: 640px (small screens)
 
@@ -14,6 +15,12 @@ import Home from "./home/page";
 export default function globs() {
   return (
     <main>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Home />
     </main>
   );
