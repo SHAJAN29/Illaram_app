@@ -6,7 +6,7 @@ export const NAV_LINKS = [
   { href: "/about", key: "About_us", label: "About_us" },
   { href: "/servicees", key: "Services", label: "Services" },
   // { href: "/blog", key: "Blog ", label: "Blog " },
-  { href: "/", key: "Contact_us", label: "Contact Us" },
+  { href: "/products", key: "products", label: "Products" },
 ];
 
 export const Service_card_details = [
@@ -146,3 +146,10 @@ const feedbackData = [
 export default feedbackData;
 
 
+export const contactNumber ={
+
+phoneNumber:+918778919303,
+whatsAppNumber:7904118829,
+
+
+};

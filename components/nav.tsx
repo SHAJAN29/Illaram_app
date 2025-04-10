@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/constants/index";
+import { contactNumber, NAV_LINKS } from "@/constants/index";
 import Image from "next/image";
 
 export const Nav = () => {
@@ -29,10 +29,11 @@ export const Nav = () => {
   }, []);
 
   const handleWhatsapp = () => {
+    const { whatsAppNumber } = contactNumber;
     navigator.clipboard
       .writeText("Hello, I am interested in your services.")
       .then(() => {
-        window.open("https://wa.me/917904118829", "_blank");
+        window.open(`https://wa.me/${whatsAppNumber}`, "_blank");
       })
       .catch((error) => {
         console.error("Failed to copy text: ", error);
