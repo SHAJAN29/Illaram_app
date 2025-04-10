@@ -58,24 +58,22 @@ export const blogPosts = [
 
 
 
-export const illaramColors ={
+// export const illaramColors ={
 
 
-  colors: {
-    illaramPrimary: '#0F766E',
-    illaramPrimaryDark: '#5EEAD4',
-    illaramAccent: '#F97316',
-    illaramAccentDark: '#FDBA74',
-    illaramBackground: '#F1F5F9',
-    illaramBackgroundDark: '#0F172A',
-    illaramText: '#1F2937',
-    illaramTextDark: '#E2E8F0',
-  },
+//   colors: {
+//     illaramPrimary: '#0F766E',
+//     illaramAccent: '#FF5F37',
+//     illaramBackground: '#F1F5F9',
+//     illaramText: '#A2A4A8',
+//     illaramTextDark: '#4A5565',
+  
+//   },
 
 
 
 
-}
+// }
 
 
 
@@ -146,3 +144,5 @@ const feedbackData = [
 ];
 
 export default feedbackData;
+
+

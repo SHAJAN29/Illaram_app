@@ -13,23 +13,11 @@ import "../../app/globals.css";
 
 import React from "react";
 import Image from "next/image";
-import { illaramColors } from "@/constants";
 
 const Home = () => {
-  const {
-    illaramPrimary,
-    illaramPrimaryDark,
-    illaramAccent,
-    illaramAccentDark,
-    illaramBackground,
-    illaramBackgroundDark,
-    illaramText,
-    illaramTextDark,
-  } = illaramColors.colors;
-
   return (
     <main className="">
-      <div className="bg-primary flex items-left justify-center min-h-screen p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="bg-primary flex items-center justify-center min-h-screen p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <div className="heroSection_Image text-left items-center justify-center gap-4 max-sm:mt-15 ">
           {" "}
           <h1 className="text-primary font-[poppins] mt-10">

@@ -51,7 +51,7 @@ const servicees = () => {
           <h1 className="gap-5 max-sm:text-[18px] mb-6 text-3xl font-bold lg:text-5xl mx-auto bg-gradient-to-b from-[#ff3f3f] to-[#fdb07d] text-transparent bg-clip-text">
             Illaram Healthcare - Pre-Marriage Preparation Services
           </h1>
-          <p className="paraGraph max-sm:text-[15px]">
+          <p className="paraGraph text-illaramPrimar max-sm:text-[15px]">
             At Illaram Healthcare, we understand that marriage is one of the
             most significant milestones in life. To ensure you step into this
             new chapter feeling your absolute best, we offer a comprehensive,

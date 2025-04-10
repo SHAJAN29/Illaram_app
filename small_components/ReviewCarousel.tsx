@@ -1,4 +1,5 @@
 // components/ReviewCarousel.js
+
 import feedbackData from "@/constants";
 import React from "react";
 import Slider from "react-slick";
@@ -16,7 +17,9 @@ const ReviewCarousel = () => {
 
   return (
     <div className=" w-xs lg:w-[800px] md:w-[600px] text-center p-3">
-      <h2>What Our Clients Say</h2>
+      <h2>
+        What Our <span className="illaramPrimary"> Clients</span> Say
+      </h2>
       <Slider {...settings}>
         {feedbackData.map((review) => (
           <div

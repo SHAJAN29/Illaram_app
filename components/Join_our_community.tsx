@@ -27,13 +27,13 @@ export const Join_our_community = () => {
       </div> */}
 
       <section className="bg-[#F3F4F6] py-16 px-6 text-center">
-        <h1 className="text-4xl font-[poppins] md:text-5xl font-extrabold text-[#0F766E] mb-4">
+        <h1 className="text-4xl font-[poppins] md:text-5xl font-extrabold illaramPrimary mb-4">
           Preparing You for a Meaningful Marriage
         </h1>
         <p className="text-gray-600 text-lg mb-4">
           Guidance, wellness & wisdom for modern relationships.
         </p>
-        <p className="mb-5 flex-wrap lg:text-2xl text-lg max-sm:text-[15px] font-bold dark:text-gray-600 capitalize">
+        <p className="mb-5 flex-wrap lg:text-2xl text-lg max-sm:text-[15px] font-bold text-illaramPrimary capitalize">
           1000+ life changed
         </p>
         <button className="btn btn-blue">Start Your Journey</button>

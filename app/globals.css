@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
 
@@ -40,7 +42,23 @@
 }
 
 
+.illaramPrimary {
+  @apply text-[#0F766E]
+}
 
+  .illaramAccent {
+    @apply text-[#FF5F37] 
+  }
+
+
+.bgillaramPrimary {
+  @apply bg-[#0F766E]
+
+
+}
+.illaramText {
+  @apply text-gray-500
+}
 }
 
 @layer utilities {
