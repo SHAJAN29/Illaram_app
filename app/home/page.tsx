@@ -14,6 +14,7 @@ import "../../app/globals.css";
 import React from "react";
 import Image from "next/image";
 import ScrollToTopButton from "@/small_components/scroolButton";
+import FAQSection from "@/components/FAQSection";
 
 const Home = () => {
   return (
@@ -43,6 +44,7 @@ const Home = () => {
       <Join_our_community />
       <Illaram_Journey />
       <Home_Testimony />
+      <FAQSection />
       {/* <ScrollToTopButton /> */}
     </main>
   );

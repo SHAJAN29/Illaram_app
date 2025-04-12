@@ -16,7 +16,7 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div className=" w-xs lg:w-[800px] md:w-[600px] text-center p-3">
+    <div className=" w-xs lg:w-[800px] md:w-[600px] text-center p-3 mt-10 mb-10 mx-auto">
       <h2>
         What Our <span className="illaramPrimary"> Clients</span> Say
       </h2>

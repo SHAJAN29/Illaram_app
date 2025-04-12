@@ -30,13 +30,13 @@ const HomeService_section = () => {
         <div className="bg-white p-4 rounded shadow">Service Card 2</div>
         <div className="bg-white p-4 rounded shadow">Service Card 3</div>
       </div> */}
-        <div className="flex flex-col text-left  capitalize font-bold text-3xl">
-          <h1 className={`pb-3 illaramAccent`}>packages</h1>
+        <div className="flex flex-col text-center  capitalize font-bold text-3xl">
+          <h1 className={`pb-3 illaramAccent`}>packages :</h1>
           <p className={` text-gray-400 max-sm:text-[15px] font-normal pb-3`}>
             At Illaram, we believe that every individual is unique,so Our
             specialized packages are designed to cater to the unique needs of
             adults preparing for marriage, focusing on holistic well-being —
-            inside and out.
+            <span className="illaramPrimary">inside and out. 100% natural</span>
           </p>
         </div>
         {Service_card_details.map(({ title, description, image }, index) => (

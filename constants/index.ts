@@ -148,7 +148,7 @@ export default feedbackData;
 
 export const contactNumber ={
 
-phoneNumber:+918778919303,
+phoneNumber:8778919303,
 whatsAppNumber:7904118829,
 
 
