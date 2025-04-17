@@ -23,11 +23,13 @@ const Home = () => {
         <div className="heroSection_Image text-left items-center justify-center gap-4 max-sm:mt-15 ">
           {" "}
           <h1 className="text-primary font-[poppins] mt-10">
-            Are you ready for Marriage?
+            Welcome to{" "}
+            <span className="text-teal-200 font-extrabold">Ilaram</span>{" "}
+            Healthcare...
           </h1>
-          <p className="text-gray-100  pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
-            We help you prepare for marriage with a holistic approach to health
-            and wellness😊...
+          <p className="text-gray-100 capitalize pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
+            present you'r most beautiful version with confidence infront of your
+            partner😊...
           </p>
           <p className="text-sm max-sm:text-[13px] text-gray-200 mb-5 mt-5 italic">
             Trusted by 1,000+ individuals across India preparing for meaningful
