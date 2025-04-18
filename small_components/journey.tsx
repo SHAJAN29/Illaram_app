@@ -54,7 +54,7 @@ const journeyCard = (step: JourneyStep) => {
     <div className="border border-gray-300 flex flex-col md:flex-row items-center bg-white dark:bg-transparent  rounded-lg p-6">
       <div className="flex-shrink-0"></div>
       <div className="ml-5 text-left">
-        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-400  max-sm:text-[17px]">
+        <h3 className="text-xl font-semibold text-gray-900  max-sm:text-[17px]">
           {step.title}
         </h3>
         <p className="text-gray-500 max-sm:text-[13px]">{step.description}</p>

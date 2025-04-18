@@ -1,42 +1,51 @@
-"use client";
+import { NextResponse } from "next/server";
+import { connectToDatabase } from "@/library/mongoose";
+import User from "@/models/user";
+import nodemailer from "nodemailer";
+import jwt from "jsonwebtoken";
 
-import { useState } from "react";
+export async function POST(req: Request) {
+  try {
+    const { email } = await req.json();
+    await connectToDatabase();
 
-export default function ForgotPassword() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
+    const user = await User.findOne({ email });
+    if (!user) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const res = await fetch("/api/auth/forgot-password", {
-      method: "POST",
-      body: JSON.stringify({ email }),
-      headers: { "Content-Type": "application/json" },
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET!, {
+      expiresIn: "15m",
     });
 
-    const data = await res.json();
-    setStatus(data.message);
-  };
+    const resetLink = `${process.env.NEXTAUTH_URL}/reset-password?token=${token}`;
 
-  return (
-    <div className="h-screen flex justify-center items-center p-5 bg-teal-50 font-[Poppins]">
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
-        <h2 className="text-xl font-semibold mb-4">
-          Forgot <span className="illaramPrimary">Password</span>{" "}
-        </h2>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full border rounded p-2 mb-4"
-        />
-        <button className="w-full btn btn-blue rounded p-2">
-          Send Reset Link
-        </button>
-        <p className="mt-2 text-center text-sm text-green-600">{status}</p>
-      </form>
-    </div>
-  );
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Illaram Healthcare" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Reset your password",
+      html: `
+        <p>Hello ${user.name || "user"},</p>
+        <p>Click the button below to reset your password:</p>
+        <a href="${resetLink}" style="padding: 10px 20px; background: #14b8a6; color: #fff; text-decoration: none; border-radius: 5px;">Reset Password</a>
+        <p>This link will expire in 15 minutes.</p>
+      `,
+    });
+
+    return NextResponse.json({ message: "Reset email sent!" }, { status: 200 });
+  } catch (err) {
+    console.error("Forgot password error:", err);
+    return NextResponse.json(
+      { message: "Failed to send reset email" },
+      { status: 500 }
+    );
+  }
 }

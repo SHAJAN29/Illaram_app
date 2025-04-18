@@ -29,6 +29,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       message,
     });
 
+
+    console.log("📥 Appointment saved:", newAppointment);
+
     return res.status(201).json({ success: true, data: newAppointment });
   } catch (error) {
     console.error("Error saving appointment:", error);

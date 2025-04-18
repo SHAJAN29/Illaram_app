@@ -31,4 +31,4 @@ const AppointmentSchema = new mongoose.Schema(
 
 // ✅ Force collection name: 'signup'
 export default mongoose.models.Appointment ||
-  mongoose.model("Appointment", AppointmentSchema, "signupData");
+  mongoose.model("Appointment", AppointmentSchema, "signup Data");

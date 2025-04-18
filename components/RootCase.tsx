@@ -5,8 +5,8 @@ import RootCauseCarousel from "./RootCarosel";
 
 const RootCauseSection = () => {
   return (
-    <section className="container mx-auto py-16">
-      <div className="flex flex-col md:flex-row items-center gap-10">
+    <section className="container  mx-auto py-16">
+      <div className="flex flex-col justify-center md:flex-row items-center gap-10">
         {/* Left Side - Image or Illustration */}
 
         {/* Right Side - Text Content */}

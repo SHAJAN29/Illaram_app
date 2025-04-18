@@ -15,6 +15,7 @@ import React from "react";
 import Image from "next/image";
 import ScrollToTopButton from "@/small_components/scroolButton";
 import FAQSection from "@/components/FAQSection";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -23,9 +24,10 @@ const Home = () => {
         <div className="heroSection_Image text-left items-center justify-center gap-4 max-sm:mt-15 ">
           {" "}
           <h1 className="text-primary font-[poppins] mt-10">
-            Welcome to{" "}
-            <span className="text-teal-200 font-extrabold">Ilaram</span>{" "}
-            Healthcare...
+            Are you Ready for {""}
+            <span className="text-teal-200 font-extrabold">
+              Marriage ?
+            </span>{" "}
           </h1>
           <p className="text-gray-100 capitalize pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
             present you'r most beautiful version with confidence infront of your
@@ -35,10 +37,13 @@ const Home = () => {
             Trusted by 1,000+ individuals across India preparing for meaningful
             marriages...
           </p>
-          <div>
-            <button className="btn btn-blue mt-10 lg:mt-10 text-lg px-8 py-4 rounded-2xl  hover:bg-red-500 hover:text-white transition duration-300 ease-in-out">
+          <div className=" gap-5 mt-10 max-sm:mt-5">
+            <Link
+              href={"/signups"}
+              className="btn btn-blue lg:mt-10 text-lg px-8 py-4 rounded-2xl  hover:bg-red-500 hover:text-white transition duration-300 ease-in-out"
+            >
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </div>

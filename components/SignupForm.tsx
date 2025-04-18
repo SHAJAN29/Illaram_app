@@ -1,5 +1,7 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+
 import { useState } from "react";
 
 export default function SignupForm() {
@@ -26,9 +28,21 @@ export default function SignupForm() {
     e.preventDefault();
     setLoading(true);
     console.log("📩 Form data submitted:", formData);
+
+    const now = new Date();
+    const appointmentDate = now.toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      hour12: true,
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
     try {
       // Replace this URL with your API route for storing in MongoDB
-      const res = await fetch("/api/appointments", {
+      const res = await fetch("/api/appointment/notify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,6 +59,7 @@ export default function SignupForm() {
           service: "",
           message: "",
         });
+
         console.log("Form submitted successfully!");
       }
     } catch (err) {
@@ -56,10 +71,10 @@ export default function SignupForm() {
   };
 
   return (
-    <section className="py-20 mt-30 mb-20 px-4 bg-illaram-cream">
+    <section className="py-20 mt-30 mb-20 px-4 bg-illaram-cream h-screen">
       <div className="max-w-2xl mx-auto  text-center">
         <h2 className="text-3xl font-bold mb-6  text-gray-800">
-          Book Your Free Consultation
+          {submitted ? "Booked" : "Book"} Your Free Consultation
         </h2>
         <p className="text-gray-600 mb-10">
           Start your transformation journey with Illaram Healthcare. We’ll guide
@@ -139,3 +154,7 @@ export default function SignupForm() {
     </section>
   );
 }
+
+// 64DK7G7PWCNMG6HJLZ4KK5TA
+
+// greatly-coat

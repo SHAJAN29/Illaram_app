@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "How do I book a consultation?",
     answer:
-      "You can book a consultation directly through our web app. Choose a program, pick a time slot, and confirm with Razorpay payment.",
+      "You can book a consultation directly through our web app.just click the free counsultation or in whatsapp or just click the get started and book we will call you...    .",
   },
   {
     question: "Do I need to be getting married soon to join?",
