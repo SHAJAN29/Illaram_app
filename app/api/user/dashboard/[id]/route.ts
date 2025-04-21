@@ -3,12 +3,12 @@ import { connectToDatabase } from '@/library/mongoose';
 import User from '@/models/user';
 import { verifyUserToken } from '@/library/auth';
 
+
 export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
 ) {
-  const { params } = await context;
-  const { id } = await params;
+  const { id } = context.params;
   console.log(id)
 
   if (!id) {
