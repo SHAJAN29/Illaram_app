@@ -1,4 +1,4 @@
-import { blogPosts } from "@/constants";
+import { blogPosts } from "@/constants/index";
 
 const blog = () => {
   return (
