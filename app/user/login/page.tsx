@@ -5,26 +5,36 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const router = useRouter();
+
+  const [showCreateBtn, setShowCreateBtn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    console.log("Username:", username);
+    console.log("Password:", password); // Should not be empty
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, role: "user" }),
+      body: JSON.stringify({ username, password, role: "user" }),
     });
 
     const data = await res.json();
+    console.log(data);
 
-    if (!res.ok) return setError(data.message);
-    localStorage.setItem("token", data.token);
-    router.push("/user/dashboard");
+    if (!res.ok) {
+      console.log("❌ Login failed", data.message);
+      setShowCreateBtn(true);
+      return setError(data.message);
+    } else {
+      localStorage.setItem("token", data.token);
+      router.push(`/user/dashboard/${username}`);
+      console.log("✅ Login successful", data.token);
+    }
   };
 
   return (
@@ -47,13 +57,13 @@ export default function AdminLogin() {
         >
           <h2 className="text-xl font-bold mb-4 text-center">User Login</h2>
           {error && <p className="text-red-500 mb-2">{error}</p>}
-          <label className="block font-medium">Email</label>
+          <label className="block font-medium">Username</label>
           <input
-            type="email"
-            placeholder="illaramHealthcare@gmail.com"
+            type="name"
+            placeholder="Enter your username"
             className="w-full mb-3 p-2 border"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
           <div>
@@ -61,8 +71,11 @@ export default function AdminLogin() {
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border  border-gray-500 rounded pr-10"
                 placeholder="********"
+                required
               />
               <button
                 type="button"
@@ -80,12 +93,21 @@ export default function AdminLogin() {
             Login
           </button>
 
-          <button
-            onClick={() => router.push("/forgot-password")}
-            className="text-sm w-full text-blue-600 hover:underline cursor-pointer mt-2"
-          >
-            Forgot password?
-          </button>
+          {showCreateBtn ? (
+            <button
+              onClick={() => router.push("/user/create-account")}
+              className="text-sm w-full text-green-600 hover:underline cursor-pointer mt-2"
+            >
+              Create account
+            </button>
+          ) : (
+            <button
+              onClick={() => router.push("/forgot-password")}
+              className="text-sm w-full text-blue-600 hover:underline cursor-pointer mt-2"
+            >
+              Forgot password?
+            </button>
+          )}
         </form>
       </div>
     </div>

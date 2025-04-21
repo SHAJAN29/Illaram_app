@@ -9,7 +9,7 @@ import { Eye, EyeOff } from "lucide-react";
 
 // ✅ Yup Validation Schema
 const schema = yup.object().shape({
-  name: yup.string().required("Full name is required"),
+  username: yup.string().required("Full name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
     .string()
@@ -23,7 +23,7 @@ export default function UserRegisterPage() {
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -33,7 +33,11 @@ export default function UserRegisterPage() {
   });
 
   const onSubmit = async (data: any) => {
-    const res = await fetch("/api/auth/register", {
+    setLoading(true);
+    setServerError("");
+    setSuccess("");
+
+    const res = await fetch("/api/auth/create-account", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...data, role: "user" }),
@@ -73,11 +77,11 @@ export default function UserRegisterPage() {
           <input
             type="text"
             placeholder="Full Name"
-            {...register("name")}
+            {...register("username")}
             className="w-full border border-gray-500 px-3 py-2 rounded "
           />
-          {errors.name && (
-            <p className="text-sm text-red-500">{errors.name.message}</p>
+          {errors.username && (
+            <p className="text-sm text-red-500">{errors.username.message}</p>
           )}
         </div>
 
@@ -116,9 +120,10 @@ export default function UserRegisterPage() {
 
         <button
           type="submit"
-          className="w-full btn btn-blue font-semibold py-2 rounded transition"
+          disabled={loading}
+          className="w-full btn btn-blue font-semibold py-2 rounded transition disabled:opacity-50"
         >
-          Register
+          {loading ? "Registering..." : "Register"}
         </button>
       </form>
     </div>

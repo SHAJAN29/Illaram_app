@@ -1,3 +1,4 @@
+
 import { title } from "process";
 
 // NAVIGATION
@@ -153,3 +154,35 @@ whatsAppNumber:7904118829,
 
 
 };
+
+
+export const illaramUserData =[{
+  "username":
+  "moses_shajan",
+  "email":
+  "m.j.sandy2916@gmail.com",
+  "PhysicalAssessment":{ "height": "175cm",
+         "weight": "70kg",
+         "bmi": "22.9",
+        "notes": "Healthy body metrics",
+        },
+        "mentalAssesment":{ "height": "175cm",
+          "weight": "70kg",
+          "bmi": "22.9",
+         "notes": "Healthy body metrics",
+         }
+
+
+},{  "username":
+  "moses_priya",
+  "email":
+  "mjpriya43@gmail.com",
+  "PhysicalAssessment":{ "height": "154cm",
+         "weight": "55kg",
+         "bmi": "22.9",
+        "notes": "Healthy body metrics",
+        },
+        "mentalAssesment":{ "state": "a hypothetical or simulated assessment scenario","psychological ":"perfectly normal"
+       
+         }}]
+

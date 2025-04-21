@@ -1,6 +1,6 @@
 // components/ReviewCarousel.js
 
-import feedbackData from "@/constants";
+import feedbackData from "@/constants/index";
 import React from "react";
 import Slider from "react-slick";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Service_card_details } from "@/constants";
+import { Service_card_details } from "../constants";
 import { CardDefault } from "../small_components/service_card";
 import React from "react";
 import RootCauseSection from "./RootCase";

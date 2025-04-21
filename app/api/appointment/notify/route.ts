@@ -67,12 +67,38 @@ console.log("📩 WhatsApp message sent");
     
     await transporter.sendMail({
       from: `"Illaram Healthcare" <${process.env.EMAIL_USERNAME}>`,
-      to: email, // customer's email
-      subject: 'Illaram Appointment Confirmation',
-      html: `<p>Hey ${name}, your appointment is confirmed!<br>Our CRM will call you soon 😊...</p>`,
+      to: email, // coustomer's mail recipient
+      subject: "Welcome to Illaram Healthcare – Your Journey Begins",
+      html: `
+        <div style="font-family: 'Segoe UI', sans-serif; background-color: #0f766e; padding: 20px;">
+          <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <div style="background: #4F46E5; color: white; padding: 20px 30px; text-align: center;">
+              <h1 style="margin: 0; font-size: 28px;">Welcome to Illaram Healthcare</h1>
+            </div>
+            <div style="padding: 30px; color: #333;">
+              <p style="font-size: 18px;">Hey <strong>${name}</strong>,</p>
+              <p style="font-size: 16px; line-height: 1.6;">
+                You’ve just made one of the most powerful decisions of your life — to prioritize <strong>yourself</strong>.
+              </p>
+              <p style="font-size: 16px; line-height: 1.6;">
+                At Illaram Healthcare, we're here to guide you towards becoming the most <strong>beautiful, confident, and empowered</strong> version of yourself — physically, mentally, and emotionally.
+              </p>
+              <p style="font-size: 16px; line-height: 1.6;">
+                Be ready to stand in front of the mirror and witness your transformation. Because the best version of you is already within — we’re just helping it shine through🤞.
+              </p>
+              <p style="margin-top: 30px; font-size: 16px;">💜 With love,<br>Team Illaram</p>
+            </div>
+            <div style="background: #f3f4f6; text-align: center; padding: 15px; font-size: 14px; color: #666;">
+              You're receiving this email because you booked an appointment with us.<br />
+              © ${new Date().getFullYear()} Illaram Healthcare. All rights reserved.
+            </div>
+          </div>
+        </div>
+      `,
     });
+    
 
-
+    console.log("📧 Email message sent");
 
 
     return NextResponse.json({ success: true });
@@ -86,3 +112,9 @@ console.log("📩 WhatsApp message sent");
 
 
 
+// await transporter.sendMail({
+//   from: "Illaram Healthcare" <${process.env.EMAIL_USERNAME}>,
+//   to: email, // customer's email
+//   subject: 'Illaram Appointment Confirmation',
+//   html: <p>Hey ${name}, your appointment is confirmed!<br>Our CRM will call you soon 😊...</p>,
+// }); i want to send a marketing card says welcome to illaram healthcare and u made a good desicion in your life  be ready to present your beautiful version infront of your self like that

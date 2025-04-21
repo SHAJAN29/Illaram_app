@@ -3,6 +3,8 @@
 import { usePathname } from "next/navigation";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function SignupForm() {
   const [formData, setFormData] = useState({
@@ -15,7 +17,9 @@ export default function SignupForm() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -27,6 +31,8 @@ export default function SignupForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setMessage(null);
+    setError(null);
     console.log("📩 Form data submitted:", formData);
 
     const now = new Date();
@@ -42,15 +48,11 @@ export default function SignupForm() {
 
     try {
       // Replace this URL with your API route for storing in MongoDB
-      const res = await fetch("/api/appointment/notify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      const res = await axios.post("/api/appointment/notify", {
+        formData,
       });
 
-      if (res.ok) {
+      if (res.status === 200) {
         setSubmitted(true);
         setFormData({
           name: "",
@@ -60,7 +62,17 @@ export default function SignupForm() {
           message: "",
         });
 
-        console.log("Form submitted successfully!");
+        console.log("Form submitted successfully!", res);
+      }
+
+      if (res.status === 200) {
+        setMessage("✅ Appointment confirmed! Check your email.");
+        // Optional delay for smoother UX (like 1.5s to show success)
+        setTimeout(() => {
+          router.push("/"); // ✅ redirect to home page
+        }, 1500);
+      } else {
+        setError("Something went wrong. Please try again.");
       }
     } catch (err) {
       console.error("Error submitting form", err);
@@ -138,23 +150,39 @@ export default function SignupForm() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-xl"
+              className="w-full p-3 border capitalize border-gray-300 rounded-xl"
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn btn-blue py-3 px-6 rounded-full text-lg font-semibold "
+              className={`w-full ${
+                loading ? "bg-green-600 text-white text-center" : "btn btn-blue"
+              } py-3 px-6 rounded-full text-lg font-semibold`}
             >
-              {loading ? "Booking..." : "Book Appointment"}
+              {loading ? "Sending Confirmation..." : "Book Appointment"}
             </button>
+
+            {loading && (
+              <div className="flex justify-center mt-4">
+                <div className="w-6 h-6 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+
+            {message && (
+              <div className="mt-4 text-green-600 font-medium text-center">
+                {message}
+              </div>
+            )}
+
+            {error && (
+              <div className="mt-4 text-red-600 font-medium text-center">
+                {error}
+              </div>
+            )}
           </form>
         )}
       </div>
     </section>
   );
 }
-
-// 64DK7G7PWCNMG6HJLZ4KK5TA
-
-// greatly-coat

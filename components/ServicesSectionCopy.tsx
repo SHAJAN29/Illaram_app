@@ -29,6 +29,33 @@ const services = [
     title: "Body Cleansing Detox",
     description: "Internal reset to clear toxins and boost energy.",
   },
+  {
+    icon: <FaSpa className="text-purple-500 text-3xl" />,
+    title: "Stress Management",
+    description: "Mindfulness and relaxation techniques for inner peace.",
+  },
+  {
+    icon: <FaHeartbeat className="text-blue-500 text-3xl" />,
+    title: "Fitness Coaching",
+    description: "Personalized workout plans for strength and endurance.",
+  },
+  {
+    icon: <FaStar className="text-orange-500 text-3xl" />,
+    title: "Nutrition Guidance",
+    description: "Balanced meal plans for optimal health and vitality.",
+  },
+
+  {
+    icon: <FaLeaf className="text-indigo-500 text-3xl" />,
+    title: "Personalized Plans",
+    description: "Tailored programs for individual needs and goals.",
+  },
+
+  {
+    icon: <FaStar className="text-pink-600 text-3xl" />,
+    title: "Grooming Services",
+    description: "Professional grooming for the modern groom.",
+  },
 ];
 
 export default function ServicesSectionCopy() {

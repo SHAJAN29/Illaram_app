@@ -36,7 +36,12 @@ export const Join_our_community = () => {
         <p className="mb-5 flex-wrap lg:text-2xl text-lg max-sm:text-[15px] font-bold text-illaramPrimary capitalize">
           1000+ life changed
         </p>
-        <button className="btn btn-blue">Start Your Journey</button>
+        <Link
+          href={"/signups"}
+          className="btn btn-blue lg:mt-10 text-lg  rounded-2xl  hover:bg-red-500 hover:text-white transition duration-300 ease-in-out"
+        >
+          Start Your Journey
+        </Link>
       </section>
     </div>
   );

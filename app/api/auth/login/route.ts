@@ -7,33 +7,33 @@ import jwt from "jsonwebtoken";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, password, role } = body;
+    const { email, password, role,username } = body;
 
     await connectToDatabase();
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     if (!user) {
-      console.log("❌ No user found");
-      return NextResponse.json({ message: "No user found" }, { status: 401 });
+      console.log("❌ No user found" ,user);
+      return NextResponse.json({ message: "No user found" }, { status: 404 });
     }
 
     if (user.role !== role) {
-      console.log("❌ Role mismatch");
+      console.log("❌ Role mismatch" , user.role, role);
       return NextResponse.json({ message: "Invalid credentials" }, { status: 401 });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      console.log("❌ Password mismatch");
+      console.log("❌ Password mismatch", user.password); // for debugging
       return NextResponse.json({ message: "Password mismatch" }, { status: 401 });
     }
 
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      { userId: user._id, role: user.role , username: user.username },
+      // { userId: user._id, role: user.role },
       process.env.JWT_SECRET!,
-      { expiresIn: "1d" }
+      { expiresIn: '7d' }
     );
-
     return NextResponse.json({ token, role: user.role }, { status: 200 });
 
   } catch (err) {

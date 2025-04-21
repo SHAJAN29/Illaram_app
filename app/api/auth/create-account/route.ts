@@ -8,7 +8,12 @@ import bcrypt from "bcrypt";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, password, role } = body;
+    const { username, email, password, role } = body;
+
+    // ✅ Basic field validation
+    if (!username || !email || !password) {
+      return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+    }
 
     await connectToDatabase();
 
@@ -20,18 +25,19 @@ export async function POST(req: Request) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = new User({
-      name,
+      username,
       email,
       password: hashedPassword,
       role,
     });
 
-
     await newUser.save();
 
     return NextResponse.json({ message: "User registered successfully" }, { status: 201 });
+
   } catch (err) {
     console.error("Registration error:", err);
     return NextResponse.json({ message: "Registration failed" }, { status: 500 });
   }
 }
+

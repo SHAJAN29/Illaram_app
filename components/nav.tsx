@@ -2,14 +2,21 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { contactNumber, NAV_LINKS } from "@/constants/index";
+import { contactNumber, NAV_LINKS } from "../constants/index";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const Nav = () => {
   const [menubar, setMenubar] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
 
   const handleMenuToggle = () => {
+    setMenubar(!menubar);
+  };
+
+  const handleLogin = () => {
+    router.push("/user/login");
     setMenubar(!menubar);
   };
 
@@ -108,6 +115,9 @@ export const Nav = () => {
                   <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
+              <button className="btn btn-blue" onClick={handleLogin}>
+                login
+              </button>
             </ul>
           </div>
         )}
