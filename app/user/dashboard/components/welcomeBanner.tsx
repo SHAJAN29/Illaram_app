@@ -4,17 +4,17 @@ import { useEffect, useState } from "react";
 import { CheckCircle, Lock } from "lucide-react";
 import { Button, Card, CardBody } from "@material-tailwind/react";
 import Link from "next/link";
-import { useRouter, useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface ProgressTrackingProps {
   userId: string;
 }
-// Fetch progress from the backend
+
 const fetchUserProgress = async (userId: string) => {
   const res = await fetch(`/api/user/progress/physical/${userId}`);
   if (!res.ok) throw new Error("Failed to fetch progress");
   const data = await res.json();
-  return data.step; // returns step 0, 1, or 2
+  return data.step;
 };
 
 const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
@@ -22,20 +22,20 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  const loadProgress = async () => {
-    try {
-      const userProgress = await fetchUserProgress(userId);
-      setStep(userProgress);
-    } catch (err) {
-      console.error("Error fetching progress:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const loadProgress = async () => {
+      try {
+        const userProgress = await fetchUserProgress(userId);
+        setStep(userProgress);
+      } catch (err) {
+        console.error("Error fetching progress:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     if (userId) loadProgress();
-  }, [loadProgress]);
+  }, [userId]);
 
   if (loading) return <p>Loading progress...</p>;
 
@@ -51,22 +51,22 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
         onPointerLeaveCapture={undefined}
       >
         <CardBody
-          className="p-6 gap-5 flex max-sm:flex-col lg:flex-row items-center justify-between"
+          className="p-6 flex flex-col lg:flex-row items-center justify-between gap-4"
           placeholder={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
-          <div className="gap-5">
+          <div>
             <h2 className="text-xl font-semibold">
               1. Physical Health Assessment
             </h2>
             <p className="text-sm text-gray-500">
-              Start with your physical checkup by our certified doctor.{userId}
+              Start with your physical checkup by our certified doctor.
             </p>
           </div>
           {step >= 1 ? (
             <>
-              <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
+              <CheckCircle className="text-green-500 w-6 h-6" />
               <Link href={`/user/dashboard/${userId}/physical-assessment`}>
                 <Button
                   className="bg-blue-500 text-white"
@@ -80,11 +80,10 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
             </>
           ) : (
             <Button
+              className="bg-blue-500 text-white"
               onClick={() =>
                 router.push(`/user/dashboard/${userId}/physical-assessment`)
               }
-              className="bg-blue-500 text-white"
-              type="button"
               placeholder={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
@@ -103,7 +102,7 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
         onPointerLeaveCapture={undefined}
       >
         <CardBody
-          className="p-6 flex max-sm:flex-col lg:flex-row items-center justify-between"
+          className="p-6 flex flex-col lg:flex-row items-center justify-between gap-4"
           placeholder={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
@@ -118,7 +117,7 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
           </div>
           {step >= 2 ? (
             <>
-              <CheckCircle className="text-green-500 w-6 h-6 mr-2" />
+              <CheckCircle className="text-green-500 w-6 h-6" />
               <Link href={`/user/${userId}/mental-result`}>
                 <Button
                   className="bg-blue-500 text-white"
@@ -132,9 +131,8 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
             </>
           ) : step === 1 ? (
             <Button
-              onClick={() => router.push(`/user/${userId}/mental-assessment`)}
               className="bg-blue-500 text-white"
-              type="button"
+              onClick={() => router.push(`/user/${userId}/mental-assessment`)}
               placeholder={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
@@ -155,7 +153,7 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
         onPointerLeaveCapture={undefined}
       >
         <CardBody
-          className="p-6 flex max-sm:flex-col lg:flex-row items-center justify-between"
+          className="p-6 flex flex-col lg:flex-row items-center justify-between gap-4"
           placeholder={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}

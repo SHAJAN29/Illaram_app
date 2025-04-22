@@ -59,8 +59,18 @@ const PhysicalAssessmentPage = () => {
         Physical Health Assessment Results
       </h1>
 
-      <Card className="bg-white shadow-md">
-        <CardBody className="p-6 space-y-4">
+      <Card
+        className="bg-white shadow-md"
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      >
+        <CardBody
+          className="p-6 space-y-4"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
           <h2 className="text-2xl font-bold">Your Physical Assessment</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
             <p>

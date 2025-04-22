@@ -16,6 +16,7 @@ export default function UserDashboardPage() {
   const params = useParams(); // Grabs route param
   const id = params?.id as string;
 
+  console.log(id);
   const [userData, setUserData] = useState<any>(null);
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(true);
