@@ -1,7 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-
+import { appointmentSchema } from "@/library/validationSchema";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -19,6 +18,8 @@ export default function SignupForm() {
   const [submitted, setSubmitted] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
   const router = useRouter();
   const handleChange = (
     e: React.ChangeEvent<
@@ -34,22 +35,25 @@ export default function SignupForm() {
     setMessage(null);
     setError(null);
     console.log("📩 Form data submitted:", formData);
-
-    const now = new Date();
-    const appointmentDate = now.toLocaleString("en-IN", {
-      timeZone: "Asia/Kolkata",
-      hour12: true,
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-
     try {
+      // 🔐 Validate form data
+      await appointmentSchema.validate(formData, { abortEarly: false });
+      setErrors({}); // Clear previous errors if validation passes
+      const now = new Date();
+      const appointmentDate = now.toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour12: true,
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
       // Replace this URL with your API route for storing in MongoDB
       const res = await axios.post("/api/appointment/notify", {
-        formData,
+        ...formData, // 🔥 this is the key fix
+        appointmentDate,
       });
 
       if (res.status === 200) {
@@ -74,14 +78,20 @@ export default function SignupForm() {
       } else {
         setError("Something went wrong. Please try again.");
       }
-    } catch (err) {
-      console.error("Error submitting form", err);
-      console.log(formData);
-    } finally {
+    } catch (err: any) {
+      if (err.name === "ValidationError") {
+        const fieldErrors: Record<string, string> = {};
+        err.inner.forEach((e: any) => {
+          if (e.path) fieldErrors[e.path] = e.message;
+        });
+        setErrors(fieldErrors); // 🧠 Update UI with these
+      } else {
+        setError("Something went wrong. Try again.");
+      }
       setLoading(false);
+      return;
     }
   };
-
   return (
     <section className="py-20 mt-30 mb-20 px-4 bg-illaram-cream h-screen">
       <div className="max-w-2xl mx-auto  text-center">
@@ -108,6 +118,9 @@ export default function SignupForm() {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
             />
+            {errors.name && (
+              <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+            )}
             <input
               name="email"
               type="email"
@@ -117,6 +130,9 @@ export default function SignupForm() {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-xl"
             />
+            {errors.email && (
+              <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+            )}
             <input
               name="phone"
               type="tel"
@@ -126,6 +142,9 @@ export default function SignupForm() {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-xl"
             />
+            {errors.phone && (
+              <p className="text-red-600 text-sm mt-1">{errors.phone}</p>
+            )}
             <select
               name="service"
               required
