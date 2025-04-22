@@ -1,17 +1,20 @@
+
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDatabase } from '@/library/mongoose';
 import User from '@/models/user';
 import { verifyUserToken } from '@/library/auth';
+import { AppRouteRouteHandlerContext } from 'next/dist/server/route-modules/app-route/module';
+
+
 
 
 export async function GET(
-  req: NextRequest,
-  {params}: { params: { id: string } }
+  req: NextRequest,context: { params: { id: string } }
+ 
 ) {
-  const { id } = params;
+
+  const { id } = context.params;
   console.log(id)
-
-
   if (!id) {
     return NextResponse.json({ message: "User ID is required" }, { status: 400 });
   }

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectToDatabase } from "@/library/mongoose"; // Your MongoDB connector
 import User from "@/models/user"; // Your User model
+import { AppRouteRouteHandlerContext } from "next/dist/server/route-modules/app-route/module";
 
 
 // back-end for user GET method for show or fetch the physical assasment data ...
@@ -10,8 +11,7 @@ export async function GET(
   req: NextRequest,
   context : { params: { id: string } }
 ) {
-  const { params } = await context;
-  const userId = params.id;
+  const userId = context.params.id;
 
   if (!userId) {
     return NextResponse.json({ message: "User ID is required" }, { status: 400 });
@@ -51,6 +51,7 @@ export async function POST(
   context: { params: { id: string } }
 ) {
   try {
+    console.log(context,context.params)
     const { id } = context.params;
     const body = await req.json(); // contains the physical data
 
