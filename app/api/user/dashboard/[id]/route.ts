@@ -6,10 +6,11 @@ import { verifyUserToken } from '@/library/auth';
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } }
+  {params}: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   console.log(id)
+
 
   if (!id) {
     return NextResponse.json({ message: "User ID is required" }, { status: 400 });
