@@ -1,11 +1,9 @@
 'use client'
-
-
-import Image from "next/image";
 import Home from "./home/page";
 import Head from "next/head";
 import Loader from '../components/loader';
 import { useEffect, useState } from "react";
+
 
 // sm: 640px (small screens)
 
@@ -19,7 +17,7 @@ import { useEffect, useState } from "react";
 
 
   
-  export default function App({ Component, pageProps }: AppProps) {
+  export default function App() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -32,7 +30,7 @@ import { useEffect, useState } from "react";
 
 
   return (loading ? <Loader /> :
-    <main className="font-[Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif];">
+    <main>
       <div>
       <Head>
         <link
