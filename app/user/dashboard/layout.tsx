@@ -5,10 +5,6 @@ export const metadata = {
   title: "User Dashboard",
 };
 
-export const segmentConfig = {
-  reset: true, // Ensure this layout does not inherit from the global layout
-};
-
 export default function DashboardLayout({
   children,
 }: {
