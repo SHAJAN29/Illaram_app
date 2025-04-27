@@ -51,10 +51,31 @@
       theme: {
         extend: {
           colors: {
+            'primary': '#63b546',
+            'secondary': '#2b354d',
+            'accent': '#ffffff',
+          },
+          animation: {
+            'slide-in': 'slideIn 0.4s ease-out forwards',
+          },
+          keyframes: {
+            slideIn: {
+              '0%': { transform: 'translateX(100%)', opacity: 0 },
+              '100%': { transform: 'translateX(0)', opacity: 1 },
+            },
+          colors: {
            
             illaramText: '#A2A4A8'
           }
-        }
+          }},
+          backgroundImage: {
+            'service1': "url('/path/to/your/image1.jpg')",
+            'service2': "url('/path/to/your/image2.jpg')",
+            'service3': "url('/path/to/your/image3.jpg')",
+            'service4': "url('/path/to/your/image4.jpg')",
+          },
+
+
       },
       plugins: [
         tailwindcss,

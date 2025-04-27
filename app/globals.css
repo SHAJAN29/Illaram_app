@@ -50,6 +50,11 @@
     @apply text-[#FF5F37] 
   }
 
+  .bgillaramPrimary {
+    @apply text-[#FF5F37] 
+  
+  
+  }
 
 .bgillaramPrimary {
   @apply bg-[#0F766E]

@@ -1,6 +1,11 @@
+'use client'
+
+
 import Image from "next/image";
 import Home from "./home/page";
 import Head from "next/head";
+import Loader from '../components/loader';
+import { useEffect, useState } from "react";
 
 // sm: 640px (small screens)
 
@@ -12,9 +17,23 @@ import Head from "next/head";
 
 // 2xl: 1536px (extra-large screens)
 
-export default function globs() {
-  return (
-    <main>
+
+  
+  export default function App({ Component, pageProps }: AppProps) {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+      // Simulate loading time or wait for all resources if needed
+      const timer = setTimeout(() => setLoading(false), 2000); // 2s simulated load
+      return () => clearTimeout(timer);
+    }, []);
+
+
+
+
+  return (loading ? <Loader /> :
+    <main className="font-[Canva Sans, Helvetica Neue, Roboto, -apple-system, blinkmacsystemfont, sans-serif];">
+      <div>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
@@ -26,6 +45,7 @@ export default function globs() {
         />
       </Head>
       <Home />
+      </div>
     </main>
   );
 }

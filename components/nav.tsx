@@ -6,7 +6,7 @@ import { contactNumber, NAV_LINKS } from "../constants/index";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export const Nav = () => {
+export const Navbar = () => {
   const [menubar, setMenubar] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();

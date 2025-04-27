@@ -8,102 +8,138 @@ export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [paymentpop, setPaymentpop] = useState(false);
   const [showCreateBtn, setShowCreateBtn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // ⏳ New loading state
+
   const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password); // Should not be empty
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password, role: "user" }),
-    });
+    setError("");
+    setPaymentpop(false);
+    setIsLoading(true); // Start loading
 
-    const data = await res.json();
-    console.log(data);
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, role: "user" }),
+      });
 
-    if (!res.ok) {
-      console.log("❌ Login failed", data.message);
-      setShowCreateBtn(true);
-      return setError(data.message);
-    } else {
+      const data = await res.json();
+
+      if (!res.ok) {
+        setShowCreateBtn(true);
+        throw new Error(data.message || "Login failed");
+      }
+
       localStorage.setItem("token", data.token);
-      router.push(`/user/dashboard/${username}`);
       console.log("✅ Login successful", data.token);
+
+      const checkRes = await fetch(`/api/user/dashboard/payment-status?username=${data.username}`);
+      const checkData = await checkRes.json();
+
+      if (checkData.hasPaid) {
+        router.push(`/user/dashboard/${data.username}`);
+      } else {
+        setPaymentpop(true);
+        setTimeout(() => {
+          router.push(`/packageTest/${data.username}`);
+        }, 2000);
+      }
+    } catch (err: any) {
+      console.error("Login error:", err);
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-teal-50 font-[Poppins]">
-      <div className=" w-full h-full p-8 items-center flex flex-col justify-center ">
+      <div className="w-full h-full p-8 flex flex-col justify-center items-center">
         <h1 className="illaramPrimary text-center font-bold max-sm:text-3xl text-5xl capitalize">
-          {" "}
-          welcome to <br />{" "}
+          Welcome to <br />
           <span className="illaramAccent">illaram healthcare.</span>
         </h1>
         <p className="illaramText text-[14px] capitalize">
-          The place where transformation happen
+          The place where transformation happens
         </p>
       </div>
 
       <div>
         <form
           onSubmit={handleLogin}
-          className="bg-teal-50 p-6 rounded shadow w-80"
+          className="bg-white p-6 rounded-lg shadow w-80"
         >
           <h2 className="text-xl font-bold mb-4 text-center">User Login</h2>
-          {error && <p className="text-red-500 mb-2">{error}</p>}
+
+          {error && <p className="text-red-500 mb-3 text-center">{error}</p>}
+          {paymentpop && (
+            <p className="text-orange-500 mb-3 text-sm text-center">
+              🛑 Please complete your payment to access the dashboard.
+            </p>
+          )}
+
           <label className="block font-medium">Username</label>
           <input
-            type="name"
+            type="text"
             placeholder="Enter your username"
-            className="w-full mb-3 p-2 border"
+            className="w-full mb-3 p-2 border border-gray-300 rounded"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            disabled={isLoading}
           />
-          <div>
-            <label className="block font-medium">Password</label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-2 border  border-gray-500 rounded pr-10"
-                placeholder="********"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((prev) => !prev)}
-                className="absolute right-2 top-2 text-gray-600"
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
+
+          <label className="block font-medium">Password</label>
+          <div className="relative mb-4">
+            <input
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded pr-10"
+              placeholder="********"
+              required
+              disabled={isLoading}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              className="absolute right-2 top-2 text-gray-600"
+              disabled={isLoading}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
           </div>
+
           <button
             type="submit"
-            className="w-full btn btn btn-blue mt-4 p-2 rounded"
+            disabled={isLoading}
+            className={`w-full btn font-semibold py-2 rounded transition ${
+              isLoading ? "bg-teal-300 cursor-not-allowed" : "btn-blue hover:illaramAccent"
+            }`}
           >
-            Login
+            {isLoading ? "Logging in..." : "Login"}
           </button>
 
           {showCreateBtn ? (
             <button
+              type="button"
               onClick={() => router.push("/user/create-account")}
-              className="text-sm w-full text-green-600 hover:underline cursor-pointer mt-2"
+              className="text-sm cursor-pointer w-full text-green-600 hover:underline mt-2"
+              disabled={isLoading}
             >
               Create account
             </button>
           ) : (
             <button
+              type="button"
               onClick={() => router.push("/forgot-password")}
-              className="text-sm w-full text-blue-600 hover:underline cursor-pointer mt-2"
+              className="text-sm w-full text-blue-600 hover:underline mt-2"
+              disabled={isLoading}
             >
               Forgot password?
             </button>

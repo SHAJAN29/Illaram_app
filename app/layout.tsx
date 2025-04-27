@@ -1,9 +1,11 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Nav } from "../components/nav";
 import { Footer } from "../components/footer";
-import ScrollToTopButton from "@/small_components/scroolButton";
+import FloatingCTA from "@/components/FloatingCTA";
+import { Toaster } from "react-hot-toast";
+import { Navbar } from "@/components/nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,23 +18,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Illaram healthcare App",
-  description: "we helping people to be prepare for marriage",
+  title: "Illaram Healthcare App",
+  description: "Helping people prepare for marriage",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+ 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Nav />
-        {children}
-
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+       <Navbar/>
+        <Toaster position="top-center" />
+       {children}
+        <FloatingCTA />
         <Footer />
       </body>
     </html>

@@ -40,7 +40,7 @@ const ProgressTracking: React.FC<ProgressTrackingProps> = ({ userId }) => {
   if (loading) return <p>Loading progress...</p>;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <div className="p-2 max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold mb-4">Your Progress Tracker</h1>
 
       {/* Step 1 - Physical Health Assessment */}

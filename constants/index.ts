@@ -78,6 +78,34 @@ export const blogPosts = [
 
 
 
+export const programList = [
+  {
+    title: '🔥 100-Day Pre-Wedding Program',
+    description: 'A holistic glow-up from the inside out.',
+    price: 4999,
+  },
+  {
+    title: '✨ Beauty Enhancement Program',
+    description: 'Targeted skin & hair treatments for your big day.',
+    price: 2999,
+  },
+  {
+    title: '💪 Physical Conditioning Program',
+    description: 'Sculpt your body with personalized training + diet.',
+    price: 3499,
+  },
+  {
+    title: '🧠 Mind-Prep Program',
+    description: 'Get mentally and emotionally prepared for marriage.',
+    price: 1999,
+  },
+];
+
+
+
+
+
+
 const feedbackData = [
   {id:1,
     name: "Yamini K.",
@@ -150,7 +178,7 @@ export default feedbackData;
 export const contactNumber ={
 
 phoneNumber:8778919303,
-whatsAppNumber:7904118829,
+whatsAppNumber:8778919303,
 
 
 };

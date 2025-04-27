@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     await connectToDatabase();
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
       return NextResponse.json({ message: "User already exists" }, { status: 400 });
     }
