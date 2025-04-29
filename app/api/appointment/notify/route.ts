@@ -50,7 +50,10 @@ const formattedDateTime = now.toLocaleString('en-IN', {
 
     await client.messages.create({
       from: 'whatsapp:+14155238886',
-      to: 'whatsapp:+918778919303',
+      to: 'whatsapp:+918778919303'
+      
+      
+      ,
       body: `🗓️ New Booking Alert!\n📅 Booked On: ${formattedDateTime}\n👤 Name: ${name}\n📞 Phone: ${phone}\n💼 Service: ${service}\n 😊 KINDLY FOLLOW UP 🤞`,
     });
 console.log("📩 WhatsApp message sent");
@@ -70,7 +73,7 @@ console.log("📩 WhatsApp message sent");
       to: email, // coustomer's mail recipient
       subject: "Welcome to Illaram Healthcare – Your Journey Begins",
       html: `
-        <div style="font-family: 'Segoe UI', sans-serif; background-color: #0f766e; padding: 20px;">
+        <div style="font-family: 'Segoe UI', sans-serif; background-color: #f4f0ec; padding: 20px;">
           <div style="max-width: 600px; margin: auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <div style="background: #4F46E5; color: white; padding: 20px 30px; text-align: center;">
               <h1 style="margin: 0; font-size: 28px;">Welcome to Illaram Healthcare</h1>
