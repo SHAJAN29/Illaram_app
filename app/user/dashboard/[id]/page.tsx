@@ -24,12 +24,17 @@ export default function UserDashboardPage() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+
     if (!token) {
       router.push("/user/login");
       return;
     }
 
     const decoded: any = jwt.decode(token);
+    if (decoded.username !== id) {
+      router.push("/access-denied");
+      return;
+    }
     if (!decoded || decoded.role !== "user") {
       localStorage.removeItem("token");
       router.push("/access-denied");

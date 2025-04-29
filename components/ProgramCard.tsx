@@ -4,23 +4,25 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
 import { jwtDecode } from 'jwt-decode';
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 // Interface for the ProgramCard props
 interface ProgramProps {
   title: string;
   description: string;
   price: number;
-  username?: string | string[]; // Add username property
+  username?: string | string[] ; 
+  highlights: string[];// Add username property
 }
 
-const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username }) => {
+const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights}) => {
   const router = useRouter();
 
   // Type definition for decoded JWT token
-  type DecodedToken = {
-    username: string;
-    email: string;
-  };
+  // type DecodedToken = {
+  //   username: string;
+  //   email: string;
+  // };
 
   // Dynamically load the Razorpay checkout script
   const loadRazorpayScript = () => {
@@ -71,15 +73,13 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
               throw new Error('No authentication token found.');
             }
 
-            const decoded = jwtDecode<DecodedToken>(token);
-
             // Save payment details to backend
             const paymentRes = await fetch('/api/razorPay/payments/save', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                username: decoded.username,
-                email: decoded.email,
+                username: username,
+                
                 payment: {
                   paymentId: response.razorpay_payment_id,
                   orderId: response.razorpay_order_id,
@@ -96,7 +96,7 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
             }
 
             if (paymentRes.ok) {
-             return  router.push(`/user/dashboard/${decoded.username}`);
+              router.push(`/user/login?returnTo=/user/dashboard/${username}`);;
             }
 
 
@@ -128,19 +128,55 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
   };
 
   return (
-    <div className="bg-white border rounded-lg p-6 shadow-md hover:shadow-lg transition-all flex flex-col justify-between">
-      <div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-gray-600 text-sm mb-4">{description}</p>
-        <p className="text-indigo-600 font-bold text-lg mb-4">₹{price}</p>
-      </div>
-      <button
-        onClick={handlePayment}
-        className="mt-auto btn btn-blue py-2 rounded transition cursor-pointer"
+
+
+      <div
+        
+        className="bg-white border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition-all flex flex-col justify-between"
       >
-        Buy Now
-      </button>
-    </div>
+        <div className="relative">
+          {/* Badge */}
+          
+            <div className="absolute top-0 right-0 px-3 py-1 bg-[illaramPrimary] text-white text-xs font-medium rounded-full shadow-sm">
+              Popular
+            </div>
+          
+    
+          {/* Card Content */}
+          <div className="space-y-4 pb-6">
+            <h3 className="text-xl font-semibold text-gray-800 tracking-tight">
+              {title}
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {description}
+            </p>
+    
+            {/* Highlights */}
+            <ul className="mt-4 space-y-3 text-sm text-gray-700">
+          {highlights.map((point, index) => (
+            <li key={index} className="flex items-start gap-2">
+              <CheckCircleIcon className="w-5 h-5 text-illaramPrimary flex-shrink-0" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+            {/* Price */}
+            <div className="text-lg font-bold text-illaramPrimary mt-4">
+              ${price}
+            </div>
+          </div>
+        </div>
+    
+        {/* Buy Button */}
+        <button
+          onClick={() => handlePayment()}
+          className="mt-auto w-full btn btn-blue font-medium py-2 px-4 rounded-md transition"
+        >
+          Buy Now
+        </button>
+      </div>
+
+    
   );
 };
 
