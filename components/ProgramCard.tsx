@@ -57,7 +57,7 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
       }
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || '', // Razorpay key
+        key: process.env.RAZORPAY_KEY || '', // Razorpay key
         amount: data.amount,
         currency: 'INR',
         name: 'Illaram Healthcare',

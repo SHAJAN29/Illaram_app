@@ -22,7 +22,7 @@ export default function RazorpayCheckoutButton({
       alert("Razorpay SDK failed to load. Are you online?");
     script.onload = () => {
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // from .env
+        key: process.env.RAZORPAY_KEY_ID, // from .env
         amount,
         currency: "INR",
         name: "Illaram Healthcare",
