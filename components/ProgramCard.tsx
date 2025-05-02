@@ -162,7 +162,7 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
         </ul>
             {/* Price */}
             <div className="text-lg font-bold text-illaramPrimary mt-4">
-              ${price}
+            ₹{price}
             </div>
           </div>
         </div>
