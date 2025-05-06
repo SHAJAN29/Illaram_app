@@ -12,10 +12,14 @@ interface ProgramProps {
   description: string;
   price: number;
   username?: string | string[] ; 
+  duration: string;
+  mostPopular: boolean;
+  // Add duration property
   highlights: string[];// Add username property
+  popular:boolean;
 }
 
-const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights}) => {
+const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights,duration,mostPopular}) => {
   const router = useRouter();
 
   // Type definition for decoded JWT token
@@ -137,33 +141,41 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
         <div className="relative">
           {/* Badge */}
           
-            <div className="absolute top-0 right-0 px-3 py-1 bg-[illaramPrimary] text-white text-xs font-medium rounded-full shadow-sm">
-              Popular
+            <div className={`absolute top-0 right-0 px-3 py-1  ${mostPopular?"bg-orange-600":"bg-emerald-600"} text-white text-xs font-medium rounded-full shadow-sm`}>
+             {mostPopular? "Most-Popular" :'Popular'}
             </div>
           
     
           {/* Card Content */}
-          <div className="space-y-4 pb-6">
+          <div className="space-y-4 pb-6 pt-5">
             <h3 className="text-xl font-semibold text-gray-800 tracking-tight">
               {title}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               {description}
             </p>
+
+            <div className="flex justify-center items-center text-gray-800 mb-6">
+            <span className="text-3xl font-bold">₹</span>
+            <span className="text-5xl font-extrabold">{price}</span>
+            <span className="text-lg mt-5 text-[15px] font-medium ml-2">/{duration}</span>
+          </div>
+
+
     
             {/* Highlights */}
             <ul className="mt-4 space-y-3 text-sm text-gray-700">
           {highlights.map((point, index) => (
             <li key={index} className="flex items-start gap-2">
-              <CheckCircleIcon className="w-5 h-5 text-illaramPrimary flex-shrink-0" />
+              <CheckCircleIcon className="w-5 h-5 text-emerald-500 flex-shrink-0" />
               <span>{point}</span>
             </li>
           ))}
         </ul>
             {/* Price */}
-            <div className="text-lg font-bold text-illaramPrimary mt-4">
+            {/* <div className="text-lg font-bold text-illaramPrimary mt-4">
             ₹{price}
-            </div>
+            </div> */}
           </div>
         </div>
     
@@ -172,7 +184,7 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
           onClick={() => handlePayment()}
           className="mt-auto w-full btn btn-blue font-medium py-2 px-4 rounded-md transition"
         >
-          Buy Now
+          Join Now
         </button>
       </div>
 

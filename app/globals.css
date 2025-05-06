@@ -20,7 +20,8 @@
 }
 @layer base {
   .bg-primary {
-    @apply bg-gradient-to-r from-teal-700 to-teal-400;
+     @apply bg-gradient-to-r from-teal-700 to-teal-400; 
+
   }
   .text-primary {
     @apply text-[#0F766E] max-sm:text-4xl lg:text-9xl md:text-7xl font-extrabold dark:text-white  from-neutral-500;

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 export const Navbar = () => {
   const [menubar, setMenubar] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
   const router = useRouter();
 
   const handleMenuToggle = () => {
@@ -22,9 +22,9 @@ export const Navbar = () => {
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
-      setIsScrolled(true);
-    } else {
       setIsScrolled(false);
+    } else {
+      setIsScrolled(true);
     }
   };
 
@@ -54,8 +54,8 @@ export const Navbar = () => {
           isScrolled ? "bg-[#0F766E] shadow-lg" : "bg-transparent"
         }`}
       >
-        <Link href={"/"} className="text-2xl">
-          Illaram
+        <Link href={"/"} className="text-2xl font-light">
+          Ilaram
         </Link>
 
         <ul className="hidden h-full gap-12 lg:flex">

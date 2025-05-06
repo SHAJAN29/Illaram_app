@@ -26,7 +26,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
 
   return (
     <Card
-      className="mt-6 p-0 w-96 h-[30rem] rounded-2xl shadow-xl transition-shadow duration-300 hover:shadow-2xl cursor-pointer bg-[#Ffffff]"
+      className="mt-6 p-0 w-96 h-[30rem] rounded-2xl duration-300 hover:shadow-2xl cursor-pointer bg-[#Ffffff]"
       placeholder="Card Placeholder"
       onClick={() => router.push("/servicees")}
       onPointerEnterCapture={() => {}}

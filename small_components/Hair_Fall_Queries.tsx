@@ -5,7 +5,7 @@ const Hair_Fall_Queries = () => {
   const { phoneNumber } = contactNumber;
 
   return (
-    <div className=" max-sm:h-133 gap-5 bg-gradient-to-r from-[#ff3f3f] to-[#fdb07d] shadow-sm rounded-lg p-8 mt-2 mb-30 border-[#f9f9f9]">
+    <div className=" max-sm:h-133 gap-5 bg-[#0f766e] shadow-sm rounded-lg p-8 mt-2 mb-30 border-[#f9f9f9]">
       <h3 className="text-white font-bold text-3xl p-5">Any Quries</h3>
       <p className="text-white max-sm:[17px] md:text-[20px] lg:text-[25px]">
         Get answers to all your queries by certified doctors & coaches.

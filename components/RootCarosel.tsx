@@ -15,7 +15,7 @@ interface RootCaroselProps {
 
 const RootCarosel = ({ title, icon, description }: RootCaroselProps) => {
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-100 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center p-8 bg-gray-100 rounded-lg ">
       <div className={`text-5xl illaramAccent mb-4`}>{icon}</div>
       <h3 className={`text-2xl font-semibold text-center illaramPrimary mb-4`}>
         {title}

@@ -35,7 +35,7 @@ const HomeService_section = () => {
         <div className="bg-white p-4 rounded shadow">Service Card 3</div>
       </div> */}
         <div className="flex flex-col text-center  capitalize font-bold text-3xl">
-          <h1 className={`pb-3 illaramAccent`}>packages :</h1>
+          <h1 className={`pb-3 illaramAccent`}>Exclusive wellness plans:</h1>
           <p className={` text-gray-400 max-sm:text-[15px] font-normal pb-3`}>
             At Illaram, we believe that every individual is unique,so Our
             specialized packages are designed to cater to the unique needs of
