@@ -20,38 +20,47 @@ const JobsPage = () => {
       )
       .required("Phone number is required"),
     message: Yup.string().required("Please provide a message or cover letter"),
-    resume: Yup.mixed().required("Resume is required"),
+    resume: Yup.mixed()
+    .required("Resume is required")
+    .test("fileType", "Only PDF/DOC/DOCX files are allowed", (value: any) => {
+      return value && ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(value.type);
+    })
+    .test("fileSize", "File is too large (max 2MB)", (value: any) => {
+      return value && value.size <= 2 * 1024 * 1024;
+    }),
   });
 
-  const handleSubmit = async (values: any, { setSubmitting }: any) => {
-    const formData = {
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      message: values.message,
-    };
+  const handleSubmit = async (values: any, { setSubmitting, resetForm }: { setSubmitting: (isSubmitting: boolean) => void; resetForm: () => void }) => {
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("phone", values.phone);
+    formData.append("message", values.message);
+    formData.append("resume", values.resume); // resume is a File object 
 
-    try {
-      const res = await fetch("/api/employers/jobs", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch("/api/employers/jobs", {
+      method: "POST",
+      body: formData, // 👈 use FormData, no JSON.stringify or headers
+    });
 
-      if (res.ok) {
-        toast.success("Application submitted successfully!");
-        setSubmitting(false);
-        setTimeout(() => {
-          router.push("/home");
-        }, 3000); // Delay for 3 seconds before redirecting
-      } else {
-        toast.error("Submission failed.");
-      }
-    } catch (error) {
-      alert("Error submitting form.");
+    const data = await res.json();
+    console.log("Response data:", data); // Log the response data
+
+    if (res.ok) {
+      toast.success(data.message || "Application submitted successfully!");
+      resetForm();
+      setSubmitting(false);
+      setTimeout(() => router.push("/home"), 3000);
+    } else {
+      toast.error(data.error || "Submission failed.");
       setSubmitting(false);
     }
-  };
+  } catch (error) {
+    toast.error("Error submitting form.");
+    setSubmitting(false);
+  }
+};
 
   return (
     <div className="max-w-3xl mx-auto p-6 mt-20">
@@ -133,7 +142,12 @@ const JobsPage = () => {
               <input
                 type="file"
                 accept=".pdf,.doc,.docx"
-                onChange={(e) => setFieldValue("resume", e.currentTarget.files?.[0])}
+                onChange={(e) => {
+                    const file = e.currentTarget.files?.[0];
+                    if (file) {
+                      setFieldValue("resume", file);
+                    }
+                  }}
                 className="w-full text-green-600"
               />
               <ErrorMessage
@@ -158,3 +172,5 @@ const JobsPage = () => {
 };
 
 export default JobsPage;
+
+

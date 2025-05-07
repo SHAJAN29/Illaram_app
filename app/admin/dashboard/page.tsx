@@ -108,6 +108,35 @@ const AdminDashboard = () => {
                 </Link>
               </CardBody>
             </Card>
+            <Card
+              className="hover:shadow-xl transition-shadow duration-300 rounded-2xl border border-gray-200"
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            >
+              <CardBody
+                className="p-6 flex flex-col items-center text-center"
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <BarChart2 className="w-12 h-12 text-yellow-600 mb-4" />
+                <h2 className="text-lg font-semibold mb-2 text-gray-700">
+                JobApplications
+                </h2>
+                <Link href={'/admin/dashboard/JobApplications'}>
+                  <Button
+                    className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
+                    placeholder={undefined}
+                    onClick={() => setPhysicalState(!physicalState)}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
+                  >
+                    View
+                  </Button>
+                  </Link>
+              </CardBody>
+            </Card>
 
             <Card
               className="hover:shadow-xl transition-shadow duration-300 rounded-2xl border border-gray-200"
