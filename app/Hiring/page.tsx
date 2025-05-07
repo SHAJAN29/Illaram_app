@@ -20,14 +20,7 @@ const JobsPage = () => {
       )
       .required("Phone number is required"),
     message: Yup.string().required("Please provide a message or cover letter"),
-    resume: Yup.mixed()
-    .required("Resume is required")
-    .test("fileType", "Only PDF/DOC/DOCX files are allowed", (value: any) => {
-      return value && ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(value.type);
-    })
-    .test("fileSize", "File is too large (max 2MB)", (value: any) => {
-      return value && value.size <= 2 * 1024 * 1024;
-    }),
+   
   });
 
   const handleSubmit = async (values: any, { setSubmitting, resetForm }: { setSubmitting: (isSubmitting: boolean) => void; resetForm: () => void }) => {
@@ -36,7 +29,6 @@ const JobsPage = () => {
     formData.append("email", values.email);
     formData.append("phone", values.phone);
     formData.append("message", values.message);
-    formData.append("resume", values.resume); // resume is a File object 
 
   try {
     const res = await fetch("/api/employers/jobs", {
@@ -137,26 +129,7 @@ const JobsPage = () => {
               />
             </div>
 
-            <div>
-              <label className="block mb-2 text-sm font-medium">Upload Resume (PDF/DOC)</label>
-              <input
-                type="file"
-                accept=".pdf,.doc,.docx"
-                onChange={(e) => {
-                    const file = e.currentTarget.files?.[0];
-                    if (file) {
-                      setFieldValue("resume", file);
-                    }
-                  }}
-                className="w-full text-green-600"
-              />
-              <ErrorMessage
-                name="resume"
-                component="div"
-                className="text-red-500 text-xs mt-1"
-              />
-            </div>
-
+        
             <button
               type="submit"
               disabled={isSubmitting}

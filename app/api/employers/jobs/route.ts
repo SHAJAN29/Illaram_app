@@ -17,23 +17,11 @@ export async function POST(req: Request) {
     const email = formData.get("email") as string;
     const phone = formData.get("phone") as string;
     const message = formData.get("message") as string;
-    const resume = formData.get("resume") as File;
+ 
 
-    if (!name || !email || !phone || !message || !resume) {
+    if (!name || !email || !phone || !message ) {
       return NextResponse.json({ success: false, error: "All fields are required." }, { status: 400 });
     }
-
-    // Save the file to /public/uploads
-    const bytes = await resume.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadsDir = path.join(process.cwd(), "public", "uploads");
-    if (!fs.existsSync(uploadsDir)) {
-      fs.mkdirSync(uploadsDir, { recursive: true });
-    }
-
-    const filePath = path.join(uploadsDir, resume.name);
-    fs.writeFileSync(filePath, buffer);
 
     await connectToDatabase();
 
@@ -42,7 +30,6 @@ export async function POST(req: Request) {
       email,
       phone,
       message,
-      resume: `/uploads/${resume.name}`, // Save path to DB
     });
 
     return NextResponse.json({ success: true, message: "Application submitted successfully!", job }, { status: 201 });

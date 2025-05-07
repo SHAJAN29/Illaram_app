@@ -1,4 +1,5 @@
 "use client";
+import BlueSpinLoder from "@/components/Loder/blueSpinLoder";
 import React, { useEffect, useState } from "react";
 
 const AdminJobApplications = () => {
@@ -26,9 +27,7 @@ const AdminJobApplications = () => {
       <h2 className="text-3xl font-semibold text-center mb-6">Job Applications</h2>
 
       {loading ? (
-        <div className="flex justify-center items-center py-10">
-          <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-        </div>
+       <BlueSpinLoder/>
       ) : jobs.length === 0 ? (
         <p className="text-center text-gray-500">No job applications available.</p>
       ) : (
