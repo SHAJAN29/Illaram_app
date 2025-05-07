@@ -19,7 +19,7 @@ interface ProgramProps {
   popular:boolean;
 }
 
-const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights,duration,mostPopular}) => {
+const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights,duration,mostPopular,popular}) => {
   const router = useRouter();
 
   // Type definition for decoded JWT token
@@ -141,8 +141,8 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
         <div className="relative">
           {/* Badge */}
           
-            <div className={`absolute top-0 right-0 px-3 py-1  ${mostPopular?"bg-orange-600":"bg-emerald-600"} text-white text-xs font-medium rounded-full shadow-sm`}>
-             {mostPopular? "Most-Popular" :'Popular'}
+            <div className={`absolute top-0 right-0 px-3 py-1  ${mostPopular?"bg-orange-600": (popular ? "bg-emerald-600" : "")} text-white text-xs font-medium rounded-full shadow-sm`}>
+             {mostPopular ? "Most-Popular" : (popular ? "Popular" : "")}
             </div>
           
     

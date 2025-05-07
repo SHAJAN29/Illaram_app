@@ -15,12 +15,13 @@ interface CardDefaultProps {
   title: string;
   description: string;
   image: string; // Added the missing 'image' property
+  pageLink: string; // Added pageLink property
 }
 
 export const CardDefault: React.FC<CardDefaultProps> = ({
   title,
   description,
-  image,
+  image, pageLink
 }) => {
   const router = useRouter();
 
@@ -28,7 +29,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
     <Card
       className="mt-6 p-0 w-96 h-[30rem] rounded-2xl duration-300 hover:shadow-2xl cursor-pointer bg-[#Ffffff]"
       placeholder="Card Placeholder"
-      onClick={() => router.push("/servicees")}
+      onClick={() => router.push(`/servicees/${pageLink}`)}
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
     >
@@ -72,7 +73,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({
         onPointerLeaveCapture={() => {}}
       >
         <Button
-          onClick={() => router.push("/servicees")}
+          onClick={() => router.push(`/servicees/${pageLink}`)}
           className="btn btn-blue w-full m-0"
           placeholder="Button Placeholder"
           onPointerEnterCapture={() => {}}

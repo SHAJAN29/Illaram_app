@@ -86,9 +86,32 @@
   }
 }
 
+/* globals.scss */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
 
 
-/* styles/globals.css or your component-specific CSS file */
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+/* styles/globals.scss or your component-specific CSS file */
 
 /* .review-carousel-container {
   max-width: 800px;

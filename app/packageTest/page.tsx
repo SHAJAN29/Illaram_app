@@ -4,7 +4,8 @@ import ProgramCard from "@/components/ProgramCard";
 import { useParams } from "next/navigation";
 import { CheckCircleIcon } from "@heroicons/react/24/solid"; // Import the icon (Heroicons v2)
 
-import { programList } from "@/constants/index"; // Import your program list from constants
+import  {programList}  from "@/constants/index"; // Import your program list from constants
+
 const Programs = () => {
   const params = useParams();
   console.log("Params: ", params);  // Log the params to see what it returns

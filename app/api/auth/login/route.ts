@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       { userId: user._id, role: user.role , username: user.username },
       // { userId: user._id, role: user.role },
       process.env.JWT_SECRET!,
-      { expiresIn: '7d' }
+      { expiresIn: '1d' }
     );
     return NextResponse.json({  token, role: user.role, email: user.email, username: user.username }, { status: 200 });
 

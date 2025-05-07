@@ -10,12 +10,103 @@ export const NAV_LINKS = [
   { href: "/products", key: "products", label: "Products" },
 ];
 
+export const programList = [
+ 
+  {
+    title: "❤️ 100days pre wedding program",
+    description: "A 100-days journey into Achieve your ideal look and feel amazing on your big day.",
+    price: 94539,
+    popular: true,
+    mostPopular: true,
+    duration:" 100 days",
+    highlights: [
+      " Personalized diet and fitness plan",
+      " Personalized supplements and nutrition plans",
+      " Skin and hair treatments",
+      " Personalized Beauty and Hair care plans",
+      " Guided meditations and exercises",
+      " Weekly coaching sessions",
+      " Emotional coaching & relationship support",
+      " Personalized progress tracking", 
+      " 24/7 access to wellness experts",
+      " 1 year free subscribtion to our app",
+      " 10000 rupees credit points in wallet",
+      " 100% money back guarantee!",
+     
+    
+    ]
+  },
+
+{
+  title: '✨ Beauty Enhancement Program',
+  description: 'Targeted skin & hair treatments for your big day.',
+  price: 89994,popular: true, duration:" 100 days",   highlights: [
+    " Personalized Beauty and Hair care plans for your hair and skin type.",
+    "Personalized diet and yoga plan",
+    " Personalized supplements and nutrition plans",
+    " Skin and hair treatments",
+    " 24/7 access to wellness experts",
+      " 1 year free subscribtion to our app",
+      " 10000 rupees credit points in wallet",
+      " 100% money back guarantee!",
+  ]
+},
+{
+  title: '💪 Physical Conditioning Program',
+  description: 'Sculpt your body with personalized training + diet.',
+  price: 79994,  popular: true, duration:" 3 months",  highlights: [
+    " Personalized diet and fitness plan",
+    " Personalized supplements and nutrition plans",
+    " Strenght and Endourance training",
+    "Personalized progress tracking",
+    " 24/7 access to wellness experts",
+    " 1 year free subscribtion to our app",
+    " 10000 rupees credit points in wallet",
+    " 100% money back guarantee!",
+  ]
+},
+{
+  title: '🧠 Mind-Prep Program',
+  description: 'Get mentally and emotionally prepared for marriage.',
+  price: 12999, duration:" 1 month",   highlights: [
+    "Live weekly coaching sessions",
+    "Guided meditations and exercises",
+    "Personalized progress tracking"
+  ]
+},
+{
+  title: 'payment test card',
+  description: 'Get mentally and emotionally prepared for marriage.',
+  price: 1,duration:" Payment check",  highlights: [
+    "Live weekly coaching sessions",
+    "Guided meditations and exercises",
+    "Personalized progress tracking"
+  ]
+},
+{
+  title: 'Yearly Subscription',
+  description: 'Get personalized care and support all year round.',
+  price: 24994, popular: true, duration:"1 year", highlights: [
+    "Monthly health checkups",
+    "Personalized supplements and nutrition plans",
+    " Personalized fitness plan",
+    "Personalized progress tracking"
+  ]
+},
+];
+
+
+
+
+
 export const Service_card_details = [
   {
     title: "Physical Condationing Program",
 image:"https://cdn.pixabay.com/photo/2019/06/27/11/21/red-blood-cell-4302093_1280.jpg?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       " It helps enhance overall physical performance,boosts energy levels, stamina, and supports long-term health and wellness.",
+      pageLink:"Physical"
+     
   },
 
   {
@@ -23,12 +114,14 @@ image:"https://cdn.pixabay.com/photo/2019/06/27/11/21/red-blood-cell-4302093_128
     image:"https://images.unsplash.com/photo-1494774157365-9e04c6720e47?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "It typically includes personalized fitness , nutritional guidance, skincare treatments, and stress management techniques. helps individuals feel their best on their special day.",
+      pageLink:"100-days-prewedding-plan"
   },
 
   {
     title: "The Beauty Enhancement Program",
     image:"https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ,  description:
       "This program focuses on improving skin health, managing hair care, and providing professional beauty treatments ,The goal is to empower individuals to present their best selves on the wedding day.",
+       pageLink:"Beauty"
   },
 ];
 
@@ -78,28 +171,28 @@ export const blogPosts = [
 
 
 
-export const programList = [
-  {
-    title: '🔥 100-Day Pre-Wedding Program',
-    description: 'A holistic glow-up from the inside out.',
-    price: 4999,
-  },
-  {
-    title: '✨ Beauty Enhancement Program',
-    description: 'Targeted skin & hair treatments for your big day.',
-    price: 2999,
-  },
-  {
-    title: '💪 Physical Conditioning Program',
-    description: 'Sculpt your body with personalized training + diet.',
-    price: 3499,
-  },
-  {
-    title: '🧠 Mind-Prep Program',
-    description: 'Get mentally and emotionally prepared for marriage.',
-    price: 1999,
-  },
-];
+// export const programLists = [
+//   {
+//     title: '🔥 100-Day Pre-Wedding Program',
+//     description: 'A holistic glow-up from the inside out.',
+//     price: 4999,
+//   },
+//   {
+//     title: '✨ Beauty Enhancement Program',
+//     description: 'Targeted skin & hair treatments for your big day.',
+//     price: 2999,
+//   },
+//   {
+//     title: '💪 Physical Conditioning Program',
+//     description: 'Sculpt your body with personalized training + diet.',
+//     price: 3499,
+//   },
+//   {
+//     title: '🧠 Mind-Prep Program',
+//     description: 'Get mentally and emotionally prepared for marriage.',
+//     price: 1999,
+//   },
+// ];
 
 
 
@@ -177,7 +270,7 @@ export default feedbackData;
 
 export const contactNumber ={
 
-phoneNumber:+918778919303,
+phoneNumber:8778919303,
 whatsAppNumber:+918778919303,
 
 

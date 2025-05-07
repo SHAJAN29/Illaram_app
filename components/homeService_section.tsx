@@ -43,11 +43,12 @@ const HomeService_section = () => {
             <span className="illaramPrimary">inside and out. 100% natural</span>
           </p>
         </div>
-        {Service_card_details.map(({ title, description, image }, index) => (
+        {Service_card_details.map(({ title, description, image ,pageLink}, index) => (
           <CardDefault
             key={index}
             title={title}
             image={image}
+            pageLink={pageLink}
             description={description}
           />
         ))}

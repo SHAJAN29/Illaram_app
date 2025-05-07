@@ -5,6 +5,7 @@ import HomeService_section from "@/components/homeService_section";
 import Illaram_Journey from "@/components/Illaram_Journey";
 import { Join_our_community } from "@/components/Join_our_community";
 import "../../app/globals.css";
+import Typewriter from "typewriter-effect";
 // This is a client component
 
 //bg-[url(/img/mountains.jpg)]
@@ -16,6 +17,8 @@ import Image from "next/image";
 import ScrollToTopButton from "@/small_components/scroolButton";
 import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
+import WhyChooseUs from "app/servicees/component/WhyChooseUS";
+import { ExcellenceCard } from "@/components/ExellenceCard";
 
 const Home = () => {
   return (
@@ -26,8 +29,14 @@ const Home = () => {
           <h1 className="text-primary text-white font-[poppins] mt-10">
             Are you Ready for {""}
             <span className="text-teal-200 font-extrabold">
-              Marriage ?
-            </span>{" "}
+    <Typewriter
+      options={{
+        strings: ["Marriage?", "New Beginning?", "Healthier You?"],
+        autoStart: true,
+        loop: true,
+      }}
+    />
+  </span>{" "}
           </h1>
           <p className="text-gray-100 capitalize pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
             present you'r most beautiful version with confidence infront of your
@@ -47,6 +56,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <WhyChooseUs />
+      <ExcellenceCard />
       <HomeService_section />
       <Join_our_community />
       <Illaram_Journey />

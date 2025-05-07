@@ -1,19 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { title } from "process";
+
 import React from "react";
 import "../../app/globals.css";
-import { Card } from "@material-tailwind/react";
-import Hair_Fall_Queries from "@/small_components/Hair_Fall_Queries";
-import ReviewCarousel from "@/small_components/ReviewCarousel";
-import ServicesSection from "@/components/serviceSection";
-import ServicesSectionCopy from "@/components/ServicesSectionCopy";
-import CTASection from "@/components/CTASection";
-import Link from "next/link";
-import { FaSpa } from "react-icons/fa";
-import { useRouter } from "next/navigation";
+
 
 // const servicees = () => {
 //   const servicelist = [
@@ -148,7 +138,7 @@ import Testimonials from './component/Testimonials';
 import CTA from './component/CTA';
 import PainPoints from "./component/PainPoints";
 import WhyChooseUs from "./component/WhyChoose";
-import FloatingCTA from "@/components/FloatingCTA";
+
 
 
 export default function Home() {
