@@ -62,7 +62,7 @@ export const Footer = () => {
               <ul className="text-gray-100 text-sm space-y-3 text-right">
                 {" "}
                 {oficialLinks.map((officals) => (
-                <li key={officals.href} className="">
+                <li key={officals.href} className="text-gray-300">
                   <Link href={officals.href}>{officals.label}</Link>
                 </li>
                 ))}
@@ -72,8 +72,9 @@ export const Footer = () => {
         </div>
 
         {/* Policy Links */}
-        <div>
-          <h3 className="text-lg font-semibold mb-4">Legal</h3>
+       
+          <div>
+          <h3 className="Legal text-lg font-semibold mb-4">Legal</h3>
           <ul className="space-y-2 text-gray-300 text-sm">
             <li>
               <Link href="/privacy-policy" className="hover:text-gray-100">
@@ -95,8 +96,31 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
+    
 
+ {/* Contact */}
+ <div>
+  <h3 className="text-lg font-semibold mb-4">Contact</h3>
+  <ul className="space-y-2 text-gray-300 text-sm">
+    <li>
+      <span className="block font-medium text-white">Customer Support</span>
+    
+      <a href="tel:8778919303" className="hover:text-gray-100">+91 8778919303</a> <br /> {/* Optional number */}
+      <a href="tel:7200318608" className="hover:text-gray-100">+91 7200318608</a>
 
+    </li>
+    <li>
+      <span className="block font-medium text-white">Email</span>
+      <a href="mailto:illaramhealthcare@zohomail.in" className="hover:text-gray-100">
+        illaramhealthcare@zohomail.in
+      </a>
+    </li>
+    <li>
+      <span className="block font-medium text-white">Address</span>
+      <span>Chennai, Tamil Nadu</span> {/* Optional address */}
+    </li>
+  </ul>
+</div>
 
 {        /* hiring */}
 <div>
@@ -104,7 +128,7 @@ export const Footer = () => {
           <ul className="space-y-2 text-gray-300 text-sm">
    
             <li>
-              <Link href="/refund-policy" className="hover:text-gray-100">
+              <Link href="/Hiring" className="hover:text-gray-100">
                 <span className="text-gray-100">Hiring</span>
               </Link>
             </li>
