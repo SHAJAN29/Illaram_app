@@ -47,7 +47,7 @@ const AffiliatePage = () => {
         {/* CTA */}
         <div className="mt-16">
           <Link
-            href="/affiliate-signup"
+            href="/Affiliates/AffiliateSignups"
             className="inline-block bg-[#FF5F37] hover:bg-[#e94d28] transition-all text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg"
           >
           
