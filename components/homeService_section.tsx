@@ -13,7 +13,7 @@ const HomeService_section = () => {
 
 
 
-    <section className="flex flex-col p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <section className="flex flex-col pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div className=" text-left items-center justify-center  max-sm:px-2 md:px-30 lg:px-35">
         {/* <h1 className={`intro_title_h1 text-illaramPrimary pb-5`}>We Offer</h1>
         <p className=" paraGraph w-full text-gray-600 lg:text-2xl md:text-2xl max-sm:text-[17px] mx-auto">
@@ -27,7 +27,7 @@ const HomeService_section = () => {
         <RootCauseSection />
       </div>
 
-      <div className="flex flex-wrap gap-4 items-center justify-center">
+      <div className="flex flex-wrap gap-4 p-5 items-center justify-center">
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
          Replace with your service cards 
         <div className="bg-white p-4 rounded shadow">Service Card 1</div>
