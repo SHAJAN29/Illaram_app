@@ -168,7 +168,7 @@ export default function ManageUsersPage() {
                 <strong>Notes:</strong> {selectedUser?.PhysicalAssessment?.notes ?? 'N/A'}
               </p>
               <Link
-                href={`/admin/dashboard/EditPhysicalAssesment/${selectedUser?.username}`}
+                href={`/admin/dashboard/UserData/EditPhysicalAssesment/${selectedUser?.username}`}
                 className="block text-blue-600 font-semibold"
               >
                 Edit Physical Assessment
@@ -184,7 +184,7 @@ export default function ManageUsersPage() {
                 <strong>Psychological:</strong> {selectedUser?.mentalAssesment?.psychological ?? 'N/A'}
               </p>
               <Link
-                href="/admin/dashboard/EditMentalAssesment"
+                href="/admin/dashboard/UserData/EditMentalAssesment"
                 className="block text-blue-600 font-semibold"
               >
                 Edit Mental Assessment

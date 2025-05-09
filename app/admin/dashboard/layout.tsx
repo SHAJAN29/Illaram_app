@@ -1,10 +1,9 @@
 // app/admin/layout.tsx
 import AdminSidebar from "./component/AdminSidebar"; // Sidebar component for admin
 
-export const Metadata = {
-  title: "Admin Dashboard",
-};
-
+export const metadata = {
+  title: 'Dashboard',
+}
 interface AdminLayoutProps {
   children: React.ReactNode;
 }

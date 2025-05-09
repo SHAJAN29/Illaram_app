@@ -7,11 +7,10 @@ import { FiMenu, FiX } from 'react-icons/fi';
 
 const navItems = [
   { name: 'Dashboard', href: '/admin/dashboard' },
-  { name: 'Settings', href: '/admin/settings' },
-  { name: 'Logout', href: '/logout' },
-  { name: 'Physical Assessment', href: '/admin/dashboard/UserData/PhysicalAssessmentForm' },
   { name: 'Manage Users', href: '/admin/dashboard/manageUsers '},
   {name:"Job Applications", href:"/admin/dashboard/JobApplications"},
+  { name: 'Settings', href: '/admin/settings' },
+  { name: 'Logout', href: '/logout' },
 ];
 
 export default function AdminSidebar() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,7 @@ const validationSchema = Yup.object().shape({
 });
 
 interface AdminPhysicalAssessmentFormProps {
-  userName: string | string[] | undefined;
+  userName: string ;
 }
 
 const AdminPhysicalAssessmentForm: React.FC<
@@ -42,7 +42,13 @@ const AdminPhysicalAssessmentForm: React.FC<
   });
 
   const username = watch("username");
-
+// Pre-fill username and auto-fetch user data
+useEffect(() => {
+  if (userName) {
+    setValue("username", userName); // ✅ Prefill form field
+    fetchUserData();                // ✅ Automatically fetch data
+  }
+}, [userName]);
   // ✅ Auto-fetch on username blur
   const fetchUserData = async () => {
     if (!username) return;
