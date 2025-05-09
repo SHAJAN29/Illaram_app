@@ -1,5 +1,5 @@
 // app/user/dashboard/layout.tsx
-import DashboardNavbar from "../../user/dashboard/components/navDash"; // Path to your dashboard navbar
+import DashboardNavbar from "./components/navDash"; // Path to your dashboard navbar
 
 export const metadata = {
   title: "User Dashboard",

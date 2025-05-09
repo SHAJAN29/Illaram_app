@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import AdminPhysicalAssessmentForm from "../../component/PhysicalAssessmentForm";
+import AdminPhysicalAssessmentForm from "../../../component/PhysicalAssessmentForm";
 import { useParams } from "next/navigation";
 
 const EditPhysicalAssesment = () => {

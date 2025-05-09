@@ -32,27 +32,28 @@ const causes = [
   {
     title: "Gut Health",
     description: "Gut microbiome imbalances can lead to digestive issues and inflammation.",
-    icon: "https://cdn-icons-png.flaticon.com/512/11833/11833168.png",
+    icon: "https://erikajacobsonnutrition.com/wp-content/uploads/2022/02/EJ_Icons-03.png",
   },
   {
     title: "Genetics",
     description: "Inherited traits can predispose you to certain health conditions.",
-    icon: "https://cdn-icons-png.flaticon.com/512/11833/11833168.png",
+    icon: "https://th.bing.com/th/id/OIP.NDrFn9e9D6ybo2vsK54ALwHaKG?cb=iwc1&rs=1&pid=ImgDetMain",
   },
   {
     title: "Nutrition",
     description: "Nutrient deficiencies can lead to various health issues.",
-    icon: "https://cdn-icons-png.flaticon.com/512/11833/11833168.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/4311/4311368.png",
   },
   {
     title: "Sleep",
     description: "Poor sleep quality affects mental and physical health.",
-    icon: "https://cdn-icons-png.flaticon.com/512/11833/11833168.png",
+    icon: "https://th.bing.com/th/id/OIP.McMPbZE7fpGdAqSvEa2EgwHaHa?cb=iwc1&pid=ImgDet&w=474&h=474&rs=1",
   },
   {
     title: "Toxins",
     description: "Environmental toxins can disrupt hormonal and metabolic functions.",
-    icon: "https://cdn-icons-png.flaticon.com/512/11833/11833168.png",
+    ic: "https://png.pngtree.com/png-vector/20231016/ourmid/pngtree-liver-cells-attacked-by-toxins-lobule-png-image_10219274.png",
+    icon:"https://cdn-icons-png.flaticon.com/512/12294/12294705.png"
   },
 ];
 

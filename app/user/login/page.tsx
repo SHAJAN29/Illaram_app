@@ -89,7 +89,7 @@ export default function AdminLogin() {
             placeholder="Enter your username"
             className="w-full mb-3 p-2 border border-gray-300 rounded"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value.trim())}
             required
             disabled={isLoading}
           />
@@ -99,7 +99,7 @@ export default function AdminLogin() {
             <input
               type={showPassword ? "text" : "password"}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value.trim())}
               className="w-full p-2 border border-gray-300 rounded pr-10"
               placeholder="********"
               required

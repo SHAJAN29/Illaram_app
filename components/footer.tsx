@@ -134,7 +134,18 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
-
+        {        /* Exclusive */}
+<div>
+          <h3 className="text-lg font-semibold mb-4">Exclusive</h3>
+          <ul className="space-y-2 text-gray-300 text-sm">
+   
+            <li>
+              <Link href="/servicees/Exclusive" className="hover:text-gray-100">
+                <span className="text-gray-100">Pre-marital</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
 
 
 

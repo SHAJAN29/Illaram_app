@@ -5,7 +5,8 @@ import "./globals.css";
 import { Footer } from "../components/footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { Toaster } from "react-hot-toast";
-import { Navbar } from "@/components/nav";
+import ConditionalLayout from "@/components/ConditionalLayout";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +16,7 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+
 });
 
 export const metadata: Metadata = {
@@ -31,11 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-       <Navbar/>
+      {/* <Navbar /> */}
         <Toaster position="top-center" />
-       {children}
-        <FloatingCTA />
-        <Footer />
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

@@ -1,16 +1,25 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import {Navbar} from '../components/nav';
+import { usePathname } from "next/navigation";
+import { Footer } from "./footer";
+import FloatingCTA from "./FloatingCTA";
+import { Navbar } from "./nav";
 
-export default function ConditionalLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname() || '';
-  const hideNavbar = pathname.startsWith('/dashboard');
+export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const isDashboard = pathname?.startsWith("/user/dashboard") || pathname?.startsWith('/admin');
 
   return (
     <>
-      {!hideNavbar && <Navbar />}
       {children}
+      {!isDashboard && (
+        <>
+        <Navbar />
+          <FloatingCTA />
+          <Footer />
+        </>
+      )}
     </>
   );
 }

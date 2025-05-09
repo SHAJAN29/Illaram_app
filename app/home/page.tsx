@@ -19,6 +19,7 @@ import FAQSection from "@/components/FAQSection";
 import Link from "next/link";
 import WhyChooseUs from "app/servicees/component/WhyChooseUS";
 import { ExcellenceCard } from "@/components/ExellenceCard";
+import RootCauseSection from "@/components/RootCase";
 
 const Home = () => {
   return (
@@ -58,6 +59,8 @@ const Home = () => {
       </div>
       <WhyChooseUs />
       <ExcellenceCard />
+      
+      <RootCauseSection />
       <HomeService_section />
       <Join_our_community />
       <Illaram_Journey />

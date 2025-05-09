@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import Marquee from "react-fast-marquee";
 import "swiper/css";
@@ -59,41 +60,10 @@ const causes = [
 export default function RootCauseSection() {
   return (
     <section className="bg-[#f9fafb] py-20 font-poppins">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#0F766E] mb-4">
-          We Address the <span className="illaramAccent">Root Cause</span>
-        </h2>
-        <p className="max-w-3xl mx-auto text-gray-600 text-base sm:text-lg mb-16">
-          At Illaram, we don’t just treat symptoms. We go deeper to identify and solve the actual root cause.
-        </p>
 
-        {/* Dual Marquees on all screen sizes */}
-        <div className="space-y-6">
-          <Marquee pauseOnHover speed={40}>
-            {causes.slice(0, 5).map((cause, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md p-4 border border-gray-200 mx-3 min-w-[180px] sm:min-w-[220px] text-center"
-              >
-                <img src={cause.icon} alt={cause.title} className="w-10 h-10 mx-auto mb-2" />
-                <h3 className="text-sm sm:text-base font-semibold text-[#0F766E]">{cause.title}</h3>
-              </div>
-            ))}
-          </Marquee>
 
-          <Marquee pauseOnHover speed={40} direction="right">
-            {causes.slice(5).map((cause, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md p-4 border border-gray-200  mx-3 min-w-[180px] sm:min-w-[220px] text-center"
-              >
-                <img src={cause.icon} alt={cause.title} className="w-10 h-10 mx-auto mb-2" />
-                <h3 className="text-sm sm:text-base font-semibold text-[#0F766E]">{cause.title}</h3>
-              </div>
-            ))}
-          </Marquee>
-        </div>
-      </div>
+
+
     </section>
   );
 }
