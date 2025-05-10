@@ -1,6 +1,9 @@
+// ✅ This is the file for: app/admin/dashboard/UserData/PhysicalAssessmentForm/[userName]/page.tsx
+
+
 import BlueSpinLoder from '@/components/Loder/blueSpinLoder';
 import AdminPhysicalAssessmentForm from '../../../component/PhysicalAssessmentForm';
-import { useState, useEffect } from 'react';
+import { Suspense } from 'react';
 
 interface PageProps {
   params: Promise<{
@@ -8,22 +11,18 @@ interface PageProps {
   }>;
 }
 
-export default function Page({ params }: PageProps) {
-  const [userName, setUserName] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+export default async function Page({ params }: PageProps) {
 
-  useEffect(() => {
-    async function fetchData() {
+   
       const { userName } = await params;
-      setUserName(userName);
-      setLoading(false);
-    }
-    fetchData();
-  }, [params]);
+   
+   
 
-  if (loading) {
-    return <BlueSpinLoder />;
-  }
 
-  return <AdminPhysicalAssessmentForm userName={userName!} />;
+  return (
+    <Suspense fallback={<BlueSpinLoder />}>
+      <AdminPhysicalAssessmentForm userName={userName} />
+    </Suspense>
+  );
+    
 }
