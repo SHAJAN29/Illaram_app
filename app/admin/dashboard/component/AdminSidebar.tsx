@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Dashboard', href: '/admin/dashboard' },
   { name: 'Manage Users', href: '/admin/dashboard/manageUsers '},
   {name:"Job Applications", href:"/admin/dashboard/JobApplications"},
+  { name: 'Manage Affiliates', href: '/admin/dashboard/manageAffiliates' },
   { name: 'Settings', href: '/admin/settings' },
   { name: 'Logout', href: '/logout' },
 ];

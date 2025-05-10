@@ -46,6 +46,8 @@ export default function ManageUsersPage() {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showPaidOnly, setShowPaidOnly] = useState(false);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -71,18 +73,20 @@ export default function ManageUsersPage() {
   }, []);
 
   const handleCheckStatus = (user: User) => {
-    setSelectedUser(null); // force reset
-  setTimeout(() => {
-    setSelectedUser(user);
-    setIsDialogOpen(true);
-  }, 0); // delay to ensure re-render
+    setSelectedUser(null);
+    setTimeout(() => {
+      setSelectedUser(user);
+      setIsDialogOpen(true);
+    }, 0);
   };
 
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-  };
+  const handleCloseDialog = () => setIsDialogOpen(false);
 
-
+  const filteredUsers = users.filter((user) => {
+    const matchesName = user.username.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesPayment = !showPaidOnly || user.subscriptionInfo?.status === 'success';
+    return matchesName && matchesPayment;
+  });
 
   if (loading) {
     return (
@@ -93,13 +97,33 @@ export default function ManageUsersPage() {
   }
 
   return (
-    <div className="min-h-screen p-4 sm:p-8 font-[Poppins] bg-gray-50">
+    <div className="min-h-screen p-4 sm:p-8 font-[Poppins] bg-white">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 text-center sm:text-left">
         Manage Users
       </h1>
 
+      {/* Filter UI */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search by name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full sm:w-64 p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+        />
+        <label className="flex items-center gap-2 text-sm text-gray-700">
+          <input
+            type="checkbox"
+            checked={showPaidOnly}
+            onChange={() => setShowPaidOnly(!showPaidOnly)}
+            className="form-checkbox h-4 w-4 text-blue-600"
+          />
+          Paid Users Only
+        </label>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {users.map((user) => (
+        {filteredUsers.map((user) => (
           <Card key={user._id} className="rounded-xl border border-gray-200 bg-white shadow-sm" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             <CardBody className="p-4 space-y-2" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               <h2 className="text-lg font-semibold text-gray-800">{user.username}</h2>
@@ -128,13 +152,13 @@ export default function ManageUsersPage() {
               <p className="text-sm text-gray-500">Duration: {user.subscriptionInfo?.duration ?? 'N/A'}</p>
 
               <div className="flex flex-wrap justify-end mt-4 gap-2">
-                <Button variant="outlined" size="sm"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <Button variant="outlined" size="sm" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   <Pencil className="w-4 h-4 mr-1" /> Edit
                 </Button>
-                <Button variant="outlined" size="sm"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <Button variant="outlined" size="sm" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   <Trash2 className="w-4 h-4 mr-1" /> Delete
                 </Button>
-                <Button size="sm" className="btn btn-blue" onClick={() => handleCheckStatus(user)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <Button size="sm" className="btn btn-blue" onClick={() => handleCheckStatus(user)}  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                   Check Status
                 </Button>
               </div>
@@ -143,89 +167,35 @@ export default function ManageUsersPage() {
         ))}
       </div>
 
-      {/* Dialog */}
-      {/* Popup Dialog */}
       {isDialogOpen && (
-        <div className="fixed inset-0 flex items-center justify-center  bg-white/30 backdrop-blur-sm z-50">
-          <div
-            className={`bg-white p-6 rounded-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 max-h-[90vh] overflow-y-auto font-[Poppins]`}
-          >
-            <DialogHeader  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-              {`Assessment - ${selectedUser?.username ?? 'N/A'}`}
-            </DialogHeader>
-            <DialogBody className="text-sm space-y-4" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <div className="fixed inset-0 flex items-center justify-center bg-white/30 backdrop-blur-sm z-50">
+          <div className="bg-white p-6 rounded-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 max-h-[90vh] overflow-y-auto font-[Poppins]">
+            <DialogHeader placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>{`Assessment - ${selectedUser?.username ?? 'N/A'}`}</DialogHeader>
+            <DialogBody className="text-sm space-y-4"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
               <h3 className="font-semibold text-gray-800">Physical Assessment</h3>
-              <p>
-                <strong>Height:</strong> {selectedUser?.PhysicalAssessment?.height ?? 'N/A'}
-              </p>
-              <p>
-                <strong>Weight:</strong> {selectedUser?.PhysicalAssessment?.weight ?? 'N/A'}
-              </p>
-              <p>
-                <strong>BMI:</strong> {selectedUser?.PhysicalAssessment?.bmi ?? 'N/A'}
-              </p>
-              <p>
-                <strong>Notes:</strong> {selectedUser?.PhysicalAssessment?.notes ?? 'N/A'}
-              </p>
-              <Link
-                href={`/admin/dashboard/UserData/EditPhysicalAssesment/${selectedUser?.username}`}
-                className="block text-blue-600 font-semibold"
-              >
+              <p><strong>Height:</strong> {selectedUser?.PhysicalAssessment?.height ?? 'N/A'}</p>
+              <p><strong>Weight:</strong> {selectedUser?.PhysicalAssessment?.weight ?? 'N/A'}</p>
+              <p><strong>BMI:</strong> {selectedUser?.PhysicalAssessment?.bmi ?? 'N/A'}</p>
+              <p><strong>Notes:</strong> {selectedUser?.PhysicalAssessment?.notes ?? 'N/A'}</p>
+              <Link href={`/admin/dashboard/UserData/EditPhysicalAssesment/${selectedUser?.username}`} className="block text-blue-600 font-semibold">
                 Edit Physical Assessment
               </Link>
 
               <hr className="my-3" />
 
               <h3 className="font-semibold text-gray-800">Mental Assessment</h3>
-              <p>
-                <strong>State:</strong> {selectedUser?.mentalAssesment?.state ?? 'N/A'}
-              </p>
-              <p>
-                <strong>Psychological:</strong> {selectedUser?.mentalAssesment?.psychological ?? 'N/A'}
-              </p>
-              <Link
-                href="/admin/dashboard/UserData/EditMentalAssesment"
-                className="block text-blue-600 font-semibold"
-              >
+              <p><strong>State:</strong> {selectedUser?.mentalAssesment?.state ?? 'N/A'}</p>
+              <p><strong>Psychological:</strong> {selectedUser?.mentalAssesment?.psychological ?? 'N/A'}</p>
+              <Link href="/admin/dashboard/UserData/EditMentalAssesment" className="block text-blue-600 font-semibold">
                 Edit Mental Assessment
               </Link>
             </DialogBody>
             <DialogFooter  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-              <Button className="btn btn-blue" onClick={handleCloseDialog} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                Close
-              </Button>
+              <Button className="btn btn-blue" onClick={handleCloseDialog} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>Close</Button>
             </DialogFooter>
-            </div>
+          </div>
         </div>
       )}
     </div>
   );
 }
-
- 
- {/* {user.plan && (
-  <>
-    <p className="text-sm text-gray-700 font-medium">
-      Program: {user.plan.programName}
-    </p>
-    <p className="text-sm text-gray-600">
-      Duration: {user.plan.duration}
-    </p>
-    <p className="text-sm text-gray-600">
-      Payment: ₹{user.plan.amount ?? '0'} - {user.plan.status ?? 'N/A'}
-    </p>
-    <p className="text-sm text-gray-500">
-      Date: {user.plan.createdAt ? new Date(user.plan.createdAt).toLocaleDateString() : 'N/A'}
-    </p>
-    {user.plan.startDate && (
-      <p className="text-sm text-gray-500">
-        Start: {new Date(user.plan.startDate).toLocaleDateString()}
-      </p>
-    )}
-    {user.plan.endDate && (
-      <p className="text-sm text-gray-500">
-        End: {new Date(user.plan.endDate).toLocaleDateString()}
-      </p>
-    )}
-)}
-)} */}
