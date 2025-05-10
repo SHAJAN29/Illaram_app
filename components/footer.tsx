@@ -25,10 +25,7 @@ const oficialLinks = [{
   href: "/admin/login",
   label: "Admin login",
 },
-{
-  href: "/packageTest",
-  label: "Pricing",
-},
+
 
 ];
 
