@@ -8,7 +8,17 @@ import * as Yup from "yup";
 
 const JobsPage = () => {
   const router = useRouter();
-  
+  const jobRoles = [
+  "Full Stack Developer",
+  "Junior Full Stack Developer",
+  "UI/UX Designer",
+  "Marketing Executive",
+  "Data Analyst",
+  "Content Writer",
+  "HR Manager",
+  "Customer Relationship Manager"
+];
+  const [selectedJobRole, setSelectedJobRole] = useState("");
   // Yup Validation Schema
   const validationSchema = Yup.object({
     name: Yup.string().required("Full name is required"),
@@ -20,6 +30,7 @@ const JobsPage = () => {
       )
       .required("Phone number is required"),
     message: Yup.string().required("Please provide a message or cover letter"),
+    jobRole: Yup.string().required("Please select a job role"),
    
   });
 
@@ -29,7 +40,7 @@ const JobsPage = () => {
     formData.append("email", values.email);
     formData.append("phone", values.phone);
     formData.append("message", values.message);
-
+formData.append("jobRole", values.jobRole);
   try {
     const res = await fetch("/api/employers/jobs", {
       method: "POST",
@@ -55,7 +66,7 @@ const JobsPage = () => {
 };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 mt-20">
+    <div className="max-w-3xl mx-auto font-[poppins] p-6 mt-20">
       <ToastContainer />
       <h1 className="text-2xl font-semibold mb-6 text-center">Join Our Team</h1>
 
@@ -66,6 +77,7 @@ const JobsPage = () => {
           phone: "",
           message: "",
           resume: null,
+          jobRole: "", // new field
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -114,7 +126,31 @@ const JobsPage = () => {
               />
             </div>
 
-            <div>
+
+<div>
+  <label className="block mb-2 text-sm font-medium">Job Role</label>
+  <Field
+    as="select"
+    name="jobRole"
+    className="w-full border border-gray-300 px-4 py-2 rounded"
+  >
+    <option value="">Select a job role</option>
+    {jobRoles.map((role) => (
+      <option key={role} value={role}>
+        {role}
+      </option>
+    ))}
+  </Field>
+  <ErrorMessage
+    name="jobRole"
+    component="div"
+    className="text-red-500 text-xs mt-1"
+  />
+</div>
+
+
+
+                   <div>
               <label className="block mb-2 text-sm font-medium">Message / Cover Letter</label>
               <Field
                 as="textarea"
@@ -128,6 +164,7 @@ const JobsPage = () => {
                 className="text-red-500 text-xs mt-1"
               />
             </div>
+
 
         
             <button

@@ -17,6 +17,7 @@ export async function POST(req: Request) {
     const email = formData.get("email") as string;
     const phone = formData.get("phone") as string;
     const message = formData.get("message") as string;
+        const jobRole = formData.get("jobRole") as string; // ✅ Add this line
  
 
     if (!name || !email || !phone || !message ) {
@@ -30,9 +31,10 @@ export async function POST(req: Request) {
       email,
       phone,
       message,
+          jobRole, // ✅ Include jobRole in DB creation
     });
 
-    return NextResponse.json({ success: true, message: "Application submitted successfully!", job }, { status: 201 });
+    return NextResponse.json({ success: true,  message: `,Application submitted successfully! ${name}!`, job }, { status: 201 });
   } catch (err) {
     console.error("Submission error:", err);
     return NextResponse.json({ success: false, error: "Something went wrong. Please try again." }, { status: 500 });

@@ -6,6 +6,7 @@ const JobApplicationSchema = new mongoose.Schema({
   email: { type: String, required: true, match: /.+\@.+\..+/ },
   phone: { type: String, required: true, match: /^[0-9]{10}$/ },
   message: { type: String, required: true },
+  jobRole: { type: String, required: true }, // ✅ Add this field
  // optional – if you store resumes in cloud (e.g. S3)
   createdAt: {
     type: Date,
