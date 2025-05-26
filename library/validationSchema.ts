@@ -19,7 +19,7 @@ export const appointmentSchema = yup.object().shape({
   .required("Full name is required")
   .min(3, "Name must be at least 3 characters"),
   email: yup
-  .string()
+  .string().email("Invalid email")
   .required("Email is required")
   .matches(
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
@@ -30,8 +30,9 @@ phone: yup
   .matches(/^[6-9]\d{9}$/, "Phone must be a valid 10-digit Indian number")
   .required("Phone is required"),
 service: yup.string().required("Please select a service"),
-message: yup
-  .string()
-  .max(500, "Message should be under 500 characters")
-  .notRequired(),
+ message: yup.string().when("service", (service: any, schema) => {
+  return service === "Others"
+    ? schema.required("Please describe the service.")
+    : schema;
+}),
 });

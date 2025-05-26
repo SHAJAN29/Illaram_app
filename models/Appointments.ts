@@ -4,7 +4,7 @@ const AppointmentSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Name is required"],
+      required: [true, "Full Name is required"],
       trim: true,
     },
     email: {

@@ -21,6 +21,7 @@ export default function SignupForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const router = useRouter();
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -36,9 +37,8 @@ export default function SignupForm() {
     setError(null);
     console.log("📩 Form data submitted:", formData);
     try {
-      // 🔐 Validate form data
       await appointmentSchema.validate(formData, { abortEarly: false });
-      setErrors({}); // Clear previous errors if validation passes
+      setErrors({});
       const now = new Date();
       const appointmentDate = now.toLocaleString("en-IN", {
         timeZone: "Asia/Kolkata",
@@ -50,9 +50,8 @@ export default function SignupForm() {
         minute: "2-digit",
       });
 
-      // Replace this URL with your API route for storing in MongoDB
       const res = await axios.post("/api/appointment/notify", {
-        ...formData, // 🔥 this is the key fix
+        ...formData,
         appointmentDate,
       });
 
@@ -65,15 +64,10 @@ export default function SignupForm() {
           service: "",
           message: "",
         });
-
         console.log("Form submitted successfully!", res);
-      }
-
-      if (res.status === 200) {
         setMessage("✅ Appointment confirmed! Check your email.");
-        // Optional delay for smoother UX (like 1.5s to show success)
         setTimeout(() => {
-          router.push("/"); // ✅ redirect to home page
+          router.push("/");
         }, 1500);
       } else {
         setError("Something went wrong. Please try again.");
@@ -84,7 +78,7 @@ export default function SignupForm() {
         err.inner.forEach((e: any) => {
           if (e.path) fieldErrors[e.path] = e.message;
         });
-        setErrors(fieldErrors); // 🧠 Update UI with these
+        setErrors(fieldErrors);
       } else {
         setError("Something went wrong. Try again.");
       }
@@ -92,10 +86,11 @@ export default function SignupForm() {
       return;
     }
   };
+
   return (
     <section className="py-20 mt-30 mb-20 px-4 bg-illaram-cream h-screen">
-      <div className="max-w-2xl mx-auto  text-center">
-        <h2 className="text-3xl font-bold mb-6  text-gray-800">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">
           {submitted ? "Booked" : "Book"} Your Free Consultation
         </h2>
         <p className="text-gray-600 mb-10">
@@ -121,6 +116,7 @@ export default function SignupForm() {
             {errors.name && (
               <p className="text-red-600 text-sm mt-1">{errors.name}</p>
             )}
+
             <input
               name="email"
               type="email"
@@ -133,6 +129,7 @@ export default function SignupForm() {
             {errors.email && (
               <p className="text-red-600 text-sm mt-1">{errors.email}</p>
             )}
+
             <input
               name="phone"
               type="tel"
@@ -145,6 +142,7 @@ export default function SignupForm() {
             {errors.phone && (
               <p className="text-red-600 text-sm mt-1">{errors.phone}</p>
             )}
+
             <select
               name="service"
               required
@@ -153,24 +151,31 @@ export default function SignupForm() {
               className="w-full p-3 border border-gray-300 rounded-xl"
             >
               <option value="">Select a Service</option>
-              <option value="Physical Conditioning">
-                Physical Conditioning
-              </option>
-              <option value="100-Day Transformation">
-                100-Day Pre-Wedding Transformation
-              </option>
-              <option value="Personality Enhancement">
-                Personality Enhancement
-              </option>
+              <option value="Physical Conditioning">Hair care</option>
+              <option value="100-Day Transformation">Skin care</option>
+              <option value="Personality Enhancement">Weightloss</option>
+              <option value="Others">Others</option>
             </select>
-            <textarea
-              name="message"
-              placeholder="Anything you'd like us to know?"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-3 border capitalize border-gray-300 rounded-xl"
-            />
+            {errors.service && (
+              <p className="text-red-600 text-sm mt-1">{errors.service}</p>
+            )}
+
+            {formData.service === "Others" && (
+              <>
+                <textarea
+                  name="message"
+                  placeholder="Please specify your service"
+                  rows={4}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full p-3 border capitalize border-gray-300 rounded-xl"
+                />
+                {errors.message && (
+                  <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                )}
+              </>
+            )}
 
             <button
               type="submit"

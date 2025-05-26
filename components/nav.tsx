@@ -104,7 +104,7 @@ export const Navbar = () => {
           <div
             className={`menu ${
               menubar ? "open" : ""
-            } flex justify-end w-full h-full bg-primary  text-white p-5 lg:p-4`}
+            } flex justify-end w-full h-full bg-primary  text-primaryColor p-5 lg:p-4`}
           >
             <ul className="menu-list flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
