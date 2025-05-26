@@ -44,4 +44,9 @@ export default {
     },
   },
   darkMode: 'class',
+    plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+ 
+    ],
 }
