@@ -25,6 +25,7 @@ import RootCauseSection from "@/components/RootCase";
 import WeightlossComponent from "@/components/weightloss/WeightlossComponent";
 import CorprateWellness from "app/servicees/component/corprateWellness";
 import CorprateWellnessCard from "@/components/weightloss/CorprateWellnessCard";
+import Pricing from "@/components/subcription/subscribtion";
 
 const Home = () => {
   return (
@@ -75,6 +76,7 @@ const Home = () => {
       <HomeService_section />
       {/* <Join_our_community /> */}
       <Illaram_Journey />
+      <Pricing />
       <Home_Testimony />
       <FAQSection />
       {/* <ScrollToTopButton /> */}

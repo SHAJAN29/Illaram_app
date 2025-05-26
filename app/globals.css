@@ -59,7 +59,7 @@
 .text-primaryColor{
   @apply text-[#3b3c3a] 
 }
-.text-secondary{
+.text-secondaryColor{
   @apply text-[#94c159] 
 }
 
