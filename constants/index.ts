@@ -93,6 +93,16 @@ export const programList = [
     "Personalized progress tracking"
   ]
 },
+{
+  title: 'monthly Subscription',
+  description: 'Get personalized care and support all year round.',
+  price: 2899, popular: true, duration:"1 month", highlights: [
+    "Monthly health checkups",
+    "Personalized supplements and nutrition plans",
+    " Personalized fitness plan",
+    "Personalized progress tracking"
+  ]
+},
 ];
 
 

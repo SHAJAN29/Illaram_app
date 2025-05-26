@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Counter from "./ExelenceCounter/Counter";
 
 const excellenceStats = [
@@ -11,23 +11,21 @@ const excellenceStats = [
   { value: "1 App", label: "All-in-One Health Tracking" },
 ];
 
-
-
 export const ExcellenceCard = () => {
   const [clicked, setClicked] = useState(false);
-
-  const handleClick = () => {
-    setClicked(!clicked);
-  };
+  const handleClick = () => setClicked(!clicked);
 
   return (
-    <section className="bg-gray-50 rounded-3xl p-10 max-w-5xl mx-auto my-20 text-center">
+    <section className="rounded-3xl p-10 max-w-5xl mx-auto my-20 text-center" style={{ backgroundColor: "#f4f7f0" }}>
       <div className="mb-6">
-        <h2 className="text-5xl font-bold capitalize text-[#0F766E]">
-        trusted <span className="illaramAccent">healthcare</span>  plartform
+        <h2 className="text-5xl font-bold capitalize" style={{ color: "#97c25f" }}>
+          trusted <span className="font-semibold text-gray-700">healthcare</span> platform
         </h2>
-        <p className="text-gray-600 mt-4 text-lg leading-relaxed">
-          We help adults achieve long-term health through <span className="font-semibold">expert guidance, personalized plans, and consistent tracking — all in one place.</span> 
+        <p className="mt-4 text-lg leading-relaxed text-gray-500">
+          We help adults achieve long-term health through{" "}
+          <span className="font-semibold text-gray-700">
+            expert guidance, personalized plans, and consistent tracking — all in one place.
+          </span>
         </p>
       </div>
 
@@ -35,23 +33,20 @@ export const ExcellenceCard = () => {
         {excellenceStats.map((item, idx) => (
           <div key={idx} className="flex flex-col items-center text-center">
             {typeof item.value === "number" ? (
-              <Counter target={item.value} />
+              <div className="text-[#d8ddd1]" style={{ color: "#97c25f" }}>
+                <Counter target={item.value} />
+              </div>
             ) : (
-              <div className="text-2xl font-bold text-teal-700">{item.value}</div>
+              <div className="text-2xl font-bold " style={{ color: "#97c25f" }}>
+                {item.value}
+              </div>
             )}
-            <p className="mt-2 text-gray-600 font-medium">{item.label}</p>
+            <p className="mt-2 text-gray-500 font-medium">{item.label}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-10">
-        <button
-          onClick={handleClick}
-          className="btn btn-blue font-bold py-2 px-4 rounded-full transition duration-300 hover:bg-teal-700"
-        >
-          {clicked ? "You clicked me!" : "Click me to toggle"}
-        </button>
-      </div>
+  
     </section>
   );
 };

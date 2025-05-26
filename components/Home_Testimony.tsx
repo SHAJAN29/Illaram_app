@@ -4,9 +4,9 @@ import React from "react";
 
 export const Home_Testimony = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen p-10 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <section className="flex items-center justify-center mt-10 mb-10 gap-16 ">
       <div className="flex flex-col text-center items-center justify-center gap-4 ">
-        <Hair_Fall_Queries />
+        {/* <Hair_Fall_Queries /> */}
         <ReviewCarousel />
       </div>
     </section>

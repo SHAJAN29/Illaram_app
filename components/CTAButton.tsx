@@ -11,7 +11,7 @@ export default function CTAButton({
     label = 'Book Free Consultation',
     phoneNumber = contactNumber.phoneNumber,
     onClick,
-    className = 'btn btn-blue',
+    className = 'bg-[#7bcc11] ',
 }: CTAButtonProps) {
     const handleClick = () => {
         if (onClick) {
@@ -23,7 +23,7 @@ export default function CTAButton({
     return (
         <button
             onClick={handleClick}
-            className={`px-6 py-3 btn btn-blue rounded-full font-semibold hover:bg-pink-700 transition ${className}`}
+            className={`px-6 py-3  rounded-full font-semibold hover:bg-pink-700 transition ${className}`}
         >
             {label}
         </button>

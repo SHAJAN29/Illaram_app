@@ -1,84 +1,44 @@
 "use client";
 
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from "@material-tailwind/react";
 import { useRouter } from "next/navigation";
 
 interface CardDefaultProps {
   title: string;
   description: string;
-  image: string; // Added the missing 'image' property
-  pageLink: string; // Added pageLink property
+  image: string;
+  pageLink: string;
 }
 
-export const CardDefault: React.FC<CardDefaultProps> = ({
-  title,
-  description,
-  image, pageLink
-}) => {
+export const CardDefault: React.FC<CardDefaultProps> = ({ title, description, image, pageLink }) => {
   const router = useRouter();
 
   return (
     <Card
-      className="mt-6 p-0 w-96 h-[30rem] rounded-2xl duration-300 hover:shadow-2xl cursor-pointer bg-[#Ffffff]"
-      placeholder="Card Placeholder"
       onClick={() => router.push(`/servicees/${pageLink}`)}
-      onPointerEnterCapture={() => {}}
-      onPointerLeaveCapture={() => {}}
-    >
-      <CardHeader
-        color="blue-gray"
-        className="relative h-40 rounded-2xl overflow-hidden"
-        placeholder="Header Placeholder"
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-      >
-        <img className="h-full w-full" src={image} />
+      className="w-full max-w-sm rounded-3xl shadow-md hover:shadow-xl  bg-white cursor-pointer transition duration-300 overflow-hidden flex flex-col" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}    >
+      <CardHeader floated={false} className="h-48 overflow-hidden relative"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <img
+          src={image}
+          alt={title}
+          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+        />
       </CardHeader>
-      <CardBody
-        className="p-10 pt-2 sm:pt-5 h-50 overflow-hidden "
-        placeholder="Body Placeholder "
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-      >
-        <Typography
-          variant="h5"
-          className={`mt-2 mb-2 font-semibold max-sm:text-[17px] lg:text-2xl md:text-[20px] illaramPrimary`}
-          placeholder="Title Placeholder"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
+
+      <CardBody className="p-6 flex-1 "  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <Typography variant="h5" className="text-[#97c25f] font-semibold text-xl mb-2 font-[poppins]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {title}
         </Typography>
-        <Typography
-          className={`text-gray-600 mx-auto text-[15px] md:text-[17px]`}
-          placeholder="Description Placeholder"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
+        <Typography className="text-gray-400 text-sm font-[poppins]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {description}
         </Typography>
       </CardBody>
-      <CardFooter
-        className="flex items-center justify-center m-0"
-        placeholder="Footer Placeholder"
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-      >
+
+      <CardFooter className="p-6 pt-0" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <Button
           onClick={() => router.push(`/servicees/${pageLink}`)}
-          className="btn btn-blue w-full m-0"
-          placeholder="Button Placeholder"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
+          className="bg-[#97c25f] text-white font-light w-full rounded-full hover:bg-[#86b653] transition" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           Read More
         </Button>
       </CardFooter>

@@ -17,14 +17,17 @@
   p {
     @apply text-base leading-relaxed;
   }
-}
-@layer base {
-  .bg-primary {
-     @apply bg-gradient-to-r from-teal-700 to-teal-400; 
 
-  }
+ .bg-primary {
+  @apply bg-[#f4f7f0] 
+}
+
+.bg-footer{
+
+  @apply bg-[#101828] 
+}
   .text-primary {
-    @apply text-[#0F766E] max-sm:text-4xl lg:text-9xl md:text-7xl font-extrabold dark:text-white  from-neutral-500;
+    @apply text-[#3b3c3a]  max-sm:text-4xl lg:text-9xl md:text-7xl font-extrabold dark:text-white  from-neutral-500;
     
   }
  .paraGraph{
@@ -43,8 +46,36 @@
 }
 
 
+
+
+.bgSecondary {
+  @apply bg-[#ffffff] 
+}
+
+.bgFooter {
+  @apply bg-[#296d20] 
+}
+
+.text-primaryColor{
+  @apply text-[#3b3c3a] 
+}
+.text-secondary{
+  @apply text-[#94c159] 
+}
+
+.text-paragraph{
+  @apply text-[#a9aba6] 
+}
+
+.text-paragraph2{
+  @apply text-[#d8ddd1] 
+}
+.chatBot-color{
+  @apply text-[#49b93b] 
+}
+
 .illaramPrimary {
-  @apply text-[#0F766E]
+  @apply text-[#f4f7f0] 
 }
 
   .illaramAccent {
@@ -58,7 +89,7 @@
   }
 
 .bgillaramPrimary {
-  @apply bg-[#0F766E]
+  @apply bg-[#f4f7f0]
 
 
 }

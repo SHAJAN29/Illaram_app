@@ -48,14 +48,15 @@ export const Navbar = () => {
   };
 
   return (
-    <>
+    < div >
       <nav
-        className={`flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 text-white p-5 lg:p-4 transition-all duration-300 ${
-          isScrolled ? "bg-[#0F766E] shadow-lg" : "bg-transparent"
+        className={`flex items-center justify-between w-full fixed top-0 left-0 right-0 z-50 text-white lg:p-4 transition-all duration-300 ${
+          isScrolled ? "bg-transparent" : "bg-transparent"
         }`}
       >
-        <Link href={"/"} className="text-2xl font-light">
-          Ilaram
+        <Link href={"/"} className="flex items-center h-20 w-15" >
+        <img src="/illaram logo.png" alt="logo"  />
+          
         </Link>
 
         <ul className="hidden h-full gap-12 lg:flex">
@@ -122,6 +123,6 @@ export const Navbar = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };

@@ -43,7 +43,7 @@ const Counter = ({ target = 1000, duration = 2000 }) => {
   };
 
   return (
-    <div ref={ref} className="text-4xl font-extrabold text-teal-700">
+    <div ref={ref} className="text-4xl font-extrabold text-[#97c25f]">
       {count}+{/* The + is optional for style */}
     </div>
   );

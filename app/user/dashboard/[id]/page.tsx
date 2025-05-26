@@ -86,6 +86,7 @@ export default function UserDashboardPage() {
       <h1 className="text-3xl font-bold capitalize">Welcome, {username}</h1>
       <p className="text-gray-700">Here’s your progress and resources 👇</p>
       <ProgressTracking userId={id} />
+      
     </div>
   );
 }

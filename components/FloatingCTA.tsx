@@ -28,7 +28,7 @@ export default function FloatingCTA() {
     >
       <button
         onClick={handleClick}
-        className="w-14 h-14 bgillaramPrimary hover:bg-pink-700 text-white rounded-full flex items-center justify-center shadow-lg transition"
+        className="w-14 h-14 bg-[#7bcc11] hover:bg-pink-700 text-white rounded-full flex items-center justify-center shadow-lg transition"
         aria-label="Call Now"
       >
         <PhoneIcon className="w-6 h-6" />

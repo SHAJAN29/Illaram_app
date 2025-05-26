@@ -5,28 +5,30 @@ const Hair_Fall_Queries = () => {
   const { phoneNumber } = contactNumber;
 
   return (
-    <div className=" max-sm:h-133 gap-5 font-[harmonia sans] bg-[#148b7c] shadow-sm rounded-lg p-8 mt-2 mb-30 border-[#f9f9f9]">
-      <h3 className="text-white font-bold text-3xl p-5">Any Quries</h3>
-      <p className="text-white max-sm:[17px] md:text-[20px] lg:text-[25px]">
-        Get answers to all your queries by certified doctors & coaches.
+    <div className="bg-[#97c25f] text-white rounded-2xl shadow-lg p-8 sm:p-10 font-[poppins] max-w-3xl mx-auto my-12">
+      <h3 className="text-3xl sm:text-4xl font-extrabold mb-4">Any Queries?</h3>
+
+      <p className="text-base sm:text-lg mb-6 leading-relaxed text-[#f4f7f0]">
+        Get answers to all your hair fall or wellness concerns from certified doctors & lifestyle coaches.
       </p>
 
       <a
         href={`tel:${phoneNumber}`}
-        className="bg-[#ff5f37] hover:bg-[#ff4437] cursor-pointer text-white font-bold py-3 mt-5 px-6 rounded-full transition duration-300 inline-block text-center"
+        className="bg-[#ff5f37] hover:bg-[#ff4437] text-white text-center font-semibold py-3 px-6 rounded-full text-lg inline-block transition duration-300"
       >
         Free Consultation
       </a>
 
-      <p className="text-gray-50 max-sm:[17px] md:text-[20px] lg:text-[25px] mt-5 p-5 pt-5">
-        Let us help you to build the best version of oneself for the wedding
-        day.
+      <p className="text-[#f4f7f0] text-base sm:text-lg mt-6 leading-relaxed">
+        Let us help you become the best version of yourself — naturally, beautifully, and confidently.
       </p>
-      <p className="text-[#f0f0f0] font-bold text-[12px]  pt-5 uppercase">
-        Don't think twice,some moments are priceless,
-        <br className="text-white" /> this is one of them.
+
+      <p className="text-[#f4f7f0] font-semibold text-sm uppercase tracking-wide mt-6 opacity-90">
+        Don’t think twice — some moments are priceless.
+        <br /> This is one of them.
       </p>
     </div>
   );
 };
+
 export default Hair_Fall_Queries;

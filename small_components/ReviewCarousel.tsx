@@ -16,20 +16,20 @@ const ReviewCarousel = () => {
   };
 
   return (
-    <div className=" w-xs lg:w-[800px] md:w-[600px] text-center p-3 mt-10 mb-10 mx-auto">
-      <h2>
-        What Our <span className="illaramPrimary"> Clients</span> Say
+    <div className=" w-xs lg:w-[800px] md:w-[600px] text-center p-3  font-[poppins]">
+      <h2 className="text-[#3b3c3a]">
+        What Our <span className="text-[#94c159] "> Clients</span> Say
       </h2>
       <Slider {...settings}>
         {feedbackData.map((review) => (
           <div
             key={review.id}
-            className="bg-[#fffcfc] dark:bg-[#fcf8f8] shadow-sm rounded-lg p-8 mt-2 mb-2  "
+            className="bg-[#fffcfc] shadow-sm rounded-lg p-8 mt-2 mb-2  "
           >
             <p className="text-[16px] lg:text-3xl text-gray-600 ">
               "{review.feedback}"
             </p>
-            <h3 className="reviewer-name">- {review.name}</h3>
+            <h3 className="reviewer-name text-[#3b3c3a]">- {review.name}</h3>
             <div className="review-rating">
               {/* Render the rating */}
               {Array.from({ length: review.rating }).map((_, index) => (

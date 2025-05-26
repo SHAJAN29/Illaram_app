@@ -3,7 +3,7 @@
 
 import Head from 'next/head';
 
-export default function StressRelief() {
+export default function CorprateWellness() {
   const customColor = {
     prim: "#97c25f",    // primary green
     sec: "gray-500",    // secondary gray

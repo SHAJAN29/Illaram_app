@@ -60,20 +60,21 @@ import Typewriter from "typewriter-effect";
 
 const WhyChooseUs = () => {
     const loopedReasons = [...reasons, ...reasons];
-  
+      const customColor ={prim:"#97c25f", sec:"gray-500", bg:"#f4f7f0"}
+    const {prim,sec}=customColor
     return (
       <section className=" py-14 overflow-hidden">
     
   
-        <div className="relative w-full">
+        <div className="relative w-full bg-[#f4f7f0]">
           <div className="flex gap-20 animate-marquee whitespace-nowrap  w-max hover:paused">
             {loopedReasons.map((reason, index) => (
               <div
                 key={index}
                 className="flex flex-col items-center min-w-[180px] backdrop-blur-md bg-white/60 border border-white/30 rounded-xl  px-4 py-6 "
               >
-                <div className=" illaramAccent mb-3">{reason.icon}</div>
-                <p className="text-[15px] font-medium text-gray-700 text-center">
+                <div className={` text-[${prim}] mb-3`}>{reason.icon}</div>
+                <p className="text-[15px] font-medium text-gray-500 text-center">
                   {reason.title}
                 </p>
               </div>

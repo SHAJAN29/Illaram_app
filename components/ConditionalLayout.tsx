@@ -8,8 +8,9 @@ import { Navbar } from "./nav";
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
-  const isDashboard = pathname?.startsWith("/user/dashboard") || pathname?.startsWith('/admin');
-
+  const isDashboard = pathname?.startsWith("/user/dashboard") || pathname?.startsWith('/admin') ||pathname?.startsWith('/colorTest');
+  const isLogin = pathname?.startsWith("/login");
+  const isRegister = pathname?.startsWith("/register");
   return (
     <>
       {children}
