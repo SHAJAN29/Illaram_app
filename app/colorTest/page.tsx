@@ -182,6 +182,8 @@ const slides = [
       <header className="text-center py-10 bg-pink-100 shadow">
         <h1 className="text-4xl font-bold text-pink-700">Transform Before the Vows</h1>
         <p className="mt-2 text-lg">Pre-Wedding Transformation Platform ,reset and refresh before wedding</p>
+                    <p>Wedding Wellness means The full transformation of body, mind, and heart — to walk into marriage as your most radiant, grounded self.</p>
+        <p className="mt-4 text-sm text-gray-600">Your Illaram healthcare | 8778919303 | insta@illaram-healthcare</p>
       </header>
       <main className="px-4 py-8 max-w-5xl mx-auto space-y-12">
         {slides.map((slide, idx) => (
