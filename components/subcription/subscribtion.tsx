@@ -79,7 +79,7 @@ const Pricing = () => {
           </li>
         ))}
       </ul>
-      <button className="w-full py-3 bg-[#94c159] text-white rounded-xl font-medium hover:bg-teal-700 transition">
+      <button className="w-full py-3 bg-[#94c159] text-white rounded-xl font-medium hover:bg-[#7d9e51] transition">
         Choose Plan
       </button>
     </div>

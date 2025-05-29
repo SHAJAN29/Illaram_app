@@ -1,200 +1,206 @@
-'use client';
+export default function Home() {
+  // const slides = [
+  //   {
+  //     title: "Transform Before the Vows",
+  //     content: "The Leading Pre-Wedding Physical & Beauty Transformation Platform\n\n100 Days to the Best Version of You",
+  //     image: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/13759/images/vasu5PrWQ6SoaOBT2djn_r3n68HsGSzytpYlyrLmq_BLOG_POSTS-2_copy_2_1200x.png"
+  //   },
+  //   {
+  //     title: "The Opportunity",
+  //     content: "- Weddings are one of the biggest life events.\n- $300B+ industry.\n- No centralized transformation platform.",
+  //     image: "https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2022/02/Industry-Report-03-1-e1644910305506.jpg"
+  //   },
+  //   {
+  //     title: "The Problem",
+  //     content: "- Services are disconnected.\n- Overwhelming choices.\n- Missed business opportunities.",
+  //     image: "https://femina.wwmindia.com/content/2021/oct/stressed-out-bridethumb1634021482.jpg"
+  //   },
+  //     {
+  //     image: "https://cff2.earth.com/uploads/2023/05/25095636/Diseases-2-scaled.jpg"
+  //   },
+  //     {
+  //     image: "https://www.top10homeremedies.com/wp-content/uploads/2016/03/health-risks-overweight.jpg"
+  //   },
+  //   {
+  //     image: "https://www.aconsciousrethink.com/wp-content/uploads/2018/08/couple-lack-intimacy-line.jpg"
+  //   },
+  //   {
+  //     title: "Our Solution",
+  //     content: "develovp and manage all health need in one place- 100-day program: Fitness, Beauty, Wellness.\n- Personalized. Integrated. Effective.",
+  //     image: "https://images.squarespace-cdn.com/content/v1/55f3649ae4b0a2423b5a4537/1516151250929-XO7HHGZLUQRVZDZRS6Z9/Natural+airbrush+makeup+and+hair+indian+bride+south+east+easian+beauty+affair+before+after.jpg"
+  //   },
+  //      {
+  //     image: "https://klyker.com/wp-content/uploads/2017/02/awesome-body-transformations-16.jpg"
+  //   },
+  //      {
+     
+  //     image: "https://images.squarespace-cdn.com/content/v1/55f3649ae4b0a2423b5a4537/1516151250929-XO7HHGZLUQRVZDZRS6Z9/Natural+airbrush+makeup+and+hair+indian+bride+south+east+easian+beauty+affair+before+after.jpg"
+  //   },
+  //   {
+  //     title: "Program Highlights",
+  //     content: "- AI fitness/diet\n- Skincare consults\n- Progress tracking\n- Stress relief\n- Photoshoot prep",
+  //     image: "/images/highlights.jpg"
+  //   },
+  //   {
+  //     title: "Why Partner With Us?",
+  //     content: "- Access to premium clients\n- Revenue-sharing\n- Brand exposure\n- Real-time engagement data",
+  //     image: "/images/partners.jpg"
+  //   },
+  //   {
+  //     title: "Target Audience",
+  //     content: "- Engaged couples 22–38\n- Health/image-conscious\n- Urban digital users",
+  //     image: "/images/audience.jpg"
+  //   },
+  //   {
+  //     title: "Business Model",
+  //     content: "- Subscription + affiliate\n- Referral commissions\n- Featured listings",
+  //     image: "/images/business-model.jpg"
+  //   },
+  //   {
+  //     title: "Join Us",
+  //     content: "- Get early access to clients\n- Be featured in our network\n- Co-create value",
+  //     image: "/images/join.jpg"
+  //   },
+  //   {
+  //     title: "Thank You",
+  //     content: "Let’s build the future of wedding wellness together!\nYour Company Name\nWebsite | Contact | @Socials",
+  //     image: "/images/thank-you.jpg"
+  //   }
+  // ];
+const slides = [
+  {
+    title: "Transform Before the Vows",
+    content: "The Leading Pre-Wedding Physical & Beauty Transformation Platform\n\n100 Days to the Best Version of You",
+    image: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/13759/images/vasu5PrWQ6SoaOBT2djn_r3n68HsGSzytpYlyrLmq_BLOG_POSTS-2_copy_2_1200x.png"
+  },
+  {
+  title: "Many Dreams and expectations before marriage, One Chance",
+  content: "- To feel your most confident and radiant\n- To stand beside your partner as your best self\n- To glow in every photo, every memory\n- To enjoy the journey, not just the destination\n\nEvery couple dreams of a perfect beginning. But those dreams need support, structure, and transformation.",
+  image: "https://th.bing.com/th/id/OIP.b51seT0ZgUVnl3HinbuueAHaLH?rs=1&pid=ImgDetMain"
+},
+  {
+  image: "https://aneverlastinglove.com/wp-content/uploads/2020/05/couple-having-picnic-faces-together-smiling-summer-outdoors-romance-date-bigstock-Portrait-Of-Happy-Couple-In-Lo-317092564.jpg"
+},
+  {
+  image: "https://i.pinimg.com/originals/e3/74/03/e3740343b7ffc0c9d4c073d3cd0b9fb6.jpg"
+}
+  , 
+  
+  
+  {
+    title: "The Hidden Cost of Poor Health in Relationships",
+    content: "- Energy crashes and burnout before the big day\n- Strained intimacy and communication\n- Frustration over unaligned health goals\n- Lost confidence in photos and memories\n\nThis isn’t just about looks. It’s about connection, energy, and presence.",
+    image: "https://www.aconsciousrethink.com/wp-content/uploads/2018/08/couple-lack-intimacy-line.jpg"
+  },
+   {
+    image: "https://www.top10homeremedies.com/wp-content/uploads/2016/03/health-risks-overweight.jpg"
+  },
+    {
+    image: "https://domf5oio6qrcr.cloudfront.net/medialibrary/7593/conversions/improving-fertility-naturally-thumb.jpg"
+  },
+   {
+  image: "https://disabilityattorneyaz.com/wp-content/uploads/2020/08/3-Things-You-Should-Know-About-Widow-and-Widower-Benefits-1024x683.jpg"
+},
+  {
+    title: "Love Isn’t Enough – Health Gaps Can Hurt",
+    content: "- One partner trying hard, the other not\n- Misaligned routines and habits\n- Emotional distance created by physical fatigue or stress\n- Wedding prep becomes a war zone, not a bonding time",
+    image: "https://femina.wwmindia.com/content/2021/oct/stressed-out-bridethumb1634021482.jpg"
+  },
+  {
+    title: "When Stress and Self-Doubt Take Over",
+    content: "- Comparing yourself to unrealistic standards\n- Dreading the camera, the mirror, the aisle\n- Losing connection with your partner amidst the chaos\n- Missing the joy of the journey",
+    image: "https://hips.hearstapps.com/hmg-prod/images/sad-woman-windown-1518624645.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=1200:*"
+  },
+  {
+    title: "The Opportunity",
+    content: "- Weddings are one of the biggest life events.\n- $300B+ industry.\n- No centralized transformation platform.",
+    image: "https://image.wedmegood.com/resized-nw/1300X/wp-content/uploads/2022/02/Industry-Report-03-1-e1644910305506.jpg"
+  },
 
+  {
+    title: "Our Solution",
+    content: "Develop and manage all health needs in one place – 100-day program: Fitness, Beauty, Wellness.\n\n- Personalized. Integrated. Effective .Affordable pricing, 24/7 support",
+    image: "https://images.squarespace-cdn.com/content/v1/55f3649ae4b0a2423b5a4537/1516151250929-XO7HHGZLUQRVZDZRS6Z9/Natural+airbrush+makeup+and+hair+indian+bride+south+east+easian+beauty+affair+before+after.jpg"
+  },
+  {    content: "before marriarge equip yourself with the best tools to look and feel your best",
 
-import Head from 'next/head';
+    image: "https://c.stocksy.com/a/cgq800/z9/2109154.jpg"
+  },
+  {
+    image: "https://klyker.com/wp-content/uploads/2017/02/awesome-body-transformations-16.jpg"
+  },
 
-export default function StressRelief() {
-  const customColor = {
-    prim: "#97c25f",    // primary green
-    sec: "gray-500",    // secondary gray
-    bg: "#f4f7f0",      // soft background
-  };
+ 
+  {
+    title: "Program Highlights",
+    content: "Full body transformation \n- Doctor fitness/diet\n- Skincare consults\n- Progress tracking\n- Stress relief\n- Photoshoot prep",
+    image: "https://sufflemusic.com/wp-content/uploads/2023/05/20-Taylor-Swift-No-Makeup-Pictures.png"
+  },
+    {
+    title: "Elevate your beauty and Status",
+    content: "- Personalized skincare plans\n- Makeup tutorials and consultations\n- Hair styling tips and tricks\n- Confidence-building workshops\n- Professional photoshoot prep When one woman rises, she uplifts her family, her partner, and future generations. This transformation is your power move.",
+    image: "https://www.hawtcelebs.com/wp-content/uploads/2017/06/zendaya-coleman-leaves-good-morning-america-in-new-york-06-20-2017_7.jpg"
+  },
+    {
+    image: "https://www.happymarriages.com/wp-content/uploads/2022/02/stay-healthy-min.jpg"
+  },
+  {
+  title: "Not Just a Wedding Body — A Marriage-Ready Life",
+  content: "- This isn't just about looking good for one day.\n- It's about building energy, confidence, and balance that lasts.\n- A healthy, beautiful body supports a healthy, beautiful bond.\n- We prepare you both — physically, mentally, emotionally — for the life you're stepping into together.",
+  image: "https://d2g1bcsgfezxpb.cloudfront.net/new/2017/09/03-bacara-resort-santa-barbara-indian-wedding-photography-2000x1333.jpg"
+}
+    ,
+  {
+    title: "Why Partner With Us?",
+    content: "- join hand and light up the women's life ",
+    image: "https://dailytrust.com/wp-content/uploads/2023/04/women-leadership.jpg"
+  },
+  {
+    title: "Target Audience",
+    content: "- unEngaged -Engaged women and men 22–38\n- Health/image-conscious\n- Urban digital users \n- Couples looking for holistic transformation",
+    image: "https://th.bing.com/th/id/R.76d6f46a48a4464a8a6fdca298752cab?rik=PmwibaXJuDcMMA&riu=http%3a%2f%2fcarolbondweddings.com%2fwp-content%2fuploads%2fgetting-engaged.jpg&ehk=bfAEj%2f0W%2f2K7Hj4ifgDzpf6VAnM5WO4EY4jL8%2bSgKvQ%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    title: "Business Model",
+    content: "- Subscription + affiliate\n- Referral commissions\n- Featured listings",
+    image: "https://i.pinimg.com/originals/67/12/c5/6712c57ad49ac30771327b53bbf69dd4.jpg"
+  },
+  {
+    title: "Join Us",
+    content: "- Earn with pleasure \n-Be healthy and beautiful \n-Co-create value",
+    image: "https://as2.ftcdn.net/v2/jpg/05/06/75/11/1000_F_506751155_fJ5Ko5T0wsTH7Q9VNwEgo6J81da8arlD.jpg"
+  },
+  {
+    title: "Thank You",
+    content: "Let’s build the future of wedding wellness together!\nYour Company Name\nWebsite | Contact | @Socials",
+    image: "https://www.oxfordlearning.com/wp-content/uploads/2018/11/group-photo.jpeg"
+  }
+];
 
   return (
-    <>
-      <Head>
-        <title>Stress Relieving Program | Illaram Healthcare</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <main
-        className="font-poppins text-gray-800"
-        style={{ backgroundColor: customColor.bg }}
-      >
-        {/* Hero */}
-   {/* Hero */}
-<section
-  className="flex flex-col justify-center items-center py-28 px-6 text-center text-white"
-    style={{
-    minHeight: '420px',
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80')`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-  }}
->
-  <h5 className="text-lg md:text-xl text-white/80 font-semibold mb-3 tracking-widest uppercase max-w-md mx-auto">
-    Corporate Wellness
-  </h5>
-
-  <h1 className="text-5xl md:text-6xl font-extrabold max-w-4xl mx-auto leading-tight drop-shadow-lg">
-    Stress Relieving Program
-  </h1>
-
-  <div className="mt-4 h-1 w-24 bg-white rounded mx-auto mb-8 opacity-70"></div>
-
-  <p className="max-w-3xl mx-auto text-white/90 text-lg md:text-xl font-light leading-relaxed px-2 md:px-0">
-    Helping your team reduce stress, boost energy, and stay resilient with holistic wellness.
-  </p>
-</section>
-
-
-        {/* Why Stress Management */}
-        <section className="max-w-4xl mx-auto py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-6">Why Stress Management Matters</h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            In today’s high-pressure environments, chronic stress leads to burnout, absenteeism, and reduced focus. Our expert-led program empowers employees with actionable tools for calm, clarity, and well-being.
-          </p>
-        </section>
-
-        {/* One-Day Wellness Retreat */}
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2
-              className="text-4xl font-bold mb-10"
-              style={{ color: customColor.prim }}
-            >
-              One-Day Wellness Retreat
-            </h2>
-            <p className="text-gray-700 text-lg mb-16 max-w-3xl mx-auto leading-relaxed">
-              Escape the noise and reconnect with calm. Our one-day resort retreat blends wellness, fun, and relaxation — perfect for individuals or teams.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: '🌿 Spa & Therapies',
-                  image:
-                    'https://img.freepik.com/premium-photo/spa-therapies-wooden-surface-with-blue-backdrop_884296-46450.jpg',
-                  desc: 'Relaxing massages, aromatherapy, and stress-relief therapies by professionals.',
-                },
-                {
-                  title: '🎯 Mindful Activities',
-                  image:
-                    'https://img.freepik.com/premium-photo/friends-playing-beach-volleyball_79405-5190.jpg',
-                  desc: 'Meditation, yoga, breathing workshops, nature walks, and fun group games.',
-                },
-                {
-                  title: '🍱 Food & Travel',
-                  image:
-                    'https://media.istockphoto.com/id/1139761423/photo/beach-dining-in-barbados.jpg?b=1&s=170667a&w=0&k=20&c=SFW4HTN1xU-br0Li8WPD7lpWvGsoXvV_sTrWQmTRgb8=',
-                  desc: 'Nutritious meals and round-trip transport—just show up and relax.',
-                },
-              ].map((card, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl shadow-lg overflow-hidden bg-[#f9fef9] hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                >
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-56 object-cover"
-                    loading="lazy"
-                  />
-                  <div className="p-6 text-left">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                      {card.title}
-                    </h3>
-                    <p className="text-gray-700 text-base leading-relaxed">{card.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-16 text-center">
-              <p className="text-lg font-medium text-gray-800">
-                📅 Custom packages for corporate teams available.
-              </p>
-              <p className="text-md text-gray-600">
-                Contact us to book your next stress-free day out.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits */}
-        <section className="max-w-5xl mx-auto py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-10">Program Benefits</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-700">
-            {[
-              'Reduced Burnout',
-              'Boosted Productivity',
-              'Improved Team Morale',
-              'Happier, Healthier Employees',
-            ].map((benefit, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-6 rounded-lg shadow-md hover:scale-105 transform transition duration-300 cursor-default"
-              >
-                <p className="text-lg font-semibold">{benefit}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section
-          className="py-20 px-6 text-white"
-          style={{ backgroundColor: customColor.prim }}
-        >
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-semibold mb-8">How It Works</h2>
-            <p className="mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-              We deliver flexible wellness solutions tailored to your team’s unique schedule and stress challenges.
-            </p>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto text-left text-white font-light text-lg">
-              <li>📍 On-site or virtual sessions</li>
-              <li>🕒 30–60 minute formats</li>
-              <li>📆 Weekly, bi-weekly or monthly options</li>
-              <li>👥 Group workshops or individual coaching</li>
-            </ul>
-          </div>
-        </section>
-
-        {/* About Illaram */}
-        <section className="max-w-4xl mx-auto py-20 px-6 text-center">
-          <h2 className="text-2xl font-semibold mb-6">About Illaram Healthcare</h2>
-          <p className="text-gray-600 leading-relaxed text-lg max-w-3xl mx-auto">
-            We’re a healthcare platform offering subscription-based programs for weight loss, skin care, and hair restoration. Our corporate wellness offerings bring these benefits to your workplace, supporting long-term health from the inside out.
-          </p>
-        </section>
-
-        {/* Contact */}
-        <section className="bg-footer text-white py-20 px-6 text-center">
-          <h2 className="text-3xl font-semibold mb-6">Let’s Talk Wellness</h2>
-          <p className="max-w-xl mx-auto text-lg leading-relaxed">
-            Book a free consultation and start transforming workplace wellness.
-          </p>
-          <div className="mt-8 space-y-2 text-lg font-light">
-            <p>📧 <a href="mailto:illaramhealthcare@zohomail.in" className="underline hover:text-prim transition">{`illaramhealthcare@zohomail.in`}</a></p>
-           <p>
-  📞 <a href="tel:+918778919303" className="text-prim hover:underline">+91-8778919303</a>
-</p>
-
-          </div>
-        </section>
+    <div className="min-h-screen bg-[#f4f7f0] text-gray-800 font-[poppins]">
+      <header className="text-center py-10 bg-pink-100 shadow">
+        <h1 className="text-4xl font-bold text-pink-700">Transform Before the Vows</h1>
+        <p className="mt-2 text-lg">Pre-Wedding Transformation Platform ,reset and refresh before wedding</p>
+      </header>
+      <main className="px-4 py-8 max-w-5xl mx-auto space-y-12">
+        {slides.map((slide, idx) => (
+          <section key={idx} className="bg-white border border-gray-200 rounded-lg shadow p-6">
+            <h2 className="text-2xl font-semibold text-pink-600 mb-3">{slide.title}</h2>
+            {slide.image && (
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-95 object-cover rounded mb-4"
+              />
+            )}
+            <p className="whitespace-pre-line">{slide.content}</p>
+          </section>
+        ))}
       </main>
-
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-        body {
-          font-family: 'Poppins', sans-serif;
-        }
-      `}</style>
-    </>
+      <footer className="text-center py-6 text-sm text-gray-500 border-t mt-12">
+        © 2025 Your Company Name. All rights reserved.
+      </footer>
+    </div>
   );
 }

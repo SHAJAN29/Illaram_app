@@ -79,7 +79,7 @@ export default function StressRelief() {
                   title: '🌿 Spa & Therapies',
                   image:
                     'https://img.freepik.com/premium-photo/spa-therapies-wooden-surface-with-blue-backdrop_884296-46450.jpg',
-                  desc: 'Relaxing massages, aromatherapy, and stress-relief therapies by professionals.',
+                  desc: 'Relaxing massages, aromatherapy, silodhara ,and stress-relief therapies by professionals.',
                 },
                 {
                   title: '🎯 Mindful Activities',
