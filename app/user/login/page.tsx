@@ -11,7 +11,7 @@ export default function AdminLogin() {
   const [paymentpop, setPaymentpop] = useState(false);
   const [showCreateBtn, setShowCreateBtn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // ⏳ New loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
@@ -19,7 +19,7 @@ export default function AdminLogin() {
     e.preventDefault();
     setError("");
     setPaymentpop(false);
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
 
     try {
       const res = await fetch("/api/auth/login", {
@@ -36,7 +36,6 @@ export default function AdminLogin() {
       }
 
       localStorage.setItem("token", data.token);
-      console.log("✅ Login successful", data.token);
 
       const checkRes = await fetch(`/api/user/dashboard/payment-status?username=${data.username}`);
       const checkData = await checkRes.json();
@@ -50,57 +49,53 @@ export default function AdminLogin() {
         }, 2000);
       }
     } catch (err: any) {
-      console.error("Login error:", err);
       setError(err.message || "Something went wrong. Please try again.");
     } finally {
-      setIsLoading(false); // Stop loading
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-teal-50 font-[Poppins]">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[#f4f7f0] font-[Poppins]">
       <div className="w-full h-full p-8 flex flex-col justify-center items-center">
-        <h1 className="illaramPrimary text-center font-bold max-sm:text-3xl text-5xl capitalize">
+        <h1 className="text-[#94c159] text-center font-bold max-sm:text-3xl text-5xl capitalize">
           Welcome to <br />
-          <span className="illaramAccent">illaram healthcare.</span>
+          <span className="text-[#a9aba6]">Illaram Healthcare</span>
         </h1>
-        <p className="illaramText text-[14px] capitalize">
+        <p className="text-[#a9aba6] text-[14px] capitalize">
           The place where transformation happens
         </p>
       </div>
 
       <div>
-        <form
-          onSubmit={handleLogin}
-          className="bg-white p-6 rounded-lg shadow w-80"
-        >
-          <h2 className="text-xl font-bold mb-4 text-center">User Login</h2>
+        <form onSubmit={handleLogin} className="bg-white p-6 rounded-lg shadow w-80">
+          <h2 className="text-xl font-bold mb-4 text-center text-[#94c159]">User Login</h2>
 
           {error && <p className="text-red-500 mb-3 text-center">{error}</p>}
           {paymentpop && (
-            <p className="text-orange-500 mb-3 text-sm text-center">
+            <p className="text-yellow-600 mb-3 text-sm text-center">
               🛑 Please complete your payment to access the dashboard.
             </p>
           )}
 
-          <label className="block font-medium">Username</label>
+          <label className="block font-medium text-[#a9aba6]">Username</label>
           <input
             type="text"
             placeholder="Enter your username"
-            className="w-full mb-3 p-2 border border-gray-300 rounded"
+            className="w-full mb-3 p-2 border border-gray-300 rounded text-[#333]"
             value={username}
             onChange={(e) => setUsername(e.target.value.trim())}
             required
             disabled={isLoading}
           />
 
-          <label className="block font-medium">Password</label>
+          <label className="block font-medium text-[#a9aba6]">Password</label>
           <div className="relative mb-4">
             <input
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value.trim())}
-              className="w-full p-2 border border-gray-300 rounded pr-10"
+              className="w-full p-2 border border-gray-300 rounded pr-10 text-[#333]"
               placeholder="********"
               required
               disabled={isLoading}
@@ -108,7 +103,7 @@ export default function AdminLogin() {
             <button
               type="button"
               onClick={() => setShowPassword((prev) => !prev)}
-              className="absolute right-2 top-2 text-gray-600"
+              className="absolute right-2 top-2 text-gray-500"
               disabled={isLoading}
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
@@ -118,8 +113,10 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={isLoading}
-            className={`w-full btn font-semibold py-2 rounded transition ${
-              isLoading ? "bg-teal-300 cursor-not-allowed" : "btn-blue hover:illaramAccent"
+            className={`w-full font-semibold py-2 rounded transition ${
+              isLoading
+                ? "bg-[#b9d69e] cursor-not-allowed text-white"
+                : "bg-[#94c159] hover:bg-[#7ca84c] text-white"
             }`}
           >
             {isLoading ? "Logging in..." : "Login"}
@@ -129,7 +126,7 @@ export default function AdminLogin() {
             <button
               type="button"
               onClick={() => router.push("/user/create-account")}
-              className="text-sm cursor-pointer w-full text-green-600 hover:underline mt-2"
+              className="text-sm cursor-pointer w-full text-[#94c159] hover:underline mt-2"
               disabled={isLoading}
             >
               Create account

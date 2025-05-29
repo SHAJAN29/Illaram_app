@@ -1,34 +1,33 @@
-'use client'; // for Next.js app directory
+'use client';
 
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import toast from 'react-hot-toast';
-import { jwtDecode } from 'jwt-decode';
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-// Interface for the ProgramCard props
 interface ProgramProps {
   title: string;
   description: string;
   price: number;
-  username?: string | string[] ; 
+  username?: string | string[];
   duration: string;
   mostPopular: boolean;
-  // Add duration property
-  highlights: string[];// Add username property
-  popular:boolean;
+  highlights: string[];
+  popular: boolean;
 }
 
-const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, username ,highlights,duration,mostPopular,popular}) => {
+const ProgramCard: React.FC<ProgramProps> = ({
+  title,
+  description,
+  price,
+  username,
+  highlights,
+  duration,
+  mostPopular,
+  popular,
+}) => {
   const router = useRouter();
 
-  // Type definition for decoded JWT token
-  // type DecodedToken = {
-  //   username: string;
-  //   email: string;
-  // };
-
-  // Dynamically load the Razorpay checkout script
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
       const script = document.createElement('script');
@@ -39,7 +38,6 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
     });
   };
 
-  // Handle payment process
   const handlePayment = async () => {
     try {
       const res = await fetch('/api/razorPay/create-order', {
@@ -49,10 +47,7 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
       });
 
       const data = await res.json();
-
-      if (!data || !data.id) {
-        throw new Error('Failed to create Razorpay order');
-      }
+      if (!data?.id) throw new Error('Failed to create Razorpay order');
 
       const loaded = await loadRazorpayScript();
       if (!loaded) {
@@ -61,56 +56,41 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
       }
 
       const options = {
-        key: process.env.RAZORPAY_KEY || '', // Razorpay key
+        key: process.env.RAZORPAY_KEY || '',
         amount: data.amount,
         currency: 'INR',
         name: 'Illaram Healthcare',
-        description: title.replace(/[^\w\s.,\-()/&]+/g, ''), // Cleaned string
+        description: title.replace(/[^\w\s.,\-()/&]+/g, ''),
         order_id: data.id,
         handler: async function (response: any) {
-          // Notify user on success
-          toast.success(`🎉 Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+          toast.success(`🎉 Payment Successful! ID: ${response.razorpay_payment_id}`);
 
           try {
             const token = localStorage.getItem('token');
-            if (!token) {
-              throw new Error('No authentication token found.');
-            }
+            if (!token) throw new Error('No authentication token found.');
 
-            // Save payment details to backend
             const paymentRes = await fetch('/api/razorPay/payments/save', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                username: username,
-                
+                username: username || 'guest',
                 payment: {
                   paymentId: response.razorpay_payment_id,
                   orderId: response.razorpay_order_id,
                   signature: response.razorpay_signature,
                   program: title,
                   amount: price,
-                  status: 'success', // Payment success
+                  status: 'success',
                 },
               }),
             });
 
-            if (!paymentRes.ok) {
-              throw new Error('Payment saving failed with status: ' + paymentRes.status);
-            }
+            if (!paymentRes.ok) throw new Error('Failed to save payment');
 
-            if (paymentRes.ok) {
-              router.push(`/user/login?returnTo=/user/dashboard/${username}`);;
-            }
-
-
-            // Optionally, redirect to login after payment
-            setTimeout(() => {
-              router.push('/user/login');
-            }, 3000); // Redirect after 3 seconds
+            router.push(`/user/login?returnTo=/user/dashboard/${username}`);
           } catch (err) {
             toast.error('Error saving payment!');
-            console.error('Error:', err);
+            console.error(err);
           }
         },
         prefill: {
@@ -119,76 +99,63 @@ const ProgramCard: React.FC<ProgramProps> = ({ title, description, price, userna
           contact: '9999999999',
         },
         theme: {
-          color: '#6366F1',
+          color: '#94c159',
         },
       };
 
       const razor = new (window as any).Razorpay(options);
       razor.open();
     } catch (error) {
-      toast.error('An error occurred while processing your payment!');
-      console.error('Payment Error:', error);
+      toast.error('An error occurred during payment!');
+      console.error(error);
     }
   };
 
   return (
+    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition-all flex flex-col justify-between">
+      <div className="relative">
+        {/* Badge */}
+        {(mostPopular || popular) && (
+          <div
+            className={`absolute top-0 right-0 px-3 py-1 text-white text-xs font-medium rounded-full shadow-sm ${
+              mostPopular ? 'bg-orange-600' : 'bg-[#94c159]'
+            }`}
+          >
+            {mostPopular ? 'Most Popular' : 'Popular'}
+          </div>
+        )}
 
+        {/* Card Content */}
+        <div className="space-y-4 pb-6 pt-5">
+          <h3 className="text-xl font-semibold text-gray-800 tracking-tight">{title}</h3>
+          <p className="text-[#6b7280] text-sm leading-relaxed">{description}</p>
 
-      <div
-        
-        className="bg-white border border-gray-200 rounded-lg p-6 shadow-md hover:shadow-lg transition-all flex flex-col justify-between"
-      >
-        <div className="relative">
-          {/* Badge */}
-          
-            <div className={`absolute top-0 right-0 px-3 py-1  ${mostPopular?"bg-orange-600": (popular ? "bg-emerald-600" : "")} text-white text-xs font-medium rounded-full shadow-sm`}>
-             {mostPopular ? "Most-Popular" : (popular ? "Popular" : "")}
-            </div>
-          
-    
-          {/* Card Content */}
-          <div className="space-y-4 pb-6 pt-5">
-            <h3 className="text-xl font-semibold text-gray-800 tracking-tight">
-              {title}
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              {description}
-            </p>
-
-            <div className="flex justify-center items-center text-gray-800 mb-6">
+          <div className="flex justify-center items-end text-gray-800 mb-4">
             <span className="text-3xl font-bold">₹</span>
             <span className="text-5xl font-extrabold">{price}</span>
-            <span className="text-lg mt-5 text-[15px] font-medium ml-2">/{duration}</span>
+            <span className="text-md font-medium ml-1 mb-1">/{duration}</span>
           </div>
 
-
-    
-            {/* Highlights */}
-            <ul className="mt-4 space-y-3 text-sm text-gray-700">
-          {highlights.map((point, index) => (
-            <li key={index} className="flex items-start gap-2">
-              <CheckCircleIcon className="w-5 h-5 text-emerald-500 flex-shrink-0" />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-            {/* Price */}
-            {/* <div className="text-lg font-bold text-illaramPrimary mt-4">
-            ₹{price}
-            </div> */}
-          </div>
+          {/* Highlights */}
+          <ul className="space-y-3 text-sm text-gray-700">
+            {highlights.map((point, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <CheckCircleIcon className="w-5 h-5 text-[#94c159] flex-shrink-0" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-    
-        {/* Buy Button */}
-        <button
-          onClick={() => handlePayment()}
-          className="mt-auto w-full btn btn-blue font-medium py-2 px-4 rounded-md transition"
-        >
-          Join Now
-        </button>
       </div>
 
-    
+      {/* Buy Button */}
+      <button
+        onClick={handlePayment}
+        className="mt-auto w-full py-2 px-4 rounded-md text-white font-semibold bg-[#94c159] hover:bg-[#7daa4e] transition"
+      >
+        Join Now
+      </button>
+    </div>
   );
 };
 

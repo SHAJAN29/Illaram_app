@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
-// ✅ Yup Validation Schema
+// Validation Schema
 const schema = yup.object().shape({
   username: yup.string().required("Full name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
@@ -52,10 +52,9 @@ export default function UserRegisterPage() {
       }
 
       setSuccess("✅ Registered successfully! Redirecting...");
-      reset(); // Clear form
+      reset();
       setTimeout(() => router.push("/user/login"), 1500);
     } catch (err: any) {
-      console.error("Registration error:", err);
       setServerError(err.message || "Registration failed. Try again.");
     } finally {
       setLoading(false);
@@ -63,12 +62,12 @@ export default function UserRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center font-[poppins] justify-center bg-teal-500 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#f4f7f0] px-4 font-[Poppins]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-teal-50 rounded-xl p-6 shadow-md w-full max-w-md space-y-6"
+        className="bg-white rounded-xl p-6 shadow-md w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-bold text-center illaramPrimary">
+        <h2 className="text-2xl font-bold text-center text-[#94c159]">
           Create Account
         </h2>
 
@@ -79,14 +78,14 @@ export default function UserRegisterPage() {
           <p className="text-green-600 text-center font-semibold">{success}</p>
         )}
 
-        {/* Username */}
+        {/* Full Name */}
         <div>
-          <label className="block font-medium">Full Name</label>
+          <label className="block font-medium text-[#a9aba6]">Full Name</label>
           <input
             type="text"
             placeholder="Full Name"
             {...register("username")}
-            className="w-full border border-gray-500 px-3 py-2 rounded"
+            className="w-full border border-gray-300 px-3 py-2 rounded text-gray-800"
             disabled={loading}
           />
           {errors.username && (
@@ -96,12 +95,12 @@ export default function UserRegisterPage() {
 
         {/* Email */}
         <div>
-          <label className="block font-medium">Email</label>
+          <label className="block font-medium text-[#a9aba6]">Email</label>
           <input
             type="email"
             placeholder="Email Address"
             {...register("email")}
-            className="w-full border px-3 py-2 border-gray-500 rounded"
+            className="w-full border border-gray-300 px-3 py-2 rounded text-gray-800"
             disabled={loading}
           />
           {errors.email && (
@@ -111,12 +110,12 @@ export default function UserRegisterPage() {
 
         {/* Password */}
         <div>
-          <label className="block font-medium">Password</label>
+          <label className="block font-medium text-[#a9aba6]">Password</label>
           <div className="relative">
             <input
               {...register("password")}
               type={showPassword ? "text" : "password"}
-              className="w-full p-2 border border-gray-500 rounded pr-10"
+              className="w-full p-2 border border-gray-300 rounded pr-10 text-gray-800"
               placeholder="********"
               disabled={loading}
             />
@@ -132,14 +131,14 @@ export default function UserRegisterPage() {
           <p className="text-red-600 text-sm">{errors.password?.message}</p>
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           disabled={loading}
-          className={`w-full btn font-semibold py-2 rounded transition ${
+          className={`w-full font-semibold py-2 rounded transition ${
             loading
-              ? "bg-blue-300 text-white cursor-not-allowed"
-              : "btn-blue hover:bg-blue-700"
+              ? "bg-[#cde4ab] text-white cursor-not-allowed"
+              : "bg-[#94c159] hover:bg-[#7ca84c] text-white"
           }`}
         >
           {loading ? (
