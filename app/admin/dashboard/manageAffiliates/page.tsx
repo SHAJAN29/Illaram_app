@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 interface Affiliate {
   id: number;
   name: string;
+  mobile: number;
   email: string;
   category: string;
   description: string;
@@ -36,6 +37,7 @@ export default function ManageAffiliatesPage() {
       try {
         const data = await getAffiliates();
         setAffiliates(data);
+        console.log(data)
       } catch (error: any) {
         setError('Failed to fetch affiliates.');
         console.error(error);
@@ -96,6 +98,7 @@ export default function ManageAffiliatesPage() {
               <p className="text-gray-500 mb-2">Category: {affiliate.category}</p>
               <p className="text-gray-700 mb-4">{affiliate.description}</p>
               <p className="text-gray-600 mb-2">Email: {affiliate.email}</p>
+              <p className="text-gray-600 mb-2">mobile: {affiliate.mobile}</p>
 
               <div className="flex space-x-4 mt-4">
                 <a

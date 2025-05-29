@@ -1,8 +1,12 @@
 // /models/Affiliate.ts
+import { m } from "framer-motion/dist/types.d-DSjX-LJB";
 import mongoose from "mongoose";
 
 const AffiliateSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  mobile: {
+    type: String,
+    required: true,},
   email: { type: String, required: true },
   website: { type: String, required: true },
   audience: { type: String, required: true },
