@@ -3,6 +3,7 @@ import Home from "./home/page";
 import Head from "next/head";
 import Loader from '../components/loader';
 import { useEffect, useState } from "react";
+import NoInternet from "@/components/Loder/NoInternet";
 
 
 // sm: 640px (small screens)
@@ -42,6 +43,7 @@ import { useEffect, useState } from "react";
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu"
         />
       </Head>
+      <NoInternet />
       <Home />
       </div>
     </main>
