@@ -7,13 +7,10 @@ import toast from "react-hot-toast";
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const username = searchParams?.get("username") || "guest";
 
 
   const handlePayment = () => {
-router.push(`/user/login?username=${username}`);
+router.push(`/user/login?plan=${isYearly ? "yearly" : "monthly"}`);
   };
 
   const plans = [
