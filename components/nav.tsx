@@ -54,7 +54,7 @@ export const Navbar = () => {
           isScrolled ? "bg-transparent" : "bg-transparent"
         }`}
       >
-        <Link href={"/"} className="flex items-center h-20 w-15" >
+        <Link href={"/"} className=" h-25 w-20" >
         <img src="/illaram logo.png" alt="logo"  />
           
         </Link>

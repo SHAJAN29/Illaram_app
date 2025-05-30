@@ -203,11 +203,11 @@ const slides = [
           </section>
         ))}
       </main>
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* <Suspense fallback={<div>Loading...</div>}>
            <PricingTest title="💍 Exclusive Wedding Wellness Pricing" />
 <PricingTest title="🌿 Regular Transformation Pricing" />
       
-      </Suspense>
+      </Suspense> */}
 
       <footer className="text-center py-6 text-sm text-gray-500 border-t mt-12">
         © 2025 Your Company Name. All rights reserved.

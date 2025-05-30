@@ -30,7 +30,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({ title, description, im
         <Typography variant="h5" className="text-[#97c25f] font-semibold text-xl mb-2 font-[poppins]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {title}
         </Typography>
-        <Typography className="text-gray-400 text-sm font-[poppins]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <Typography className="text-gray-700 text-sm font-[poppins]"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
           {description}
         </Typography>
       </CardBody>
@@ -38,7 +38,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({ title, description, im
       <CardFooter className="p-6 pt-0" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <Button
           onClick={() => router.push(`/servicees/${pageLink}`)}
-          className="bg-[#97c25f] text-white font-light w-full rounded-full hover:bg-[#86b653] transition" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
+          className="bg-[#97c25f] text-white font-semibold w-full rounded-full hover:bg-[#86b653] transition" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
           Read More
         </Button>
       </CardFooter>
