@@ -21,7 +21,7 @@ const choser = [
 
 const HomeService_section = () => {
   return (
-    <section className="font-poppins px-6 py-16 bg-[#f4f7f0]">
+    <section className="font-[poppins] px-6 py-16 bg-[#f4f7f0]">
       {/* Section Header */}
       <div className="text-center max-w-4xl mx-auto mb-14">
         <h1 className="text-4xl font-bold text-[#97c25f] mb-4">Wedding Wellness Plans</h1>

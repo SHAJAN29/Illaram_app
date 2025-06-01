@@ -17,7 +17,7 @@ export const CardDefault: React.FC<CardDefaultProps> = ({ title, description, im
   return (
     <Card
       onClick={() => router.push(`/servicees/${pageLink}`)}
-      className="w-full max-w-sm rounded-3xl shadow-md hover:shadow-xl  bg-white cursor-pointer transition duration-300 overflow-hidden flex flex-col" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}    >
+      className="w-full max-w-sm rounded-3xl shadow-md hover:shadow-xl  bg-white cursor-pointer transition duration-300 overflow-hidden flex flex-col font-[poppins]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}    >
       <CardHeader floated={false} className="h-48 overflow-hidden relative"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
         <img
           src={image}
