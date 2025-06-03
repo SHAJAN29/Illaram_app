@@ -6,7 +6,7 @@ import { FaAngleRight } from "react-icons/fa";
 const steps = [
   {
     title: "Sign Up Effortlessly",
-    description: "Register as an affiliate in just a few steps and get your unique referral link.",
+    description: "Register as an Wellness Partner in just a few steps and get your unique referral link.",
   },
   {
     title: "Share with Impact",
@@ -27,8 +27,7 @@ const AffiliatePage = () => {
         </h1>
         <h3 className="text-[#94c159] text-2xl mt-2">Earn. Empower. Elevate.</h3>
         <p className="mt-6 max-w-3xl mx-auto text-lg text-[#a9aba6]">
-          Join our exclusive affiliate program and help spread holistic wellness while earning generous rewards.
-        </p>
+"Help others stay healthy — and earn while you do it. Join the Ilaram Wellness Partner Program today!"        </p>
 
         {/* Steps */}
         <div className="mt-20 grid md:grid-cols-3 gap-10">

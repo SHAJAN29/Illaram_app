@@ -11,7 +11,7 @@ import {
 import { NAV_LINKS } from "../constants";
 
 const oficialLinks = [
-  { href: "/Affiliates", label: "Become an Affiliate" },
+  { href: "/Affiliates", label: "Become an Wellness Partner" },
   { href: "/Doctor/login", label: "Doctor's Login" },
   { href: "/admin/login", label: "Admin Login" },
 ];
