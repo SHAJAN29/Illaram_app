@@ -67,7 +67,7 @@ export default function AffiliateSignup() {
     <main className="min-h-screen font-[poppins] bg-[#f4f7f0] flex items-center justify-center px-6 py-20">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-xl">
         <h1 className="text-3xl font-bold text-center text-[#94c159] mb-6">
-          Affiliate Signup
+          Signup
         </h1>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6">

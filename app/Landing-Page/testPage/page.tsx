@@ -275,7 +275,7 @@ export default function HomePage() {
           </h2>
           <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
             Whether you're healing, growing, or transforming — we're here to
-            walk the path with you. Because wellness isn’t a luxury. It’s your
+            walk the path with you. Because wellness isn’t a luxury. It’s essantial
             right.
           </p>
 

@@ -49,7 +49,8 @@ const AffiliatePage = () => {
             href="/Affiliates/AffiliateSignups"
             className="inline-block bg-[#94c159] hover:bg-[#7d9e51] transition-all text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg"
           >
-            Apply as an Affiliate
+            Apply as a Wellness Partner{" "}
+            <FaAngleRight className="inline ml-2" />
           </Link>
           <p className="mt-4 text-sm text-[#a9aba6]">
             No fees. No obligations. Just rewards for your influence.
