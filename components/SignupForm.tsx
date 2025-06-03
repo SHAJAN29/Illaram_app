@@ -35,10 +35,10 @@ export default function SignupForm() {
     setLoading(true);
     setMessage(null);
     setError(null);
-    console.log("📩 Form data submitted:", formData);
     try {
       await appointmentSchema.validate(formData, { abortEarly: false });
       setErrors({});
+
       const now = new Date();
       const appointmentDate = now.toLocaleString("en-IN", {
         timeZone: "Asia/Kolkata",
@@ -64,7 +64,6 @@ export default function SignupForm() {
           service: "",
           message: "",
         });
-        console.log("Form submitted successfully!", res);
         setMessage("✅ Appointment confirmed! Check your email.");
         setTimeout(() => {
           router.push("/");
@@ -82,20 +81,19 @@ export default function SignupForm() {
       } else {
         setError("Something went wrong. Try again.");
       }
+    } finally {
       setLoading(false);
-      return;
     }
   };
 
   return (
-    <section className="py-20 mt-30 mb-20 px-4 bg-illaram-cream h-screen">
+    <section className="py-20 px-4 bg-[#f4f7f0] font-[poppins]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">
+        <h2 className="text-3xl font-bold mb-6 text-[#94c159]">
           {submitted ? "Booked" : "Book"} Your Free Consultation
         </h2>
-        <p className="text-gray-600 mb-10">
-          Start your transformation journey with Illaram Healthcare. We’ll guide
-          you every step.
+        <p className="text-[#a9aba6] mb-10">
+          Start your transformation journey with Illaram Healthcare. We’ll guide you every step.
         </p>
 
         {submitted ? (
@@ -111,11 +109,9 @@ export default function SignupForm() {
               placeholder="Full Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border border-[#a9aba6] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#94c159]"
             />
-            {errors.name && (
-              <p className="text-red-600 text-sm mt-1">{errors.name}</p>
-            )}
+            {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
 
             <input
               name="email"
@@ -124,11 +120,9 @@ export default function SignupForm() {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-xl"
+              className="w-full p-3 border border-[#a9aba6] rounded-xl"
             />
-            {errors.email && (
-              <p className="text-red-600 text-sm mt-1">{errors.email}</p>
-            )}
+            {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
 
             <input
               name="phone"
@@ -137,28 +131,24 @@ export default function SignupForm() {
               placeholder="Phone Number"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-xl"
+              className="w-full p-3 border border-[#a9aba6] rounded-xl"
             />
-            {errors.phone && (
-              <p className="text-red-600 text-sm mt-1">{errors.phone}</p>
-            )}
+            {errors.phone && <p className="text-red-600 text-sm">{errors.phone}</p>}
 
             <select
               name="service"
               required
               value={formData.service}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-xl"
+              className="w-full p-3 border border-[#a9aba6] rounded-xl"
             >
               <option value="">Select a Service</option>
-              <option value="Physical Conditioning">Hair care</option>
-              <option value="100-Day Transformation">Skin care</option>
-              <option value="Personality Enhancement">Weightloss</option>
+              <option value="Hair care">Hair care</option>
+              <option value="Skin care">Skin care</option>
+              <option value="Weightloss">Weightloss</option>
               <option value="Others">Others</option>
             </select>
-            {errors.service && (
-              <p className="text-red-600 text-sm mt-1">{errors.service}</p>
-            )}
+            {errors.service && <p className="text-red-600 text-sm">{errors.service}</p>}
 
             {formData.service === "Others" && (
               <>
@@ -169,10 +159,10 @@ export default function SignupForm() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 border capitalize border-gray-300 rounded-xl"
+                  className="w-full p-3 border border-[#a9aba6] rounded-xl capitalize"
                 />
                 {errors.message && (
-                  <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                  <p className="text-red-600 text-sm">{errors.message}</p>
                 )}
               </>
             )}
@@ -181,15 +171,17 @@ export default function SignupForm() {
               type="submit"
               disabled={loading}
               className={`w-full ${
-                loading ? "bg-green-600 text-white text-center" : "btn btn-blue"
-              } py-3 px-6 rounded-full text-lg font-semibold`}
+                loading
+                  ? "bg-[#a9aba6] text-white"
+                  : "bg-[#94c159] hover:bg-[#7ca74c] text-white"
+              } py-3 px-6 rounded-full text-lg font-semibold transition`}
             >
               {loading ? "Sending Confirmation..." : "Book Appointment"}
             </button>
 
             {loading && (
               <div className="flex justify-center mt-4">
-                <div className="w-6 h-6 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-6 h-6 border-4 border-[#94c159] border-t-transparent rounded-full animate-spin"></div>
               </div>
             )}
 
@@ -198,11 +190,8 @@ export default function SignupForm() {
                 {message}
               </div>
             )}
-
             {error && (
-              <div className="mt-4 text-red-600 font-medium text-center">
-                {error}
-              </div>
+              <div className="mt-4 text-red-600 font-medium text-center">{error}</div>
             )}
           </form>
         )}
