@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Illaram Healthcare App",
-  description: "Helping people prepare for marriage",
+  description: "My Healthcare Partner",
 };
 
 export default function RootLayout({
