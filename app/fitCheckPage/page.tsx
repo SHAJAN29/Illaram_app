@@ -84,13 +84,17 @@ export default function FitCheck() {
 
   return (
     <div className="min-h-screen font-[Poppins] bg-gradient-to-tr from-rose-100 to-sky-100 p-6">
-      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-xl p-8">
+      <div className="max-w-2xl mx-auto bg-white shadow-lg mt-10 rounded-xl p-8">
         <h1 className="text-3xl font-bold text-center mb-6 uppercase text-pink-500">
           Fit-Check
         </h1>
-
+        <p className="text-center text-gray-600 mb-6">
+          Get personalized insights into your body, skin, and hair health.
+          <br />
+          Fill out the form below to receive your FitCheck summary.
+        </p>
         {step === 1 && (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 flex flex-col justify-center">
             <input
               type="text"
               name="name"

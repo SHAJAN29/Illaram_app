@@ -64,7 +64,7 @@ export const Navbar = () => {
             <Link
               href={link.href}
               key={link.key}
-              className="cursor-pointer pb-1.5 transition-all duration-100 hover:text-emerald-200"
+              className="cursor-pointer font-semibold pb-1.5 transition-all duration-100 hover:text-emerald-200"
             >
               {link.label}
             </Link>
@@ -113,7 +113,7 @@ export const Navbar = () => {
                   key={link.key}
                   onClick={() => setMenubar(!menubar)}
                 >
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link className="font-semibold" href={link.href}>{link.label}</Link>
                 </li>
               ))}
               <button className="btn btn-blue" onClick={handleLogin}>

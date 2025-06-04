@@ -4,6 +4,7 @@ import { title } from "process";
 // NAVIGATION
 export const NAV_LINKS = [
   { href: "/home", key: "Home", label: "Home" },
+    { href: "/fitCheckPage", key: "fitCheckPage", label: "FitCheck" },
   { href: "/about", key: "About_us", label: "About_us" },
   // { href: "/servicees", key: "Services", label: "Services" },
   // { href: "/blog", key: "Blog ", label: "Blog " },
