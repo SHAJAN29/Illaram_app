@@ -288,6 +288,31 @@ whatsAppNumber:+918778919303,
 };
 
 
+
+ export const plans = [
+    {
+      name: "Basic",
+      monthly: 2599,
+      yearly: 2399 * 12 - 2000,
+      features: ["Consultation", "Customized Care Plan","Personalized fitness programs", "Personalized skin & hair care","Monthly check-ins with experts","Nutrion guidence","24/7 wellness support" ],
+    },
+    {
+      name: "Standard",
+      monthly: 3299,
+      yearly: 3299 * 12 - 3000,
+      features: ["Advanced Care", "Priority Support","Presonalized supplement ", "Personalized skin care supplement" ,"Personalized hair care supplement","Diet Plans","Monthly check-ins with experts"],
+    },
+    {
+      name: "Premium",
+      monthly: 5299,
+      yearly: 5299 * 12 - 5000,
+      features: ["Complete Transformation", "1:1 Coaching",'Presonalized supplement'," Customized Physical Activity", "Personalized skin care products","Personalized hair care products","Monthly check-ins with experts","Monthly Thrapy Sessions","24/7 wellness support","24/7 Access"],
+    },
+  ];
+
+
+
+
 export const illaramUserData =[{
   "username":
   "moses_shajan",

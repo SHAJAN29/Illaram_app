@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
+import { plans } from "@/constants/index";
 
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -13,26 +14,6 @@ const Pricing = () => {
 router.push(`/user/login?plan=${isYearly ? "yearly" : "monthly"}`);
   };
 
-  const plans = [
-    {
-      name: "Basic",
-      monthly: 2599,
-      yearly: 2399 * 12 - 2000,
-      features: ["Consultation", "Basic Care", "Email Support"],
-    },
-    {
-      name: "Standard",
-      monthly: 3299,
-      yearly: 3299 * 12 - 3000,
-      features: ["Advanced Care", "Priority Support", "Diet Plans"],
-    },
-    {
-      name: "Premium",
-      monthly: 5299,
-      yearly: 5299 * 12 - 5000,
-      features: ["Complete Transformation", "1:1 Coaching", "24/7 Access"],
-    },
-  ];
 
   return (
     <section className="py-16 px-4 bg-white text-center">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
+import { plans } from "@/constants/index";
 
 type WeddingPlan = {
   title: string;
@@ -62,26 +63,26 @@ const weddingPrograms: WeddingPlan[] = [
   },
 ];
 
-const regularPlans: RegularPlan[] = [
-  {
-    name: "Basic",
-    monthly: 2899,
-    yearly: 2399 * 12 - 2000,
-    features: ["Consultation", "Basic Care", "Email Support"],
-  },
-  {
-    name: "Standard",
-    monthly: 3599,
-    yearly: 3299 * 12 - 3000,
-    features: ["Advanced Care", "Priority Support", "Diet Plans"],
-  },
-  {
-    name: "Premium",
-    monthly: 5599,
-    yearly: 5299 * 12 - 5000,
-    features: ["Complete Transformation", "1:1 Coaching", "24/7 Access"],
-  },
-];
+// const plans: RegularPlan[] = [
+//   {
+//     name: "Basic",
+//     monthly: 2899,
+//     yearly: 2399 * 12 - 2000,
+//     features: ["Consultation", "Basic Care", "Email Support"],
+//   },
+//   {
+//     name: "Standard",
+//     monthly: 3599,
+//     yearly: 3299 * 12 - 3000,
+//     features: ["Advanced Care", "Priority Support", "Diet Plans"],
+//   },
+//   {
+//     name: "Premium",
+//     monthly: 5599,
+//     yearly: 5299 * 12 - 5000,
+//     features: ["Complete Transformation", "1:1 Coaching", "24/7 Access"],
+//   },
+// ];
 
 const Programs = () => {
   const params = useParams();
@@ -308,7 +309,7 @@ const Programs = () => {
           </div>
 
      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-  {regularPlans.map((plan, idx) => {
+  {plans.map((plan, idx) => {
     const originalPrice = isYearly ? plan.yearly : plan.monthly;
     const discountedPrice = Math.round(originalPrice * (1 - discount));
 
