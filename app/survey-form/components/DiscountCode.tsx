@@ -21,7 +21,7 @@ export default function DiscountCode() {
       <p className="text-sm text-gray-500 mb-2">Your 10% discount code:</p>
 
       <div className="flex items-center justify-between bg-pink-100 text-pink-600 px-4 py-2 rounded-lg shadow-sm relative z-10">
-        <span className="text-lg font-semibold tracking-wide">ILA10</span>
+        <span className="text-lg font-semibold tracking-wide">ILARAM10</span>
 
         <button
           onClick={handleCopy}

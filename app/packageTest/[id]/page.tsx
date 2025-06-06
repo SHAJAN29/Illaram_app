@@ -65,19 +65,19 @@ const weddingPrograms: WeddingPlan[] = [
 const regularPlans: RegularPlan[] = [
   {
     name: "Basic",
-    monthly: 2599,
+    monthly: 2899,
     yearly: 2399 * 12 - 2000,
     features: ["Consultation", "Basic Care", "Email Support"],
   },
   {
     name: "Standard",
-    monthly: 3299,
+    monthly: 3599,
     yearly: 3299 * 12 - 3000,
     features: ["Advanced Care", "Priority Support", "Diet Plans"],
   },
   {
     name: "Premium",
-    monthly: 5299,
+    monthly: 5599,
     yearly: 5299 * 12 - 5000,
     features: ["Complete Transformation", "1:1 Coaching", "24/7 Access"],
   },
@@ -87,6 +87,10 @@ const Programs = () => {
   const params = useParams();
   const router = useRouter();
   const [isYearly, setIsYearly] = useState(false);
+  const [coupon, setCoupon] = useState("");
+  const [discount, setDiscount] = useState(0);
+  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+
   const username = params?.id || "guest";
 
   const loadRazorpayScript = () => {
@@ -97,6 +101,18 @@ const Programs = () => {
       script.onerror = () => resolve(false);
       document.body.appendChild(script);
     });
+  };
+
+  const validateCoupon = () => {
+    if (coupon.trim().toUpperCase() === "ILARAM10") {
+      setDiscount(0.1); // 10% discount
+      setAppliedCoupon("ILARAM10");
+      toast.success("Coupon applied! 10% discount activated.");
+    } else {
+      setDiscount(0);
+      setAppliedCoupon(null);
+      toast.error("Invalid coupon code.");
+    }
   };
 
   const handlePayment = async (planName: string, price: number) => {
@@ -117,7 +133,7 @@ const Programs = () => {
       }
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "", // Corrected
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "",
         amount: data.amount,
         currency: "INR",
         name: "Illaram Healthcare",
@@ -209,7 +225,8 @@ const Programs = () => {
       <div className="max-w-6xl mx-auto px-6 sm:px-10">
         <h2 className="text-5xl font-bold text-center text-gray-800 mb-6">Exclusive wellness plans</h2>
         <p className="text-lg text-center text-[#a9aba6] mb-6">
-          You're making a great decision, <span className="text-[#94c159] font-semibold">{username}</span>. Each program is crafted to help you thrive and grow.
+          You're making a great decision,{" "}
+          <span className="text-[#94c159] font-semibold">{username}</span>. Each program is crafted to help you thrive and grow.
         </p>
         <p className="text-lg text-center text-[#a9aba6] mb-14">
           Experienced doctors, psychiatrists, nutritionists, fitness trainers, and wellness coaches are here to help you achieve your goals.{" "}
@@ -244,10 +261,33 @@ const Programs = () => {
           </div>
         </section>
 
-        {/* Regular Plans */}
-        <section className="py-16 bg-white rounded-2xl">
+        {/* Coupon Input for Regular Plans */}
+        <section className="py-16 bg-white rounded-2xl max-w-7xl mx-auto mb-8">
           <h2 className="text-4xl font-bold text-[#94c159] text-center mb-4">🧘‍♂️ Regular Transformation Pricing</h2>
           <p className="text-gray-600 text-center mb-8">Subscription-based plans to support your continuous well-being.</p>
+
+          <div className="flex justify-center mb-6">
+            <input
+              type="text"
+              placeholder="Enter coupon code"
+              value={coupon}
+              onChange={(e) => setCoupon(e.target.value)}
+              className="border border-gray-300 rounded-l-full px-4 py-2 w-48 focus:outline-none"
+            />
+            <button
+              onClick={validateCoupon}
+              className="bg-[#94c159] text-white px-6 py-2 rounded-r-full font-semibold hover:bg-[#7d9e51] transition"
+            >
+              Apply
+            </button>
+          </div>
+
+          {appliedCoupon && (
+            <p className="text-center text-green-600 mb-6 font-semibold">
+              Coupon <span className="uppercase">{appliedCoupon}</span> applied! You get {discount * 100}% off.
+            </p>
+          )}
+
           <div className="flex justify-center mb-10">
             <button
               className={`px-6 py-2 rounded-l-full border border-[#94c159] ${
@@ -266,30 +306,58 @@ const Programs = () => {
               Yearly
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {regularPlans.map((plan, index) => {
-              const currentPrice = isYearly ? plan.yearly : plan.monthly;
-              return (
-                <div key={index} className="bg-[#f4f7f0] p-6 rounded-2xl shadow hover:shadow-lg transition-all">
-                  <h3 className="text-2xl font-semibold mb-2">{plan.name}</h3>
-                  <p className="text-[#94c159] font-bold text-2xl mb-2">
-                    ₹{currentPrice} <span className="text-sm text-gray-500">/ {isYearly ? "year" : "month"}</span>
-                  </p>
-                  <ul className="text-sm text-gray-700 mb-4 space-y-1">
-                    {plan.features.map((feature, i) => (
-                      <li key={i}>✅ {feature}</li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => handlePayment(plan.name, currentPrice)}
-                    className="w-full py-3 bg-[#94c159] text-white rounded-xl font-medium hover:bg-[#7d9e51] transition"
-                  >
-                    Choose Plan
-                  </button>
-                </div>
-              );
-            })}
+
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+  {regularPlans.map((plan, idx) => {
+    const originalPrice = isYearly ? plan.yearly : plan.monthly;
+    const discountedPrice = Math.round(originalPrice * (1 - discount));
+
+    return (
+      <div
+        key={idx}
+        className="relative bg-[#f4f7f0] border border-gray-200 shadow-md rounded-2xl p-6 text-left hover:shadow-xl transition-all duration-300"
+      >
+        {/* Popular Badge for Standard Plan */}
+        {plan.name === "Standard" && (
+          <div className="absolute top-0 right-0 bg-[#94c159] text-white px-3 py-1 rounded-bl-xl text-sm font-medium">
+            Popular
           </div>
+        )}
+
+        <h3 className="text-xl font-semibold text-gray-800 mb-4">{plan.name}</h3>
+
+        <p className="text-3xl font-bold text-[#94c159] mb-4">
+          ₹
+          {discount > 0 ? (
+            <>
+              <span className="line-through text-gray-400 mr-2 text-lg">{originalPrice}</span>
+              {discountedPrice}
+            </>
+          ) : (
+            originalPrice
+          )}
+          <span className="text-sm text-gray-500"> / {isYearly ? "year" : "month"}</span>
+        </p>
+
+        <ul className="space-y-2 mb-6">
+          {plan.features.map((feature, i) => (
+            <li key={i} className="text-gray-600 flex items-center">
+              ✅ <span className="ml-2">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          onClick={() => handlePayment(plan.name, discountedPrice)}
+          className="w-full py-3 bg-[#94c159] text-white rounded-xl font-medium hover:bg-[#7d9e51] transition"
+        >
+          Choose Plan
+        </button>
+      </div>
+    );
+  })}
+</div>
+
         </section>
       </div>
 
@@ -312,27 +380,3 @@ const Programs = () => {
 };
 
 export default Programs;
-
-
-      {/* Cards */}
-        {/* <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {programList.map((program, i) => (
-            <div
-              key={i}
-              className="relative rounded-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02]"
-            >
-              <ProgramCard
-                mostPopular={program.mostPopular ?? false}
-                duration={program.duration || "check with us"}
-                highlights={program.highlights}
-                title={program.title}
-                description={program.description}
-                price={program.price}
-                popular={program.popular ?? false}
-                username={username}
-              />
-            </div>
-          ))}
-        </div>
-          <Pricing/>
-      </div> */}

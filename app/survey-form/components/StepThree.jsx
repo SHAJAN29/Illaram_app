@@ -95,6 +95,12 @@ if (submitted) {
 
 
         <div className="flex flex-col space-y-3 pt-4">
+                  <a 
+  href='/fitCheckPage' 
+  className="bg-emerald-400 hover:bg-emerald-200 text-white py-2 rounded-md transition"
+>
+  Fit check
+</a>
           <a
             href="https://illaram-healthcare.netlify.app/home"
             target="_blank"
