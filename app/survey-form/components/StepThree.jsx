@@ -9,7 +9,6 @@ export default function PageThree({ onBack, formData }) {
   const [submitted, setSubmitted] = useState(false);
   const [localData, setLocalData] = useState({
     rating: "",
-  
     contactMethod: "",
     feedback: "",
   });
@@ -96,12 +95,7 @@ if (submitted) {
 
 
         <div className="flex flex-col space-y-3 pt-4">
-                  <a 
-  href='/fitCheckPage' 
-  className="bg-emerald-400 hover:bg-emerald-200 text-white py-2 rounded-md transition"
->
-  Fit check
-</a>
+<p className="text-sm">Speak with our Wellness Partner for more info 😊...</p>
           <a
             href="https://illaram-healthcare.netlify.app/home"
             target="_blank"
@@ -195,7 +189,7 @@ if (submitted) {
             id="feedback"
             rows="3"
             onChange={(e) => handleChange("feedback", e.target.value)}
-            placeholder="We’d love your thoughts!"
+            placeholder="I love your service!"
             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
             value={localData.feedback}
           />

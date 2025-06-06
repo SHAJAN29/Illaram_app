@@ -102,7 +102,7 @@ export default function PageTwo({ onNext, onBack }) {
           <input
             type="text"
             id="convincer"
-            placeholder="Share your thoughts..."
+            placeholder="I want simple wheighloss solution..."
             onChange={(e) => handleChange('convincer', e.target.value)}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
           />

@@ -270,7 +270,7 @@ const feedbackData = [
     avatar: "https://i.pravatar.cc/150?img=37",
     rating: 5,
     feedback:
-      "After marriage, we were struggling with conception. Illaram helped me build internal strength and balance my body. I’m now 3 months pregnant — forever grateful!",
+      "Weight loss that didn’t feel like punishment. Finally😄!!",
     location: "Bangalore, India",
     date: "2024-11-02",
   },
