@@ -75,6 +75,28 @@ export default function PageOne({ onNext }) {
             <option>Managing both self and family health</option>
           </select>
         </div>
+<div>
+  <label htmlFor="activity" className="block text-sm font-semibold text-gray-700 mb-1">
+    Which physical activity do you like?
+  </label>
+  <select
+    id="activity"
+    name="activity"
+    onChange={(e) => handleChange('activity', e.target.value)}
+    className="w-full border text-gray-500 border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
+    aria-label="Select physical activity"
+    defaultValue=""
+  >
+    <option value="" disabled hidden>
+      Select your liking
+    </option>
+    <option value="strength_training">Strength Training</option>
+    <option value="cardio">Cardio</option>
+    <option value="yoga">Yoga</option>
+    <option value="zumba">Zumba</option>
+    <option value="dance">Dance</option>
+  </select>
+</div>
 
         <div>
           <label htmlFor="routine" className="block text-sm font-semibold text-gray-700 mb-1">

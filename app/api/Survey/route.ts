@@ -12,9 +12,12 @@ export async function POST(request: NextRequest) {
     // Parse the JSON body
     const body = await request.json();
 
+console.log('Received survey response:', body);
+
     // Create a new document in the collection
     const response = await SurveyResponse.create(body);
 
+    console.log('Saved survey response:', response);
     // Return a success response
     return NextResponse.json({ success: true, data: response });
   } catch (error) {

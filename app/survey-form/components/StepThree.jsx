@@ -9,8 +9,7 @@ export default function PageThree({ onBack, formData }) {
   const [submitted, setSubmitted] = useState(false);
   const [localData, setLocalData] = useState({
     rating: "",
-    moreOf: "",
-    recommend: "",
+  
     contactMethod: "",
     feedback: "",
   });
@@ -25,10 +24,10 @@ export default function PageThree({ onBack, formData }) {
     }
   }, [submitted]);
 
-  const handleChange = (field, value) => {
-    setLocalData((prev) => ({ ...prev, [field]: value }));
-    formData[field] = value; // Attach to final payload
-  };
+const handleChange = (field, value) => {
+  setLocalData((prev) => ({ ...prev, [field]: value }));
+  // Don't mutate formData here — just update localData
+};
 
 const popSound = new Audio("/sounds/pop.mp3");
 
@@ -48,16 +47,18 @@ const handleStartConfetti = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-
+  const payload = { ...formData, ...localData };
+  console.log("Submitting payload:", payload);
   const res = await fetch("/api/Survey", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...formData, ...localData }),
+    body: JSON.stringify(payload),
   });
 
   const data = await res.json();
 
   if (data.success) {
+    console.log("Form submitted successfully:", data);
     handleStartConfetti();
     setSubmitted(true);
   } else {
@@ -163,67 +164,23 @@ if (submitted) {
           </select>
         </div>
 
-        {/* More of */}
-        <div>
-          <label
-            htmlFor="moreOf"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            What would you like to see more of?
-          </label>
-          <input
-            type="text"
-            id="moreOf"
-            onChange={(e) => handleChange("moreOf", e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
-            placeholder="E.g., Quick workouts, skincare, child health"
-            value={localData.moreOf}
-          />
-        </div>
-
-        {/* Recommend */}
-        <div>
-          <label
-            htmlFor="recommend"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Would you recommend Ilaram?
-          </label>
-          <select
-            id="recommend"
-            onChange={(e) => handleChange("recommend", e.target.value)}
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
-            value={localData.recommend}
-          >
-            <option value="">Choose one</option>
-            <option>Yes</option>
-            <option>Maybe</option>
-            <option>Not yet</option>
-            <option>No</option>
-          </select>
-        </div>
-
+ 
         {/* Contact Method */}
         <div>
           <label
             htmlFor="contactMethod"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Where would you like to hear more from us?
+            How would you know about us?
           </label>
-          <select
+        <textarea
             id="contactMethod"
+            rows="3"
             onChange={(e) => handleChange("contactMethod", e.target.value)}
+            placeholder="From Friend Prakash!"
             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400"
             value={localData.contactMethod}
-          >
-            <option value="">Select channel</option>
-            <option>WhatsApp</option>
-            <option>Email</option>
-            <option>Instagram</option>
-            <option>In-person events</option>
-            <option>Parent/women communities</option>
-          </select>
+          />
         </div>
 
         {/* Feedback */}
