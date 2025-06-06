@@ -20,7 +20,7 @@ export default function Home() {
   const handleBack = () => setStep(step - 1);
 
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-rose-100 to-sky-100 flex flex-col items-center p-2">
+    <div className="min-h-screen bg-gradient-to-tr from-rose-100 to-sky-100 flex flex-col items-center p-5">
         <div>
         <ProgressBar step={step} />
         {step === 1 && <StepOne onNext={handleNext} />}

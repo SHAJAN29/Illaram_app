@@ -66,7 +66,7 @@ const handleSubmit = async (e) => {
 };
 if (submitted) {
   return (
-    <div className="min-h-screen font-[Poppins] bg-gradient-to-tr from-rose-100 to-sky-100 p-6 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen font-[Poppins] bg-gradient-to-tr from-rose-100 to-sky-100 flex items-center justify-center relative overflow-hidden">
       {showConfetti && (
         <ConfettiExplosion
           particleCount={200}
