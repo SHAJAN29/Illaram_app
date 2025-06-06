@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import { useRouter, useParams } from "next/navigation";
 import ProgressTracking from "../components/welcomeBanner";
+import ProfileWizard from "./userProfilePage/userProfile";
 
 interface PageProps {
   params: {
@@ -86,7 +87,8 @@ export default function UserDashboardPage() {
       <h1 className="text-3xl font-bold capitalize">Welcome, {username}</h1>
       <p className="text-gray-700">Here’s your progress and resources 👇</p>
       <ProgressTracking userId={id} />
-      
+
+      <ProfileWizard userId={id}/>
     </div>
   );
 }

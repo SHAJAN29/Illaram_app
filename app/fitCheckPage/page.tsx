@@ -3,6 +3,7 @@
 import { useState } from "react";
 import SkinTypeChecker from "./fitComponent/SkinTypeChecker";
 import HairTypeChecker from "./fitComponent/HairTypeChecker";
+import Head from "next/head";
 
 type FitCheckForm = {
   name: string;
@@ -83,6 +84,28 @@ export default function FitCheck() {
   };
 
   return (
+
+<>
+<Head>
+  <title>FitCheck - Personalized Body, Skin & Hair Health Insights</title>
+  <meta name="description" content="Get personalized health insights with FitCheck. Discover your BMI, skin type, hair health, and more based on your lifestyle and habits." />
+  <meta name="keywords" content="FitCheck, health check, BMI calculator, skin type checker, hair health, beauty assessment, wellness, personal health insights" />
+  <meta name="author" content="FitCheck Team" />
+  
+  {/* Open Graph Meta Tags */}
+  <meta property="og:title" content="FitCheck - Personalized Body, Skin & Hair Health Insights" />
+  <meta property="og:description" content="A smart wellness tool for tracking your skin, hair, and body health. Get your results instantly and improve your lifestyle choices." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/fitcheck" />
+  <meta property="og:image" content="https://yourdomain.com/images/fitcheck-preview.png" />
+  
+  {/* Twitter Meta Tags */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FitCheck - Body, Skin & Hair Wellness Insights" />
+  <meta name="twitter:description" content="Use FitCheck to evaluate your physical wellness, discover your BMI, and get beauty advice based on real data." />
+  <meta name="twitter:image" content="https://yourdomain.com/images/fitcheck-preview.png" />
+</Head>
+
     <div className="min-h-screen font-[Poppins] bg-gradient-to-tr from-rose-100 to-sky-100 p-6">
       <div className="max-w-2xl mx-auto bg-white shadow-lg mt-10 rounded-xl p-8">
         <h1 className="text-3xl font-bold text-center mb-6 uppercase text-pink-500">
@@ -387,5 +410,6 @@ export default function FitCheck() {
 
       </div>
     </div>
+    </>
   );
 }
