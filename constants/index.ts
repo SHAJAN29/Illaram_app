@@ -294,7 +294,7 @@ whatsAppNumber:+918778919303,
       name: "Basic",
       monthly: 2599,
       yearly: 2399 * 12 - 2000,
-      features: ["Consultation", "Customized Care Plan","Personalized fitness programs", "Personalized skin & hair care","Monthly check-ins with experts","Nutrion guidence","24/7 wellness support" ],
+      features: ["Consultation", "Basic Care Plan","Fitness programs","Personalized Diet plan","24/7 wellness support" ],
     },
     {
       name: "Standard",

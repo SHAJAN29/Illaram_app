@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       process.env.JWT_SECRET!,
       { expiresIn: '1d' }
     );
-    return NextResponse.json({  token, role: user.role, email: user.email, username: user.username }, { status: 200 });
+    return NextResponse.json({ token, role: user.role, email: user.email, username: user.username }, { status: 200 });
 
   } catch (err) {
     console.error("Login error", err);
