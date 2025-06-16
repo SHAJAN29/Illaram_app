@@ -1,5 +1,6 @@
 "use client";
 
+// app/page.tsx (or if this is your specific home page component)
 import { Home_Testimony } from "@/components/Home_Testimony";
 import HomeService_section from "@/components/homeService_section";
 import Illaram_Journey from "@/components/Illaram_Journey";
@@ -8,12 +9,6 @@ import "../../app/globals.css";
 import Typewriter from "typewriter-effect";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-// This is a client component
-
-//bg-[url(/img/mountains.jpg)]
-
-// 100% natural and organic products for your hair, skin, and body.
-
 import React from "react";
 import Image from "next/image";
 import ScrollToTopButton from "@/small_components/scroolButton";
@@ -26,6 +21,7 @@ import WeightlossComponent from "@/components/weightloss/WeightlossComponent";
 import CorprateWellness from "app/servicees/component/corprateWellness";
 import CorprateWellnessCard from "@/components/weightloss/CorprateWellnessCard";
 import Pricing from "@/components/subcription/subscribtion";
+
 
 const Home = () => {
   return (

@@ -96,14 +96,14 @@ export default function FitCheck() {
   <meta property="og:title" content="FitCheck - Personalized Body, Skin & Hair Health Insights" />
   <meta property="og:description" content="A smart wellness tool for tracking your skin, hair, and body health. Get your results instantly and improve your lifestyle choices." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/fitcheck" />
-  <meta property="og:image" content="https://yourdomain.com/images/fitcheck-preview.png" />
+  <meta property="og:url" content="https://www.ilaramhealthcare.com/fitcheck" />
+  <meta property="og:image" content="https://www.ilaramhealthcare.com/images/fitcheck-preview.png" />
   
   {/* Twitter Meta Tags */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FitCheck - Body, Skin & Hair Wellness Insights" />
   <meta name="twitter:description" content="Use FitCheck to evaluate your physical wellness, discover your BMI, and get beauty advice based on real data." />
-  <meta name="twitter:image" content="https://yourdomain.com/images/fitcheck-preview.png" />
+  <meta name="twitter:image" content="https://www.ilaramhealthcare.com/images/fitcheck-preview.png" />
 </Head>
 
     <div className="min-h-screen font-[Poppins] bg-gradient-to-tr from-rose-100 to-sky-100 p-6">
