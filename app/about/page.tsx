@@ -4,16 +4,16 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>About Us | Illaram Healthcare</title>
-        <meta name="description" content="Illaram Healthcare is a wellness optimization platform helping couples get physically and mentally ready for marriage with our 100-Day Transformation Program." />
+        <title>About Us | Ilaram Healthcare</title>
+        <meta name="description" content="Illaram Healthcare is a wellness optimization platform helping couples get physically ready for marriage with our 100-Day Transformation Program." />
         <meta name="keywords" content="wedding wellness, pre-wedding transformation, Illaram Healthcare, holistic health, bride fitness, groom wellness" />
         <meta name="author" content="Illaram Healthcare" />
         <meta property="og:title" content="About Us | Illaram Healthcare" />
         <meta property="og:description" content="Helping adults prepare physically and mentally for married life through our science-backed 100-day plan." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.illaramhealthcare.com/about" />
+        <meta property="og:url" content="https://www.ilaramhealthcare.com/about" />
         <meta property="og:image" content="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb" />
-        <link rel="canonical" href="https://www.illaramhealthcare.com/about" />
+        <link rel="canonical" href="https://www.ilaramhealthcare.com/about" />
       </Head>
 
       <section className="bg-[#f4f7f0] py-16 px-6 md:px-12 text-[#a9aba6] font-[poppins]">

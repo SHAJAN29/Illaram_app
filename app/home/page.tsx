@@ -45,10 +45,10 @@ const Home = () => {
     />
   </span>{" "}
           </h1>
-          <p className="text-gray-500 capitalize pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5 ">
-            present you'r most beautiful version with confidence infront of your
-            partner😊...
-          </p>
+          <p className="text-gray-500 capitalize pt-10 flex-wrap max-sm:text-[15px] lg:text-2xl max-sm:pt-5">
+  Present your most beautiful version with confidence—glowing skin, healthy hair, fit body. All under one subscription.
+</p>
+
          <p className="text-sm max-sm:text-[13px] text-gray-400 mb-5 mt-5 italic">
   Trusted by 1,000+ individuals across India ...
 </p>
