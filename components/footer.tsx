@@ -71,7 +71,7 @@ export const Footer = () => {
             <li>
               <span className="block text-white font-medium">Email</span>
               <a href="mailto:illaramhealthcare@zohomail.in" className="hover:text-white">
-                illaramhealthcare@zohomail.in
+                admin@ilaramhealthcare.com
               </a>
             </li>
             <li>
