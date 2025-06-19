@@ -18,12 +18,12 @@ const About = () => {
 
       <section className="bg-[#f4f7f0] py-16 px-6 md:px-12 text-[#a9aba6] font-[poppins]">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#94c159] mb-8 text-center">About Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#94c159] mb-8 text-center">Welcome to Ilaram Healthcare </h1>
 
           <p className="text-lg md:text-xl mb-6 leading-relaxed text-center">
-            <strong className="text-[#94c159]">Illaram Healthcare</strong> is a modern wellness platform combining medical science with holistic care.
-            Our <strong>100-Day Pre-Wedding Transformation Program</strong> prepares brides and grooms to feel amazing—
-            physically, mentally, and emotionally—as they step into marriage.
+            <strong className="text-[#94c159]">Illaram Healthcare</strong> is a modern wellness platform combining medical science with holistic care Connect with certified Ayurvedic doctors worldwide for personalized full-body wellness plans covering hair, skin, fitness, fertility, and more, all under one convenient subscription.
+            Our <strong>100-Day Pre-Wedding wellness plan</strong> prepares brides and grooms to feel amazing—
+            physically they step into marriage.
           </p>
 
           <div className="grid md:grid-cols-2 gap-10 mt-12">
