@@ -5,9 +5,9 @@ import CountUp from 'react-countup'
 import { motion } from 'framer-motion'
 
 const stats = [
-  { value: 420, suffix: '+', label: 'Active Members', color: 'text-pink-500' },
-  { value: 3.2, suffix: 'K+', label: 'Sessions Completed', color: 'text-pink-400' },
-  { value: 27, suffix: 'M+', label: 'Calories Burnt', color: 'text-purple-500' },
+  { value: 1000, suffix: '+', label: 'Lives to Transform', color: 'text-pink-500' },
+  { value: 50, suffix: '+', label: 'Expert Doctors', color: 'text-pink-400' },
+  { value: 1, suffix: 'm+', label: 'Hours of Care to Deliver', color: 'text-purple-500' },
 ]
 
 export default function StatsSection() {
