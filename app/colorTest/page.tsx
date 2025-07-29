@@ -65,54 +65,54 @@ const journeySteps = [
 ];
 const testimonials = [
   {
-    name: "Sophia L.",
-    date: "January 28, 2024",
-    source: "TrustPoint",
+    name: "Priya V.",
+    date: "May 3, 2024",
+    source: "Illaram Client",
     stars: 5,
     avatar:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=867&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Add your path
-    title: "Finally, a Plan That Works!",
-    text: `I've tried so many fitness programs before, but this one actually made a difference. The support and clear instructions helped me stay consistent and see real progress!`,
+      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=867&auto=format&fit=crop&ixlib=rb-4.1.0",
+    title: "From Stress to Strength!",
+    text: `Before Illaram, I felt lost juggling work, home, and my health. Their personalized approach didn’t just change my routine—it changed my life. I finally feel seen, supported, and strong.`,
   },
   {
-    name: "Robert S.",
-    date: "February 12, 2024",
-    source: "TrustPoint",
+    name: "Arjun R.",
+    date: "May 22, 2024",
+    source: "Illaram Client",
+    stars: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0",
+    title: "A System That Thinks For Me!",
+    text: `Illaram’s health automation feels like magic. I don’t have to remember when to take care of myself — it reminds me, guides me, and makes it effortless. Game-changer for any busy professional.`,
+  },
+  {
+    name: "Meena K.",
+    date: "June 1, 2024",
+    source: "Illaram Client",
+    stars: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0",
+    title: "My Wedding Glow Was Real!",
+    text: `I joined Illaram’s bridal transformation plan 100 days before my wedding. It wasn’t just about looking good — I felt confident, calm, and healthy from the inside out. Guests noticed. I smiled brighter.`,
+  },
+  {
+    name: "Dr. Shalini R.",
+    date: "June 18, 2024",
+    source: "Healthcare Partner",
+    stars: 5,
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0",
+    title: "Finally, Proactive Healthcare That Works!",
+    text: `As a doctor, I’ve seen too many patients ignore their health. Illaram bridges the gap — offering sustainable wellness, not just quick fixes. It’s personal, practical, and powerful.`,
+  },
+  {
+    name: "Naveen M.",
+    date: "July 9, 2024",
+    source: "Illaram Client",
     stars: 4,
     avatar:
-      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Life-Changing Experience!",
-    text: `I never thought online coaching could be this effective! The guidance and personalized workouts helped me transform my routine.`,
-  },
-  {
-    name: "Michael T.",
-    date: "February 20, 2024",
-    source: "TrustPoint",
-    stars: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Stronger and More Confident!",
-    text: `This program didn’t just improve my fitness — it changed my mindset. I feel more energetic, motivated, and in control of my health.`,
-  },
-  {
-    name: "Emily C.",
-    date: "March 1, 2024",
-    source: "TrustPoint",
-    stars: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "The Results Speak for Themselves!",
-    text: `I started with zero experience, but the step-by-step guidance made everything easy to follow.`,
-  },
-  {
-    name: "Samantha M.",
-    date: "February 12, 2024",
-    source: "TrustPoint",
-    stars: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "FitFlow completely changed my fitness journey!",
-    text: `The personalized coaching and easy-to-follow program helped me achieve real results.`,
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0",
+    title: "The Only Subscription I Actually Use!",
+    text: `I subscribed thinking I’d quit in a month. Three months in, I’ve lost fat, gained energy, and finally feel in control of my health. Worth every rupee.`,
   },
 ];
 
@@ -226,7 +226,7 @@ const AutomatedWellness = () => {
             variants={fadeUp}
             className="relative z-10 text-center px-4 md:px-8"
           >
-            <h1 className="text-9xl max-md:text-5xl font-black leading-tight drop-shadow-md">
+            <h1 className="text-9xl max-md:text-5xl max-lg:text-6xl font-black leading-tight drop-shadow-md">
               Wellness, Automated. <br />
               <span className="text-[#ff6d99]">Without the Hassle.</span>
             </h1>
@@ -294,16 +294,7 @@ const AutomatedWellness = () => {
             ))}
           </div>
 
-          {/* <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mt-12 text-lg max-w-xl mx-auto text-[#111111]"
-      >
-        ✅ Illaram automates your wellness like a SIP plan.<br />
-        ✅ Monthly check-ins, personal coaching & full support.
-      </motion.p> */}
+   
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
