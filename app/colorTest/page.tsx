@@ -67,7 +67,7 @@ const testimonials = [
   {
     name: "Priya V.",
     date: "May 3, 2024",
-    source: "Illaram Client",
+    source: "Ilaram Client",
     stars: 5,
     avatar:
       "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=867&auto=format&fit=crop&ixlib=rb-4.1.0",
@@ -77,7 +77,7 @@ const testimonials = [
   {
     name: "Arjun R.",
     date: "May 22, 2024",
-    source: "Illaram Client",
+    source: "Ilaram Client",
     stars: 5,
     avatar:
       "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0",
@@ -87,7 +87,7 @@ const testimonials = [
   {
     name: "Meena K.",
     date: "June 1, 2024",
-    source: "Illaram Client",
+    source: "Ilaram Client",
     stars: 5,
     avatar:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0",
@@ -107,7 +107,7 @@ const testimonials = [
   {
     name: "Naveen M.",
     date: "July 9, 2024",
-    source: "Illaram Client",
+    source: "Ilaram Client",
     stars: 4,
     avatar:
       "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0",
