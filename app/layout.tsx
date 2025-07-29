@@ -6,7 +6,7 @@ import { Footer } from "../components/footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import { Toaster } from "react-hot-toast";
 import ConditionalLayout from "@/components/ConditionalLayout";
-
+import { Manrope } from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,7 +83,12 @@ export const metadata: Metadata = {
     images: ["https://www.ilaramhealthcare.com/images/ilaram-healthcare-twitter-image.jpg"], // Optimize image for Twitter
   },
 };
-
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // customize as needed
+  variable: '--font-manrope', // optional but powerful
+  display: 'swap',
+});
 export default function RootLayout({
   children,
 }: {
@@ -92,7 +97,7 @@ export default function RootLayout({
  
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}>
       {/* <Navbar /> */}
         <Toaster position="top-center" />
         <ConditionalLayout>{children}</ConditionalLayout>

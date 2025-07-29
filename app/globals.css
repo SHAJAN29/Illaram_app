@@ -46,7 +46,9 @@
 }
 
 
-
+.shadow-glass {
+  box-shadow: 0 10px 30px rgba(255, 109, 153, 0.25);
+}
 
 .bgSecondary {
   @apply bg-[#f4f7f0] 

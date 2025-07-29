@@ -1,5 +1,5 @@
 // /models/Affiliate.ts
-import { m } from "framer-motion/dist/types.d-DSjX-LJB";
+
 import mongoose from "mongoose";
 
 const AffiliateSchema = new mongoose.Schema({
