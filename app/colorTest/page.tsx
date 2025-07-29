@@ -198,13 +198,25 @@ const AutomatedWellness = () => {
 
   return (
     <>
-      <Head>
-        <title>Illaram Healthcare</title>
-        <meta
-          name="description"
-          content="India’s first health automation platform for working professionals"
-        />
-      </Head>
+<Head>
+  <title>Ilaram Healthcare | Your Personal Healthcare Partner</title>
+  <meta
+    name="description"
+    content="Ilaram is India’s first health automation platform — your personal healthcare partner for preventive care, fitness, and wellness. Designed for busy professionals to stay healthy effortlessly."
+  />
+  <meta name="keywords" content="Ilaram, Health Automation, Personal Healthcare Partner, Wellness Subscription, Preventive Healthcare, Fitness for Professionals, Monthly Body Maintenance, Indian Wellness Platform" />
+  <meta name="author" content="Ilaram Healthcare" />
+  <meta property="og:title" content="Ilaram Healthcare | Your Personal Healthcare Partner" />
+  <meta property="og:description" content="India’s first personalized health automation system for busy professionals. Preventive, effortless, and made for you." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ilaramhealthcare.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ilaram Healthcare | Your Personal Healthcare Partner" />
+  <meta name="twitter:description" content="Automated wellness programs for professionals. Monthly body maintenance, simplified." />
+  <meta name="twitter:image" content="/twitter-og.png" />
+</Head>
+
 
       <main className="bg-[#fffefe] text-[#111111] font-[manrope]">
         {/* Hero Section */}
