@@ -9,11 +9,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 // Refined Palette for Luxury & Minimalism
-const images = [
-  "/images/Gemini_Generated_Image_w33ve8w33ve8w33v.png",
-  "/images/Gemini_Generated_Image_e9otpne9otpne9ot.png",
+const images = [ 
+
+  "/images/Gemini_Generated_Image_hr2l3yhr2l3yhr2l.png",
   "/images/Gemini_Generated_Image_b71hjob71hjob71h.png",
-  "/images/Gemini_Generated_Image_6p8pjk6p8pjk6p8p.png",
+  "/images/Gemini_Generated_Image_i4lb44i4lb44i4lb.png",
+  "/images/Gemini_Generated_Image_v52sqkv52sqkv52s.png",
 ];
 
 const LandingPage = () => {
@@ -31,15 +32,16 @@ const LandingPage = () => {
       {/* Hero Section with slideshow */}
       <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
         {images.map((img, i) => (
-          <motion.img
-            key={i}
-            src={img}
-            alt="Hero Slide"
-            className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: i === current ? 1 : 0 }}
-            transition={{ duration: 1.2 }}
-          />
+<motion.img
+    key={i}
+    src={img}
+    alt={`Hero Slide ${i + 1}`}
+    className="absolute inset-0 w-full h-full object-cover"
+    style={{ zIndex: i === current ? 1 : 0 }} // bring active slide on top
+    initial={{ opacity: 0 }}
+    animate={{ opacity: i === current ? 1 : 0 }}
+    transition={{ duration: 1.2 }}
+  />
         ))}
         <div className="relative mt-50 z-10  p-8 rounded-2xl">
           <motion.h1
@@ -58,7 +60,7 @@ const LandingPage = () => {
           >
             The throne is yours — if your health can keep up.
           </motion.p>
-          <motion.button
+          <motion.button   onClick={() => window.open("https://wa.me/918778919303", "_blank")}
             className="cursor-pointer mt-8 max-sm:px-5 sm:py-2 px-10 py-4 bg-white text-black max-sm:text-sm text-lg font-semibold rounded-full hover:bg-gray-200 transition"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,6 +76,8 @@ const LandingPage = () => {
     “All the wealth in the world means nothing without health.”  
     <span className="block mt-4 text-base font-normal text-gray-500">– Steve Jobs</span>
   </blockquote>
+    <div className="w-16 h-0.5 bg-[#C5A572] mx-auto mb-8 rounded-full"></div>
+
   <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
     Too many visionaries conquer markets, build legacies, and earn the crown—only to lose the strength to wear it. 
     Health shouldn’t be the price of ambition. 
@@ -139,7 +143,7 @@ const LandingPage = () => {
           <p className="text-lg text-gray-600 mb-8">
             Illaram is your pit crew—so you can focus on winning in business and life, while we fine-tune your body, energy, and confidence every day.
           </p>
-          <button className="px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-900">
+          <button   onClick={() => window.open("https://wa.me/918778919303", "_blank")} className="px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-900">
             Discover Your Care Team
           </button>
         </div>
@@ -174,72 +178,89 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="py-32 px-6 md:px-12">
-       <h2 className="text-4xl font-semibold text-center mb-6 text-black">
-  Private Systems
-</h2>
-<p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-20">
-  Unseen frameworks. Protocols. Built for leaders who can’t afford to break.
-</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          {[ 
-            {
-              name: "Essentials",
-              price: "₹3,500",
-              features: [
-                "Monthly doctor consultation",
-                "Personalized fitness plan",
-                "Monthly nutrition plan",
-                "Basic supplement guidance",
-                "WhatsApp/text support"
-              ],
-              ideal: "Professionals beginning their wellness journey, needing structure but not intensive hand-holding"
-            },
-            {
-              name: "Core Health+",
-              price: "₹4,000",
-              features: [
-                "Everything in Essentials",
-                "Bi-weekly check-ins (video/audio)",
-                "Updated meal + fitness plan every 2 weeks",
-                "Supplement stack (shipped or prescribed)",
-                "1 mental wellness consult/month",
-                "App access to resources & habit tracker"
-              ],
-              ideal: "Busy professionals serious about optimizing their lifestyle with expert support"
-            },
-            {
-              name: "Total Wellness Pro",
-              price: "₹5,500",
-              features: [
-                "Everything in Core Health+",
-                "Weekly consults (doctor/coach/therapist)",
-                "Custom supplement kit delivered monthly",
-                "24x7 health chat support",
-                "Monthly deep-dive health reports",
-                "Access to expert-led webinars & Q&As",
-                "Priority support"
-              ],
-              ideal: "Executives, high-performers, and those managing chronic conditions or aggressive fitness goals"
-            }
-          ].map((plan, i) => (
-            <div key={i} className="border border-gray-200 rounded-2xl p-10 bg-white shadow-sm transition">
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <p className="text-xl text-gray-700 mb-6">{plan.price} / month</p>
-              <ul className="text-left mb-6 space-y-2 text-gray-600">
-                {plan.features.map((f, idx) => (
-                  <li key={idx}>• {f}</li>
-                ))}
-              </ul>
-              <p className="text-sm text-gray-500 mb-6">{plan.ideal}</p>
-              <button className="w-full py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-900">
-                Experience the System
-              </button>
-            </div>
+    {/* Pricing Section */}
+<section className="py-32 px-6 md:px-12 text-center">
+  <h2 className="text-4xl font-semibold mb-6 text-black">
+    Private Protocols
+  </h2>
+  <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-20">
+    Discreet systems. Precision frameworks. Engineered for leaders who cannot afford breakdowns.
+  </p>
+
+ <a 
+  href="tel:7904118829" 
+  className="inline-block px-8 py-3 mb-16 font-medium rounded-2xl shadow-md 
+             text-white bg-gradient-to-r from-[#c9ab02] via-[#D4AF37] to-[#B8860B] 
+             hover:opacity-90 transition mx-auto"
+>
+  Talk to Us
+</a>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+    {[
+      {
+        name: "Essentials",
+        price: "₹3,500",
+        features: [
+          "Monthly doctor consultation",
+          "Personalized fitness plan",
+          "Monthly nutrition protocol",
+          "Foundational supplement guidance",
+          "WhatsApp/text support"
+        ],
+        ideal:
+          "For professionals initiating their wellness journey—structured, steady, minimal friction."
+      },
+      {
+        name: "Core Health+",
+        price: "₹4,000",
+        features: [
+          "Everything in Essentials",
+          "Bi-weekly consults (video/audio)",
+          "Adaptive meal + fitness recalibration every 2 weeks",
+          "Supplement stack (delivered or prescribed)",
+          "1 mental wellness consult/month",
+          "Access to digital resources & habit tracker"
+        ],
+        ideal:
+          "For busy professionals committed to optimizing performance with expert oversight."
+      },
+      {
+        name: "Total Wellness Pro",
+        price: "₹5,500",
+        features: [
+          "Everything in Core Health+",
+          "Weekly consults (doctor/coach/therapist)",
+          "Bespoke supplement kit delivered monthly",
+          "24x7 direct health chat support",
+          "Monthly precision health reports",
+          "Access to expert-led masterclasses & Q&As",
+          "Priority client privileges"
+        ],
+        ideal:
+          "For executives, high-performers, and those requiring deep, continuous optimization."
+      }
+    ].map((plan, i) => (
+      <div
+        key={i}
+        className="border border-gray-200 rounded-2xl p-10 bg-white shadow-sm hover:shadow-xl transition"
+      >
+        <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+        <p className="text-xl text-gray-700 mb-6">{plan.price} <span className="text-sm">/ month</span></p>
+        <ul className="text-left mb-6 space-y-2 text-gray-600">
+          {plan.features.map((f, idx) => (
+            <li key={idx}>• {f}</li>
           ))}
-        </div>
-      </section>
+        </ul>
+        <p className="text-sm text-gray-500 mb-6">{plan.ideal}</p>
+        <button className="w-full py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-900 transition">
+          Experience the System
+        </button>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Testimonials Section */}
       <section className="py-32 px-6 md:px-12 bg-gray-50">
@@ -277,65 +298,77 @@ const LandingPage = () => {
   </div>
 </section>
 
+{/* FAQ Section */}
+<section className="py-32 px-6 md:px-12 bg-gray-50 text-[#111]">
+ <div className="max-w-4xl mx-auto text-center mb-16">
+  <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-6">
+    Behind the System
+  </h2>
+  <p className="text-lg text-gray-600">
+    Essential clarity on how our protocols work — precise, timeless, and transparent.
+  </p>
+</div>
+
+
+<div className="max-w-3xl mx-auto space-y-6">
+  {[
+    {
+      q: "What defines the Illaram system?",
+      a: "Illaram operates as a discreet, doctor-led engine for sustained vitality. Every protocol is designed to preserve strength, cognition, and resilience—executed seamlessly in the background, without demanding attention.",
+    },
+    {
+      q: "Who benefits from these protocols?",
+      a: "Tailored for founders, high-performing professionals, and those leading critical ventures. The system safeguards peak performance for those who cannot afford disruption.",
+    },
+    {
+      q: "How are the protocols delivered?",
+      a: "Upon enrollment, your plan is calibrated, and the system orchestrates your regimen month-to-month or annually. Every detail, from lifestyle guidance to supplementation, is automated—transparent and uncompromising.",
+    },
+    {
+      q: "Can the plan be adjusted?",
+      a: "Absolutely. You retain command. Pause, upgrade, or discontinue the protocol at any moment, maintaining full autonomy over your regimen.",
+    },
+    {
+      q: "Are in-person visits required?",
+      a: "None. Consultations, assessments, and regimen adjustments occur remotely, ensuring your health is optimized wherever you reside.",
+    },
+    {
+      q: "What distinguishes Illaram supplements?",
+      a: "Crafted monthly in precise, small batches, each formula fuses ancient wisdom with contemporary science. Designed for longevity, purity, and performance—never shortcuts or temporary fixes.",
+    },
+  ].map((item, i) => (
+    <details
+      key={i}
+      className="border-b border-gray-200 pb-6 group"
+    >
+      <summary className="flex justify-between items-center cursor-pointer text-lg font-medium text-black">
+        {item.q}
+        <span className="text-gray-400 group-open:rotate-45 transition-transform">
+          +
+        </span>
+      </summary>
+      <p className="mt-3 text-gray-600 leading-relaxed">{item.a}</p>
+    </details>
+  ))}
+</div>
+
+</section>
+
 
       {/* CTA Section */}
       <section className="py-32 mb-20 text-center ">
         <h2 className="text-3xl font-extrabold mb-2 text-black">Automate Your Wellness?</h2>
         <p className="text-sm text-gray-400 mb-5">Begin your protocol. Discover your care team. Experience the system.</p>
-        <button className="px-7 py-2 bg-black text-white font-semibold rounded-full hover:bg-gray-900">
-          Step Inside.
-        </button>
+        <button
+  onClick={() => window.open("https://wa.me/918778919303", "_blank")}
+  className="px-7 py-2 bg-black text-white font-semibold rounded-full hover:bg-gray-900 transition"
+>
+  Step Inside.
+</button>
+
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white text-black border-t border-gray-200 py-16 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-12 text-sm">
-          <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-gray-500">
-              <li>support@luxewell.com</li>
-              <li>Press</li>
-              <li>Partnerships</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-gray-500">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
-              <li>Cookies</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Wellness</h3>
-            <ul className="space-y-2 text-gray-500">
-              <li>Features</li>
-              <li>Lifestyle</li>
-              <li>Pricing</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-gray-500">
-              <li>About</li>
-              <li>Careers</li>
-              <li>Philosophy</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Social</h3>
-            <ul className="space-y-2 text-gray-500">
-              <li>Instagram</li>
-              <li>LinkedIn</li>
-              <li>Twitter</li>
-            </ul>
-          </div>
-        </div>
-        <p className="text-center text-xs text-gray-400 mt-12">
-          “You chase the crown, we’ll handle the body that carries you.”
-        </p>
-        
-      </footer>
+   
     </div>
   );
 };

@@ -1,142 +1,270 @@
 import Head from 'next/head';
 
+
 const About = () => {
   return (
     <>
       <Head>
         <title>About Us | Ilaram Healthcare</title>
-        <meta name="description" content="Illaram Healthcare is a wellness optimization platform helping couples get physically ready for marriage with our 100-Day Transformation Program." />
-        <meta name="keywords" content="wedding wellness, pre-wedding transformation, Illaram Healthcare, holistic health, bride fitness, groom wellness" />
-        <meta name="author" content="Illaram Healthcare" />
-        <meta property="og:title" content="About Us | Illaram Healthcare" />
-        <meta property="og:description" content="Helping adults prepare physically and mentally for married life through our science-backed 100-day plan." />
+        <meta
+          name="description"
+          content="Ilaram Healthcare is India’s first health automation system — proactive, subscription-based, and designed to keep high performers young, strong, and unstoppable."
+        />
+        <meta
+          name="keywords"
+          content="health automation, lifestyle subscription, proactive wellness, high performers, longevity, Ilaram Healthcare"
+        />
+        <meta name="author" content="Ilaram Healthcare" />
+        <meta property="og:title" content="About Us | Ilaram Healthcare" />
+        <meta
+          property="og:description"
+          content="We help founders, leaders, and professionals protect their most valuable asset — health — with personalized, automated care systems."
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.ilaramhealthcare.com/about" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb" />
+        <meta
+          property="og:url"
+          content="https://www.ilaramhealthcare.com/about"
+        />
+        <meta
+          property="og:image"
+          content="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb"
+        />
         <link rel="canonical" href="https://www.ilaramhealthcare.com/about" />
       </Head>
-<section className="bg-[#f4f7f0] py-16 px-6 md:px-12 text-[#555] font-[poppins]">
-  <div className="max-w-5xl mx-auto">
-    <h1 className="text-4xl md:text-5xl font-bold text-[#94c159] mb-8 text-center">
-      Welcome to Ilaram Healthcare
+
+{/* About Section */}
+<section 
+  className="relative h-screen flex items-center justify-center text-[#111] bg-cover bg-center" 
+  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')" }}
+>
+  {/* Overlay for readability */}
+  <div className="absolute inset-0 bg-black/10"></div>
+
+  <div className="relative max-w-4xl mx-auto text-center px-6">
+    <h1 className="text-5xl md:text-6xl font-light text-white mb-10 tracking-tight">
+      About Ilaram
     </h1>
-<h3 className='text-gray-400'> *Life Without Limits*
-   We take care of your body. You live your life.
-</h3>
-    <p className="text-lg leading-relaxed">
-      <em>You weren’t born to count calories.</em><br /><br />
-      You were born to <strong>live fully</strong> —  
-      to move, to taste, to laugh, to love.  
-      To eat the food you grew up with, chase your kids,  
-      climb mountains, run meetings, and dance barefoot in the kitchen.  
-      <br /><br />
-      But here’s the truth:  
-      To live freely, you need a body that can keep up.  
-      A system that works <em>with</em> your life, not against it.  
+    <p className="text-xl text-white leading-relaxed max-w-2xl mx-auto">
+      Everyone’s chasing something. We exist so health never slows you down.
+      Our system runs quietly in the background — keeping you young, strong,
+      and ready for life’s biggest stages.
     </p>
-
-    <div className="my-8 border-l-4 border-[#94c159] pl-4 text-lg italic text-[#333]">
-      That’s why we exist. <br />
-      We don’t just keep you healthy —  
-      we keep you <strong>ready</strong> for everything life offers.  
-      <br /><br />
-      🍽️ Eat what you love. <br />
-      🛫 Travel far and often. <br />
-      🧡 Be present with the people who matter. <br />
-      💪 Look good, feel strong, age boldly. <br /><br />
-      And let us handle the wellness plan.  
-    </div>
-
-    <h2 className="text-2xl font-semibold text-[#94c159] mb-6 text-center">
-      🌱 Live first. We’ll take care of your body.
-    </h2>
-
-    <div className="grid md:grid-cols-2 gap-10 mt-12">
-      <div>
-        <h2 className="text-2xl font-semibold text-[#94c159] mb-4">💍 Why We Exist</h2>
-        <p className="mb-4 leading-relaxed">
-          At Ilaram Healthcare, we’re not just fighting disease —  
-          we’re redefining what health means.  
-          Our system that keeps you <strong>young in spirit, strong in body, and limitless in ambition.</strong>  
-          <br /><br />
-          Our approach blends modern medicine, ancient wisdom, and personalized automation to keep your body at its best — quietly, proactively, always on.  
-          <br /><br />
-          Because health isn’t the goal.  
-          <strong>Life is. And your life deserves to be limitless.</strong>
-        </p>
-        <img
-          src="https://www.rd.com/wp-content/uploads/2017/10/00_Daily-Habits-of-Couples-in-Healthy-Relationships_292955957-Monkey-Business-Images_FT.jpg"
-          alt="Healthy couple enjoying life"
-          className="rounded-lg shadow-md mt-4"
-        />
-      </div>
-
-      <div>
-        <h2 className="text-2xl font-semibold text-[#94c159] mb-4">👨‍⚕️ What Makes Us Different</h2>
-       <ul className="space-y-3 list-disc list-inside leading-relaxed">
-  <li>
-    <strong>Doctor-Led:</strong> Certified medical professionals — not influencers or trends.
-  </li>
-  <li>
-    <strong>Fully Personalized:</strong> Custom plans based on labs, lifestyle & hormones.
-  </li>
-  <li>
-    <strong>Root-Cause Healing:</strong> We fix problems from the inside out.
-  </li>
-  <li>
-    <strong>App + Real Coaches:</strong> Progress tracking, accountability & daily guidance.
-  </li>
-  <li>
-    <strong>Save Time & Stress:</strong> No more juggling appointments — your complete health is managed by one expert team.
-  </li>
-  <li>
-    <strong>Avoid Costly Surprises:</strong> Stay ahead of expensive hospital visits with proactive, personalized care.
-  </li>
-  <li>
-    <strong>Experience Freedom:</strong> Eat what you love, explore new places, and enjoy family time knowing your health is covered.
-  </li>
-  <li>
-    <strong>Premium, Personalized Care:</strong> Doctors, coaches, and custom herbal supplements tailored to your unique body and lifestyle.
-  </li>
-  <li>
-    <strong>Trusted Quality:</strong> Every supplement is crafted in-house with pure, effective ingredients you can rely on.
-  </li>
-</ul>
-
-      </div>
-    </div>
-
-    <div className="mt-12">
-      <h2 className="text-2xl font-semibold text-[#94c159] mb-4">🌍 Where We Work</h2>
-      <p className="leading-relaxed">
-        Based in Chennai, India — serving clients globally through online consults, video check-ins, and our mobile wellness app.  
-        Wherever you are, whenever you need us — Ilaram is there.
-      </p>
-    </div>
-
-    <div className="mt-12">
-      <h2 className="text-2xl font-semibold text-[#94c159] mb-4">🎯 Our Mission</h2>
-      <p className="leading-relaxed">
-        To make proactive healthcare <strong>simple, personal, and sustainable</strong> — so every individual can be young, strong, and live their best life without compromise.
-      </p>
-      <h2 className="text-2xl font-semibold text-[#94c159] mt-6 mb-2">✨ Our Vision</h2>
-      <p className="leading-relaxed">
-        A world where healthcare runs in the background of your life — automated, personalized, and always on.
-      </p>
-    </div>
-
-    <div className="mt-12 text-center border-t pt-8">
-      <p className="text-lg font-semibold text-[#94c159]">📞 Let’s Talk</p>
-      <p>
-        Call us at <strong>+91 8778919303</strong> or email <strong>illaramhealthcare@zohomail.in</strong>
-      </p>
-    </div>
   </div>
 </section>
 
 
+
+      {/* Philosophy Section */}
+      <section className="bg-gray-50 py-28 px-6 md:px-12">
+        <div className="max-w-5xl mx-auto">
+          <blockquote className="text-2xl md:text-3xl italic font-light text-center text-gray-700 mb-16 leading-relaxed">
+            “All the wealth in the world means nothing without health.”
+          </blockquote>
+
+          <div className="grid md:grid-cols-2 gap-20 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-light text-black">
+                Our Philosophy
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Health shouldn’t be managed like a crisis. It should flow —
+                quietly and intelligently. An invisible system that keeps your
+                body sharp and your mind clear.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                At Ilaram, we bring together doctors, coaches, and automation to
+                remove friction. You focus on the race. We take care of the
+                machine.
+              </p>
+            </div>
+
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca"
+                alt="Minimal luxury wellness"
+                className="rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission + Vision */}
+      <section className="bg-white py-32 px-6 md:px-12">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <div>
+            <h2 className="text-3xl font-light text-black mb-6">Our Mission</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              To make proactive healthcare simple, personal, and frictionless —
+              so high performers can stay youthful, strong, and unstoppable.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-3xl font-light text-black mb-6">Our Vision</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              A world where healthcare runs like an operating system — invisible,
+              automated, and always on.
+            </p>
+          </div>
+        </div>
+      </section>
+
+{/* Contact */}
+<section className="bg-gray-50 h-screen flex items-center justify-center px-6 md:px-12">
+  <div className="max-w-3xl mx-auto text-center">
+    <h2 className="text-2xl md:text-3xl font-light text-black mb-6">
+      Some things can wait. Your health isn’t one of them.
+    </h2>
+    <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+  The truth is, neglect always collects its debt.  
+  Not today, maybe not tomorrow — but in the years you wanted to feel most alive.  
+  You can build the empire, win the game,happy family, reach the crown…  
+  yet without health, the victory slips away before it’s enjoyed.  
+  We exist so you never trade your tomorrow for today.  
+</p>
+
+    <a
+      href="/contact"
+      className="inline-block mt-4 px-8 py-3 bg-black text-white text-lg tracking-wide rounded-full hover:bg-gray-800 transition"
+    >
+      Claim Your Edge
+    </a>
+  </div>
+</section>
+
     </>
   );
 };
+
+
+
+
+
+
+
+
+
+// gold version
+
+
+
+// const About = () => {
+//   return (
+//     <>
+//       <Head>
+//         <title>About Us | Ilaram Healthcare</title>
+//         <meta
+//           name="description"
+//           content="Ilaram Healthcare is India’s first health automation system — proactive, subscription-based, and designed to keep high performers young, strong, and unstoppable."
+//         />
+//         <meta
+//           name="keywords"
+//           content="health automation, lifestyle subscription, proactive wellness, high performers, longevity, Ilaram Healthcare"
+//         />
+//         <meta name="author" content="Ilaram Healthcare" />
+//         <meta property="og:title" content="About Us | Ilaram Healthcare" />
+//         <meta
+//           property="og:description"
+//           content="We help founders, leaders, and professionals protect their most valuable asset — health — with personalized, automated care systems."
+//         />
+//         <meta property="og:type" content="website" />
+//         <meta
+//           property="og:url"
+//           content="https://www.ilaramhealthcare.com/about"
+//         />
+//         <meta
+//           property="og:image"
+//           content="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb"
+//         />
+//         <link rel="canonical" href="https://www.ilaramhealthcare.com/about" />
+//       </Head>
+
+//       {/* About Section */}
+//       <section className="bg-white py-32 px-6 md:px-12 text-[#333]">
+//         <div className="max-w-4xl mx-auto text-center">
+//           <h1 className="text-5xl md:text-6xl font-light text-[#C5A572] mb-10 tracking-tight">
+//             About Ilaram
+//           </h1>
+//           <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+//             Everyone’s chasing something. We exist so health never slows you down.
+//             Our system runs quietly in the background — keeping you young, strong,
+//             and ready for life’s biggest stages.
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* Philosophy Section */}
+//       <section className="bg-[#f9f9f7] py-28 px-6 md:px-12">
+//         <div className="max-w-5xl mx-auto">
+//           <blockquote className="text-2xl md:text-3xl italic font-light text-center text-gray-700 mb-16 leading-relaxed">
+//             “All the wealth in the world means nothing without health.”
+//           </blockquote>
+
+//           <div className="grid md:grid-cols-2 gap-20 items-center">
+//             <div className="space-y-6">
+//               <h2 className="text-3xl font-light text-[#C5A572]">
+//                 Our Philosophy
+//               </h2>
+//               <p className="text-lg text-gray-600 leading-relaxed">
+//                 Health shouldn’t be managed like a crisis. It should flow,
+//                 quietly and intelligently — an invisible system that keeps your
+//                 body sharp and your mind clear.  
+//               </p>
+//               <p className="text-lg text-gray-600 leading-relaxed">
+//                 At Ilaram, we bring together doctors, coaches, and automation to
+//                 remove friction. You focus on the race. We take care of the
+//                 machine.
+//               </p>
+//             </div>
+
+//             <div>
+//               <img
+//                 src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca"
+//                 alt="Minimal luxury wellness"
+//                 className="rounded-2xl shadow-lg"
+//               />
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Mission + Vision */}
+//       <section className="bg-white py-32 px-6 md:px-12">
+//         <div className="max-w-4xl mx-auto text-center space-y-12">
+//           <div>
+//             <h2 className="text-3xl font-light text-[#C5A572] mb-6">Our Mission</h2>
+//             <p className="text-lg text-gray-600 leading-relaxed">
+//               To make proactive healthcare simple, personal, and frictionless —
+//               so high performers can stay youthful, strong, and unstoppable.
+//             </p>
+//           </div>
+//           <div>
+//             <h2 className="text-3xl font-light text-[#C5A572] mb-6">Our Vision</h2>
+//             <p className="text-lg text-gray-600 leading-relaxed">
+//               A world where healthcare runs like an operating system — invisible,
+//               automated, and always on.
+//             </p>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Contact */}
+//       <section className="bg-[#f9f9f7] py-20 px-6 md:px-12">
+//         <div className="max-w-3xl mx-auto text-center">
+//           <h2 className="text-2xl font-medium text-[#C5A572] mb-6">
+//             Let’s Talk
+//           </h2>
+//           <p className="text-lg text-gray-600 mb-2">
+//             Call us at <strong>+91 8778919303</strong>
+//           </p>
+//           <p className="text-lg text-gray-600">
+//             Email us at{" "}
+//             <strong>illaramhealthcare@zohomail.in</strong>
+//           </p>
+//         </div>
+//       </section>
+//     </>
+//   );
+// };
 
 export default About;
